@@ -45,10 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,11 +126,102 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ChiTietHangHoa.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietHoaDonBanLe.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTiet_HoaDonBanSi.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTiet_PhieuNhapKho.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChucVu.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="DonViTinh.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GiamGia.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HangHoa.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HinhThuc.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDonBanLe.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HoaDon_BanSi.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KhachHang.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kho.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KichThuoc.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiHang.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiKhachHang.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiPhi.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoaiThue.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoHang.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MauSac.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="NhaCungCap.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhanVien.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuChiTien.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuNhapKho.cs">
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QlShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QlShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QlShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QlShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QlShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QlShop.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css.css" />
@@ -589,6 +686,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="QlShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QlShop.edmx</DependentUpon>
+      <LastGenOutput>QlShop.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="QlShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QlShop.edmx</DependentUpon>
+      <LastGenOutput>QlShop.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Assets\icons\themify-icons\fonts\themify.eot" />
@@ -596,6 +703,13 @@
     <Content Include="Assets\icons\themify-icons\fonts\themify.woff" />
     <Content Include="Assets\icons\themify-icons\Themify IconFonts 5-23-2014.json" />
     <Content Include="Assets\image\Data_Images.rar" />
+    <EntityDeploy Include="QlShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QlShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="QlShop.edmx.diagram">
+      <DependentUpon>QlShop.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -623,10 +737,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\PlayoutShared.cshtml" />
     <Content Include="Views\Home\TrangChu.cshtml" />
+    <Content Include="Views\SanPham\ShowSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\GioHang\" />
+    <Folder Include="Views\KhachHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -640,6 +756,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
