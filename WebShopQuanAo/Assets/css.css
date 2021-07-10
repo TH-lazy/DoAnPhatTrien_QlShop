@@ -324,6 +324,7 @@ button {
     width: 100%;
     background-color: beige;
     z-index: 1;
+    opacity: 1;
 }
 
 
