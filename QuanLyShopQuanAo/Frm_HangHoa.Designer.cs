@@ -40,6 +40,8 @@ namespace QuanLyShopQuanAo
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.cboDanhCho = new System.Windows.Forms.ComboBox();
+            this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
             this.txtChieurong = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtChieudai = new DevExpress.XtraEditors.TextEdit();
@@ -79,6 +81,11 @@ namespace QuanLyShopQuanAo
             this.txtMaHang = new System.Windows.Forms.TextBox();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtHinh3 = new System.Windows.Forms.TextBox();
+            this.txtHinh1 = new System.Windows.Forms.TextBox();
+            this.txtHinh2 = new System.Windows.Forms.TextBox();
+            this.txtHinhdaidien = new System.Windows.Forms.TextBox();
             this.txtMaHang2 = new System.Windows.Forms.TextBox();
             this.labelControl29 = new DevExpress.XtraEditors.LabelControl();
             this.cboMaCT = new System.Windows.Forms.ComboBox();
@@ -112,10 +119,9 @@ namespace QuanLyShopQuanAo
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txtHinhdaidien = new System.Windows.Forms.TextBox();
-            this.txtHinh2 = new System.Windows.Forms.TextBox();
-            this.txtHinh1 = new System.Windows.Forms.TextBox();
-            this.txtHinh3 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -249,6 +255,8 @@ namespace QuanLyShopQuanAo
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.cboDanhCho);
+            this.xtraTabPage1.Controls.Add(this.labelControl30);
             this.xtraTabPage1.Controls.Add(this.txtChieurong);
             this.xtraTabPage1.Controls.Add(this.labelControl8);
             this.xtraTabPage1.Controls.Add(this.txtChieudai);
@@ -291,9 +299,33 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage1.Size = new System.Drawing.Size(1118, 612);
             this.xtraTabPage1.Text = "Thông tin chung";
             // 
+            // cboDanhCho
+            // 
+            this.cboDanhCho.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDanhCho.FormattingEnabled = true;
+            this.cboDanhCho.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Khác"});
+            this.cboDanhCho.Location = new System.Drawing.Point(741, 17);
+            this.cboDanhCho.Name = "cboDanhCho";
+            this.cboDanhCho.Size = new System.Drawing.Size(280, 29);
+            this.cboDanhCho.TabIndex = 64;
+            this.cboDanhCho.Text = "Nam";
+            // 
+            // labelControl30
+            // 
+            this.labelControl30.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl30.Appearance.Options.UseFont = true;
+            this.labelControl30.Location = new System.Drawing.Point(630, 20);
+            this.labelControl30.Name = "labelControl30";
+            this.labelControl30.Size = new System.Drawing.Size(70, 21);
+            this.labelControl30.TabIndex = 63;
+            this.labelControl30.Text = "Dành cho";
+            // 
             // txtChieurong
             // 
-            this.txtChieurong.Location = new System.Drawing.Point(716, 495);
+            this.txtChieurong.Location = new System.Drawing.Point(741, 549);
             this.txtChieurong.Name = "txtChieurong";
             this.txtChieurong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChieurong.Properties.Appearance.Options.UseFont = true;
@@ -302,7 +334,7 @@ namespace QuanLyShopQuanAo
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(606, 498);
+            this.labelControl8.Location = new System.Drawing.Point(631, 552);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(67, 17);
             this.labelControl8.TabIndex = 61;
@@ -310,7 +342,7 @@ namespace QuanLyShopQuanAo
             // 
             // txtChieudai
             // 
-            this.txtChieudai.Location = new System.Drawing.Point(716, 441);
+            this.txtChieudai.Location = new System.Drawing.Point(741, 495);
             this.txtChieudai.Name = "txtChieudai";
             this.txtChieudai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChieudai.Properties.Appearance.Options.UseFont = true;
@@ -319,7 +351,7 @@ namespace QuanLyShopQuanAo
             // 
             // txtTrongluong
             // 
-            this.txtTrongluong.Location = new System.Drawing.Point(716, 387);
+            this.txtTrongluong.Location = new System.Drawing.Point(741, 441);
             this.txtTrongluong.Name = "txtTrongluong";
             this.txtTrongluong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTrongluong.Properties.Appearance.Options.UseFont = true;
@@ -328,7 +360,7 @@ namespace QuanLyShopQuanAo
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(606, 444);
+            this.labelControl10.Location = new System.Drawing.Point(631, 498);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(55, 17);
             this.labelControl10.TabIndex = 59;
@@ -336,7 +368,7 @@ namespace QuanLyShopQuanAo
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(606, 390);
+            this.labelControl4.Location = new System.Drawing.Point(631, 444);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(76, 17);
             this.labelControl4.TabIndex = 57;
@@ -464,7 +496,7 @@ namespace QuanLyShopQuanAo
             // 
             this.cboLoaiHang.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLoaiHang.FormattingEnabled = true;
-            this.cboLoaiHang.Location = new System.Drawing.Point(717, 122);
+            this.cboLoaiHang.Location = new System.Drawing.Point(742, 176);
             this.cboLoaiHang.Name = "cboLoaiHang";
             this.cboLoaiHang.Size = new System.Drawing.Size(280, 29);
             this.cboLoaiHang.TabIndex = 21;
@@ -473,7 +505,7 @@ namespace QuanLyShopQuanAo
             // 
             this.labelControl28.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl28.Appearance.Options.UseFont = true;
-            this.labelControl28.Location = new System.Drawing.Point(606, 125);
+            this.labelControl28.Location = new System.Drawing.Point(631, 179);
             this.labelControl28.Name = "labelControl28";
             this.labelControl28.Size = new System.Drawing.Size(71, 21);
             this.labelControl28.TabIndex = 20;
@@ -499,7 +531,7 @@ namespace QuanLyShopQuanAo
             // txtGiaMua
             // 
             this.txtGiaMua.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaMua.Location = new System.Drawing.Point(717, 335);
+            this.txtGiaMua.Location = new System.Drawing.Point(742, 389);
             this.txtGiaMua.Name = "txtGiaMua";
             this.txtGiaMua.Size = new System.Drawing.Size(282, 28);
             this.txtGiaMua.TabIndex = 17;
@@ -510,7 +542,7 @@ namespace QuanLyShopQuanAo
             // 
             this.labelControl26.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl26.Appearance.Options.UseFont = true;
-            this.labelControl26.Location = new System.Drawing.Point(606, 338);
+            this.labelControl26.Location = new System.Drawing.Point(631, 392);
             this.labelControl26.Name = "labelControl26";
             this.labelControl26.Size = new System.Drawing.Size(61, 21);
             this.labelControl26.TabIndex = 14;
@@ -519,7 +551,7 @@ namespace QuanLyShopQuanAo
             // txtGiaLe
             // 
             this.txtGiaLe.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaLe.Location = new System.Drawing.Point(717, 230);
+            this.txtGiaLe.Location = new System.Drawing.Point(742, 284);
             this.txtGiaLe.Name = "txtGiaLe";
             this.txtGiaLe.Size = new System.Drawing.Size(282, 28);
             this.txtGiaLe.TabIndex = 13;
@@ -530,7 +562,7 @@ namespace QuanLyShopQuanAo
             // 
             this.labelControl25.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl25.Appearance.Options.UseFont = true;
-            this.labelControl25.Location = new System.Drawing.Point(606, 233);
+            this.labelControl25.Location = new System.Drawing.Point(631, 287);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(74, 21);
             this.labelControl25.TabIndex = 12;
@@ -539,7 +571,7 @@ namespace QuanLyShopQuanAo
             // txtGiaSi
             // 
             this.txtGiaSi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaSi.Location = new System.Drawing.Point(717, 283);
+            this.txtGiaSi.Location = new System.Drawing.Point(742, 337);
             this.txtGiaSi.Name = "txtGiaSi";
             this.txtGiaSi.Size = new System.Drawing.Size(282, 28);
             this.txtGiaSi.TabIndex = 15;
@@ -550,7 +582,7 @@ namespace QuanLyShopQuanAo
             // 
             this.labelControl24.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl24.Appearance.Options.UseFont = true;
-            this.labelControl24.Location = new System.Drawing.Point(606, 286);
+            this.labelControl24.Location = new System.Drawing.Point(631, 340);
             this.labelControl24.Name = "labelControl24";
             this.labelControl24.Size = new System.Drawing.Size(73, 21);
             this.labelControl24.TabIndex = 10;
@@ -560,7 +592,7 @@ namespace QuanLyShopQuanAo
             // 
             this.cboKho.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboKho.FormattingEnabled = true;
-            this.cboKho.Location = new System.Drawing.Point(717, 70);
+            this.cboKho.Location = new System.Drawing.Point(742, 124);
             this.cboKho.Name = "cboKho";
             this.cboKho.Size = new System.Drawing.Size(280, 29);
             this.cboKho.TabIndex = 11;
@@ -569,7 +601,7 @@ namespace QuanLyShopQuanAo
             // 
             this.labelControl23.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl23.Appearance.Options.UseFont = true;
-            this.labelControl23.Location = new System.Drawing.Point(606, 73);
+            this.labelControl23.Location = new System.Drawing.Point(631, 127);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(28, 21);
             this.labelControl23.TabIndex = 8;
@@ -579,7 +611,7 @@ namespace QuanLyShopQuanAo
             // 
             this.cboDVT.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDVT.FormattingEnabled = true;
-            this.cboDVT.Location = new System.Drawing.Point(717, 17);
+            this.cboDVT.Location = new System.Drawing.Point(742, 71);
             this.cboDVT.Name = "cboDVT";
             this.cboDVT.Size = new System.Drawing.Size(280, 29);
             this.cboDVT.TabIndex = 9;
@@ -588,7 +620,7 @@ namespace QuanLyShopQuanAo
             // 
             this.labelControl22.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl22.Appearance.Options.UseFont = true;
-            this.labelControl22.Location = new System.Drawing.Point(606, 20);
+            this.labelControl22.Location = new System.Drawing.Point(631, 74);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(80, 21);
             this.labelControl22.TabIndex = 6;
@@ -598,7 +630,7 @@ namespace QuanLyShopQuanAo
             // 
             this.cboLoHang.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLoHang.FormattingEnabled = true;
-            this.cboLoHang.Location = new System.Drawing.Point(716, 177);
+            this.cboLoHang.Location = new System.Drawing.Point(741, 231);
             this.cboLoHang.Name = "cboLoHang";
             this.cboLoHang.Size = new System.Drawing.Size(281, 29);
             this.cboLoHang.TabIndex = 5;
@@ -607,7 +639,7 @@ namespace QuanLyShopQuanAo
             // 
             this.labelControl21.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl21.Appearance.Options.UseFont = true;
-            this.labelControl21.Location = new System.Drawing.Point(606, 180);
+            this.labelControl21.Location = new System.Drawing.Point(631, 234);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(58, 21);
             this.labelControl21.TabIndex = 4;
@@ -652,6 +684,10 @@ namespace QuanLyShopQuanAo
             // 
             // xtraTabPage3
             // 
+            this.xtraTabPage3.Controls.Add(this.button6);
+            this.xtraTabPage3.Controls.Add(this.button5);
+            this.xtraTabPage3.Controls.Add(this.button3);
+            this.xtraTabPage3.Controls.Add(this.button2);
             this.xtraTabPage3.Controls.Add(this.txtHinh3);
             this.xtraTabPage3.Controls.Add(this.txtHinh1);
             this.xtraTabPage3.Controls.Add(this.txtHinh2);
@@ -678,6 +714,48 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage3.Size = new System.Drawing.Size(1118, 612);
             this.xtraTabPage3.Text = "Thông tin bổ sung";
             this.xtraTabPage3.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage3_Paint);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(303, 329);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 38);
+            this.button2.TabIndex = 53;
+            this.button2.Text = "Chọn Hình";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtHinh3
+            // 
+            this.txtHinh3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinh3.Location = new System.Drawing.Point(741, 512);
+            this.txtHinh3.Name = "txtHinh3";
+            this.txtHinh3.Size = new System.Drawing.Size(224, 28);
+            this.txtHinh3.TabIndex = 52;
+            // 
+            // txtHinh1
+            // 
+            this.txtHinh1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinh1.Location = new System.Drawing.Point(248, 512);
+            this.txtHinh1.Name = "txtHinh1";
+            this.txtHinh1.Size = new System.Drawing.Size(224, 28);
+            this.txtHinh1.TabIndex = 51;
+            // 
+            // txtHinh2
+            // 
+            this.txtHinh2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinh2.Location = new System.Drawing.Point(741, 293);
+            this.txtHinh2.Name = "txtHinh2";
+            this.txtHinh2.Size = new System.Drawing.Size(224, 28);
+            this.txtHinh2.TabIndex = 50;
+            // 
+            // txtHinhdaidien
+            // 
+            this.txtHinhdaidien.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinhdaidien.Location = new System.Drawing.Point(248, 293);
+            this.txtHinhdaidien.Name = "txtHinhdaidien";
+            this.txtHinhdaidien.Size = new System.Drawing.Size(224, 28);
+            this.txtHinhdaidien.TabIndex = 49;
             // 
             // txtMaHang2
             // 
@@ -983,41 +1061,35 @@ namespace QuanLyShopQuanAo
             this.emptySpaceItem7.Size = new System.Drawing.Size(817, 303);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // txtHinhdaidien
+            // button3
             // 
-            this.txtHinhdaidien.Enabled = false;
-            this.txtHinhdaidien.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHinhdaidien.Location = new System.Drawing.Point(185, 333);
-            this.txtHinhdaidien.Name = "txtHinhdaidien";
-            this.txtHinhdaidien.Size = new System.Drawing.Size(349, 28);
-            this.txtHinhdaidien.TabIndex = 49;
+            this.button3.Location = new System.Drawing.Point(798, 327);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(113, 38);
+            this.button3.TabIndex = 54;
+            this.button3.Text = "Chọn Hình";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // txtHinh2
+            // button5
             // 
-            this.txtHinh2.Enabled = false;
-            this.txtHinh2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHinh2.Location = new System.Drawing.Point(690, 333);
-            this.txtHinh2.Name = "txtHinh2";
-            this.txtHinh2.Size = new System.Drawing.Size(349, 28);
-            this.txtHinh2.TabIndex = 50;
+            this.button5.Location = new System.Drawing.Point(303, 546);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(113, 38);
+            this.button5.TabIndex = 55;
+            this.button5.Text = "Chọn Hình";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // txtHinh1
+            // button6
             // 
-            this.txtHinh1.Enabled = false;
-            this.txtHinh1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHinh1.Location = new System.Drawing.Point(185, 549);
-            this.txtHinh1.Name = "txtHinh1";
-            this.txtHinh1.Size = new System.Drawing.Size(349, 28);
-            this.txtHinh1.TabIndex = 51;
-            // 
-            // txtHinh3
-            // 
-            this.txtHinh3.Enabled = false;
-            this.txtHinh3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHinh3.Location = new System.Drawing.Point(690, 549);
-            this.txtHinh3.Name = "txtHinh3";
-            this.txtHinh3.Size = new System.Drawing.Size(349, 28);
-            this.txtHinh3.TabIndex = 52;
+            this.button6.Location = new System.Drawing.Point(798, 546);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(113, 38);
+            this.button6.TabIndex = 56;
+            this.button6.Text = "Chọn Hình";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Frm_HangHoa
             // 
@@ -1155,5 +1227,11 @@ namespace QuanLyShopQuanAo
         private System.Windows.Forms.TextBox txtHinh1;
         private System.Windows.Forms.TextBox txtHinh2;
         private System.Windows.Forms.TextBox txtHinhdaidien;
+        private System.Windows.Forms.ComboBox cboDanhCho;
+        private DevExpress.XtraEditors.LabelControl labelControl30;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button3;
     }
 }

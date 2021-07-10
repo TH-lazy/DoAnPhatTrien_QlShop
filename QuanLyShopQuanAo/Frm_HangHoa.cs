@@ -102,9 +102,10 @@ namespace QuanLyShopQuanAo
                     MessageBox.Show("Phải nhập đủ thông tin bổ sung");
                     return;
                 }
-                if (h.ThemHH(txtMaHang.Text, txtTenHang.Text, int.Parse(txtSoluong.Text), cboDVT.SelectedValue.ToString(), cboLoHang.SelectedValue.ToString(), cboKho.SelectedValue.ToString(), cboLoaiHang.SelectedValue.ToString(), txtKieuDang.Text, txtXuatXu.Text, txtNSX.Text, DateTime.ParseExact(dtpNamSX.Text, "dd/MM/yyyy", null), float.Parse(txtGiaMua.Text), float.Parse(txtGiaLe.Text), float.Parse(txtGiaSi.Text), int.Parse(txtTrongluong.Text), int.Parse(txtChieudai.Text), int.Parse(txtChieurong.Text), txtQuyCach.Text, ""))
+                if (h.ThemHH(txtMaHang.Text, txtTenHang.Text, int.Parse(txtSoluong.Text), cboDVT.SelectedValue.ToString(), cboLoHang.SelectedValue.ToString(), cboKho.SelectedValue.ToString(), cboLoaiHang.SelectedValue.ToString(), txtKieuDang.Text, txtXuatXu.Text, txtNSX.Text, DateTime.ParseExact(dtpNamSX.Text, "dd/MM/yyyy", null), float.Parse(txtGiaMua.Text), float.Parse(txtGiaLe.Text), float.Parse(txtGiaSi.Text), int.Parse(txtTrongluong.Text), int.Parse(txtChieudai.Text), int.Parse(txtChieurong.Text), txtQuyCach.Text, "",cboDanhCho.Text.ToString()))
                 {
                     MessageBox.Show("Thêm thành công.");
+                    h.capnhatkho();
                     txtMaHang2.Text = txtMaHang.Text;
                     cleartext();
                 }
@@ -123,6 +124,7 @@ namespace QuanLyShopQuanAo
                     if(h.UpdateSLHH(txtMaHang2.Text, tongsl))
                     {  
                         MessageBox.Show("Thêm thành công.");
+                        h.capnhatkho();
                         txtMaHang2.Text = "";
                         txtSoLuongct.Text = "";
                         picdd.Image = null;
@@ -443,6 +445,7 @@ namespace QuanLyShopQuanAo
                 if (h.UpdateHH(txtMaHang.Text, txtTenHang.Text, int.Parse(txtSoluong.Text), cboDVT.SelectedValue.ToString(), cboLoHang.SelectedValue.ToString(), cboKho.SelectedValue.ToString(), cboLoaiHang.SelectedValue.ToString(), txtKieuDang.Text, txtXuatXu.Text, txtNSX.Text, DateTime.ParseExact(dtpNamSX.Text, "dd/MM/yyyy", null), float.Parse(txtGiaMua.Text), float.Parse(txtGiaLe.Text), float.Parse(txtGiaSi.Text), int.Parse(txtTrongluong.Text), int.Parse(txtChieudai.Text), int.Parse(txtChieurong.Text), txtQuyCach.Text, ""))
                 {
                     h.UpdateSLHH(txtMaHang.Text, tonghang);
+                    h.capnhatkho();
                     MessageBox.Show("Sửa thành công.");
                     cleartext();
                 }
@@ -457,6 +460,7 @@ namespace QuanLyShopQuanAo
                 if (h.UpdateCTHH(txtMaHang2.Text,int.Parse(cboMaCT.SelectedValue.ToString()),cboMau.SelectedValue.ToString(),cboSize.SelectedValue.ToString(),int.Parse(txtSoLuongct.Text),txtHinhdaidien.Text,txtHinh1.Text,txtHinh2.Text,txtHinh3.Text))
                 {
                     h.UpdateSLHH(txtMaHang2.Text, tonghang);
+                    h.capnhatkho();
                     MessageBox.Show("Sửa thành công.");
                     txtSoLuongct.Text = "0";
                     cleartext();
@@ -652,15 +656,45 @@ namespace QuanLyShopQuanAo
                     cboSize.DisplayMember = item.MaSize;
                     cboMau.DisplayMember = item.MaMau;
                     txtSoLuongct.Text = item.SoLuong.ToString();
-                    txtHinhdaidien.Text = item.Hinhdaidien.ToString();
-                    txtHinh1.Text = item.Hinh1.ToString();
-                    txtHinh2.Text = item.Hinh2.ToString();
-                    txtHinh3.Text = item.Hinh3.ToString();
+                    if (item.Hinhdaidien.ToString() == null)
+                    {
+                        txtHinhdaidien.Text = "GettyImages - 134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinhdaidien.Text = item.Hinhdaidien.ToString();
 
-                    picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinhdaidien.ToString());
-                    pich1.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh1.ToString());
-                    pich2.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh2.ToString());
-                    pich3.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh3.ToString());
+                    }
+                    if (item.Hinh1 == null)
+                    {
+                        txtHinh1.Text = "GettyImages-134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinh1.Text = item.Hinh1.ToString();
+                    }
+
+                    if (item.Hinh2 == null)
+                    {
+                        txtHinh2.Text = "GettyImages-134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinh2.Text = item.Hinh2.ToString();
+                    }
+                    if (item.Hinh3 == null)
+                    {
+                        txtHinh3.Text = "GettyImages-134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinh3.Text = item.Hinh3.ToString();
+                    }
+
+                    picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinhdaidien.Text);
+                    pich1.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinh1.Text);
+                    pich2.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinh2.Text);
+                    pich3.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinh3.Text);
 
                     /*byte[] bImage = null;
                     bImage = (byte[])item.Hinhdaidien.ToArray();
@@ -708,15 +742,45 @@ namespace QuanLyShopQuanAo
                     cboSize.Text = item.MaSize;
                     cboMau.Text = h.layTenMau(item.MaMau);
                     txtSoLuongct.Text = item.SoLuong.ToString();
-                    txtHinhdaidien.Text = item.Hinhdaidien.ToString();
-                    txtHinh1.Text = item.Hinh1.ToString();
-                    txtHinh2.Text = item.Hinh2.ToString();
-                    txtHinh3.Text = item.Hinh3.ToString();
+                    if (item.Hinhdaidien.ToString() == null)
+                    {
+                        txtHinhdaidien.Text = "GettyImages - 134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinhdaidien.Text = item.Hinhdaidien.ToString();
+                        
+                    }
+                    if (item.Hinh1 == null)
+                    {
+                        txtHinh1.Text = "GettyImages-134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinh1.Text = item.Hinh1.ToString();
+                    }
 
-                    picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinhdaidien.ToString());
-                    pich1.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh1.ToString());
-                    pich2.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh2.ToString());
-                    pich3.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh3.ToString());
+                    if (item.Hinh2 == null)
+                    {
+                        txtHinh2.Text = "GettyImages-134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinh2.Text = item.Hinh2.ToString();
+                    }
+                    if (item.Hinh3 == null)
+                    {
+                        txtHinh3.Text = "GettyImages-134367495.jpg";
+                    }
+                    else
+                    {
+                        txtHinh3.Text = item.Hinh3.ToString();
+                    }
+
+                    picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinhdaidien.Text);
+                    pich1.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinh1.Text);
+                    pich2.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinh2.Text);
+                    pich3.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinh3.Text);
 
                     /*if ((byte[])item.Hinhdaidien.ToArray() != null && (byte[])item.Hinh1.ToArray() != null && (byte[])item.Hinh2.ToArray() != null && (byte[])item.Hinh3.ToArray() != null)
                     {
@@ -745,6 +809,70 @@ namespace QuanLyShopQuanAo
                         arrImage3 = bImage3;
                     }*/
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog odlgOpenFile = new OpenFileDialog();
+            odlgOpenFile.InitialDirectory = "C:\\";
+            odlgOpenFile.Title = "Open File";
+            odlgOpenFile.Filter = "Image files (*.jpg)|*.jpg|All files (*.*)|*.*";
+            if (odlgOpenFile.ShowDialog() == DialogResult.OK)
+            {
+
+                //MessageBox.Show(odlgOpenFile.FileName);
+                string Str1 = odlgOpenFile.FileName.Substring(58);
+                txtHinhdaidien.Text = Str1;
+                picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinhdaidien.Text);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog odlgOpenFile = new OpenFileDialog();
+            odlgOpenFile.InitialDirectory = "C:\\";
+            odlgOpenFile.Title = "Open File";
+            odlgOpenFile.Filter = "Image files (*.jpg)|*.jpg|All files (*.*)|*.*";
+            if (odlgOpenFile.ShowDialog() == DialogResult.OK)
+            {
+
+                //MessageBox.Show(odlgOpenFile.FileName);
+                string Str1 = odlgOpenFile.FileName.Substring(58);
+                txtHinh2.Text = Str1;
+                pich2.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinh2.Text);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog odlgOpenFile = new OpenFileDialog();
+            odlgOpenFile.InitialDirectory = "C:\\";
+            odlgOpenFile.Title = "Open File";
+            odlgOpenFile.Filter = "Image files (*.jpg)|*.jpg|All files (*.*)|*.*";
+            if (odlgOpenFile.ShowDialog() == DialogResult.OK)
+            {
+
+                //MessageBox.Show(odlgOpenFile.FileName);
+                string Str1 = odlgOpenFile.FileName.Substring(58);
+                txtHinhdaidien.Text = Str1;
+                picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinhdaidien.Text);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog odlgOpenFile = new OpenFileDialog();
+            odlgOpenFile.InitialDirectory = "C:\\";
+            odlgOpenFile.Title = "Open File";
+            odlgOpenFile.Filter = "Image files (*.jpg)|*.jpg|All files (*.*)|*.*";
+            if (odlgOpenFile.ShowDialog() == DialogResult.OK)
+            {
+
+                //MessageBox.Show(odlgOpenFile.FileName);
+                string Str1 = odlgOpenFile.FileName.Substring(58);
+                txtHinhdaidien.Text = Str1;
+                picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + txtHinhdaidien.Text);
             }
         }
     }

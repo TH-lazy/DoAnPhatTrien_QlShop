@@ -90,6 +90,13 @@
       <Association Name="DonViTinh_ChiTiet_HoaDonBanSi" Member="ChiTiet_HoaDonBanSis" ThisKey="MaDVT" OtherKey="MaDVT" Type="ChiTiet_HoaDonBanSi" />
     </Type>
   </Table>
+  <Table Name="dbo.GiamGia" Member="GiamGias">
+    <Type Name="GiamGia">
+      <Column Name="MaGiam" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.HangHoa" Member="HangHoas">
     <Type Name="HangHoa">
       <Column Name="MaHang" Type="System.String" DbType="NChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -111,6 +118,7 @@
       <Column Name="ChieuRong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="QuyCach" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="DanhCho" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Association Name="HangHoa_ChiTiet_HoaDonBanSi" Member="ChiTiet_HoaDonBanSis" ThisKey="MaHang" OtherKey="MaHang" Type="ChiTiet_HoaDonBanSi" />
       <Association Name="HangHoa_ChiTiet_PhieuNhapKho" Member="ChiTiet_PhieuNhapKhos" ThisKey="MaHang" OtherKey="MaHang" Type="ChiTiet_PhieuNhapKho" />
       <Association Name="HangHoa_ChiTietHangHoa" Member="ChiTietHangHoas" ThisKey="MaHang" OtherKey="MaHang" Type="ChiTietHangHoa" />

@@ -51,6 +51,9 @@ namespace DAL_BLL
     partial void InsertDonViTinh(DonViTinh instance);
     partial void UpdateDonViTinh(DonViTinh instance);
     partial void DeleteDonViTinh(DonViTinh instance);
+    partial void InsertGiamGia(GiamGia instance);
+    partial void UpdateGiamGia(GiamGia instance);
+    partial void DeleteGiamGia(GiamGia instance);
     partial void InsertHangHoa(HangHoa instance);
     partial void UpdateHangHoa(HangHoa instance);
     partial void DeleteHangHoa(HangHoa instance);
@@ -184,6 +187,14 @@ namespace DAL_BLL
 			get
 			{
 				return this.GetTable<DonViTinh>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GiamGia> GiamGias
+		{
+			get
+			{
+				return this.GetTable<GiamGia>();
 			}
 		}
 		
@@ -2320,6 +2331,116 @@ namespace DAL_BLL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GiamGia")]
+	public partial class GiamGia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaGiam;
+		
+		private string _NoiDung;
+		
+		private string _HinhAnh;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaGiamChanging(int value);
+    partial void OnMaGiamChanged();
+    partial void OnNoiDungChanging(string value);
+    partial void OnNoiDungChanged();
+    partial void OnHinhAnhChanging(string value);
+    partial void OnHinhAnhChanged();
+    #endregion
+		
+		public GiamGia()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaGiam", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MaGiam
+		{
+			get
+			{
+				return this._MaGiam;
+			}
+			set
+			{
+				if ((this._MaGiam != value))
+				{
+					this.OnMaGiamChanging(value);
+					this.SendPropertyChanging();
+					this._MaGiam = value;
+					this.SendPropertyChanged("MaGiam");
+					this.OnMaGiamChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoiDung", DbType="NVarChar(MAX)")]
+		public string NoiDung
+		{
+			get
+			{
+				return this._NoiDung;
+			}
+			set
+			{
+				if ((this._NoiDung != value))
+				{
+					this.OnNoiDungChanging(value);
+					this.SendPropertyChanging();
+					this._NoiDung = value;
+					this.SendPropertyChanged("NoiDung");
+					this.OnNoiDungChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhAnh", DbType="NVarChar(MAX)")]
+		public string HinhAnh
+		{
+			get
+			{
+				return this._HinhAnh;
+			}
+			set
+			{
+				if ((this._HinhAnh != value))
+				{
+					this.OnHinhAnhChanging(value);
+					this.SendPropertyChanging();
+					this._HinhAnh = value;
+					this.SendPropertyChanged("HinhAnh");
+					this.OnHinhAnhChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.HangHoa")]
 	public partial class HangHoa : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2363,6 +2484,8 @@ namespace DAL_BLL
 		private string _QuyCach;
 		
 		private string _MoTa;
+		
+		private string _DanhCho;
 		
 		private EntitySet<ChiTiet_HoaDonBanSi> _ChiTiet_HoaDonBanSis;
 		
@@ -2420,6 +2543,8 @@ namespace DAL_BLL
     partial void OnQuyCachChanged();
     partial void OnMoTaChanging(string value);
     partial void OnMoTaChanged();
+    partial void OnDanhChoChanging(string value);
+    partial void OnDanhChoChanged();
     #endregion
 		
 		public HangHoa()
@@ -2822,6 +2947,26 @@ namespace DAL_BLL
 					this._MoTa = value;
 					this.SendPropertyChanged("MoTa");
 					this.OnMoTaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DanhCho", DbType="NVarChar(10)")]
+		public string DanhCho
+		{
+			get
+			{
+				return this._DanhCho;
+			}
+			set
+			{
+				if ((this._DanhCho != value))
+				{
+					this.OnDanhChoChanging(value);
+					this.SendPropertyChanging();
+					this._DanhCho = value;
+					this.SendPropertyChanged("DanhCho");
+					this.OnDanhChoChanged();
 				}
 			}
 		}

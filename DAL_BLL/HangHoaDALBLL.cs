@@ -53,7 +53,7 @@ namespace DAL_BLL
         }
 
 
-        public bool ThemHH(string mahang, string tenhang, int soluong, string madvt, string malo, string makho, string maloai, string kieudang, string xuatxu, string nhasx, DateTime namsx, float giamua, float giabanle, float giabansi, int trongluong, int chieudai, int chieurong, string quycach, string mota)
+        public bool ThemHH(string mahang, string tenhang, int soluong, string madvt, string malo, string makho, string maloai, string kieudang, string xuatxu, string nhasx, DateTime namsx, float giamua, float giabanle, float giabansi, int trongluong, int chieudai, int chieurong, string quycach, string mota, string danhcho)
         {
             if (KTHangHoa(mahang) == 0)
             {
@@ -77,6 +77,7 @@ namespace DAL_BLL
                 hh.ChieuRong = chieurong;
                 hh.QuyCach = quycach;
                 hh.MoTa = mota;
+                hh.DanhCho = danhcho;
                 qlhanghoa.HangHoas.InsertOnSubmit(hh);
                 qlhanghoa.SubmitChanges();
                 return true;
