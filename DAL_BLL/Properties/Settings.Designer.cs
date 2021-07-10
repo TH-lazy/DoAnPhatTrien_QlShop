@@ -32,5 +32,15 @@ namespace DAL_BLL.Properties {
                 return ((string)(this["QL_BanQuanAoConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI;Initial Catalog=Data_QLBanQuanAo;User ID=sa;Password=sa2012")]
+        public string Data_QLBanQuanAoConnectionString {
+            get {
+                return ((string)(this["Data_QLBanQuanAoConnectionString"]));
+            }
+        }
     }
 }

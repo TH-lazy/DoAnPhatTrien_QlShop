@@ -89,7 +89,7 @@ namespace DAL_BLL
             return qlhanghoa.HangHoas.Select(h => h).Max(m => m.MaHang);
         }
 
-        public bool ThemCTHH(string mahang, string mamau, string masize, int soluong, byte[] hdd, byte[] h1, byte[] h2, byte[] h3)
+        public bool ThemCTHH(string mahang, string mamau, string masize, int soluong, string hdd, string h1, string h2, string h3)
         {
             if (KTHangHoa(mahang) == 1)
             {
@@ -334,7 +334,7 @@ namespace DAL_BLL
             return false;
         }
 
-        public bool UpdateCTHH(string mahang,int macthh, string mamau, string masize, int soluong, byte[] hdd, byte[] h1, byte[] h2, byte[] h3)
+        public bool UpdateCTHH(string mahang,int macthh, string mamau, string masize, int soluong, string hdd, string h1, string h2, string h3)
         {
             if (KTHangHoa(mahang)>0)
             {

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyShopQuanAo", "QuanLyS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL_BLL", "DAL_BLL\DAL_BLL.csproj", "{B48D36FC-B3D1-49F7-B544-89AB99A0E208}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopQuanAo", "WebShopQuanAo\WebShopQuanAo.csproj", "{13F325B7-9D85-401C-8CE8-4B542A96F468}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B48D36FC-B3D1-49F7-B544-89AB99A0E208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B48D36FC-B3D1-49F7-B544-89AB99A0E208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B48D36FC-B3D1-49F7-B544-89AB99A0E208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F325B7-9D85-401C-8CE8-4B542A96F468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F325B7-9D85-401C-8CE8-4B542A96F468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F325B7-9D85-401C-8CE8-4B542A96F468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F325B7-9D85-401C-8CE8-4B542A96F468}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

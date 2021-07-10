@@ -117,7 +117,7 @@ namespace QuanLyShopQuanAo
             if (xtraTabControl1.SelectedTabPage == xtraTabPage3)
             {
                 
-                if (h.ThemCTHH(txtMaHang2.Text,cboMau.SelectedValue.ToString(),cboSize.SelectedValue.ToString(),int.Parse(txtSoLuongct.Text),arrImage,arrImage1,arrImage2,arrImage3))
+                if (h.ThemCTHH(txtMaHang2.Text,cboMau.SelectedValue.ToString(),cboSize.SelectedValue.ToString(),int.Parse(txtSoLuongct.Text),txtHinhdaidien.Text,txtHinh1.Text,txtHinh2.Text,txtHinh3.Text))
                 {
                     int tongsl = h.tongTonKho(txtMaHang2.Text);
                     if(h.UpdateSLHH(txtMaHang2.Text, tongsl))
@@ -327,6 +327,10 @@ namespace QuanLyShopQuanAo
             pich1.Image = null;
             pich2.Image = null;
             pich3.Image = null;
+            txtHinhdaidien.Text ="";
+            txtHinh1.Text = "";
+            txtHinh2.Text = "";
+            txtHinh3.Text = "";
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -450,7 +454,7 @@ namespace QuanLyShopQuanAo
             else
             {
                 tonghang = h.tongTonKho(txtMaHang2.Text);
-                if (h.UpdateCTHH(txtMaHang2.Text,int.Parse(cboMaCT.SelectedValue.ToString()),cboMau.SelectedValue.ToString(),cboSize.SelectedValue.ToString(),int.Parse(txtSoLuongct.Text),arrImage,arrImage1,arrImage2,arrImage3))
+                if (h.UpdateCTHH(txtMaHang2.Text,int.Parse(cboMaCT.SelectedValue.ToString()),cboMau.SelectedValue.ToString(),cboSize.SelectedValue.ToString(),int.Parse(txtSoLuongct.Text),txtHinhdaidien.Text,txtHinh1.Text,txtHinh2.Text,txtHinh3.Text))
                 {
                     h.UpdateSLHH(txtMaHang2.Text, tonghang);
                     MessageBox.Show("Sửa thành công.");
@@ -648,8 +652,17 @@ namespace QuanLyShopQuanAo
                     cboSize.DisplayMember = item.MaSize;
                     cboMau.DisplayMember = item.MaMau;
                     txtSoLuongct.Text = item.SoLuong.ToString();
+                    txtHinhdaidien.Text = item.Hinhdaidien.ToString();
+                    txtHinh1.Text = item.Hinh1.ToString();
+                    txtHinh2.Text = item.Hinh2.ToString();
+                    txtHinh3.Text = item.Hinh3.ToString();
 
-                    byte[] bImage = null;
+                    picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinhdaidien.ToString());
+                    pich1.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh1.ToString());
+                    pich2.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh2.ToString());
+                    pich3.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh3.ToString());
+
+                    /*byte[] bImage = null;
                     bImage = (byte[])item.Hinhdaidien.ToArray();
                     MemoryStream ms = new MemoryStream(bImage);
                     picdd.Image = Image.FromStream(ms);
@@ -672,7 +685,7 @@ namespace QuanLyShopQuanAo
                     arrImage = bImage ;
                     arrImage1 = bImage1 ;
                     arrImage2 = bImage2 ;
-                    arrImage3 = bImage3;
+                    arrImage3 = bImage3;*/
                 }
             }
         }
@@ -695,8 +708,17 @@ namespace QuanLyShopQuanAo
                     cboSize.Text = item.MaSize;
                     cboMau.Text = h.layTenMau(item.MaMau);
                     txtSoLuongct.Text = item.SoLuong.ToString();
+                    txtHinhdaidien.Text = item.Hinhdaidien.ToString();
+                    txtHinh1.Text = item.Hinh1.ToString();
+                    txtHinh2.Text = item.Hinh2.ToString();
+                    txtHinh3.Text = item.Hinh3.ToString();
 
-                    if ((byte[])item.Hinhdaidien.ToArray() != null && (byte[])item.Hinh1.ToArray() != null && (byte[])item.Hinh2.ToArray() != null && (byte[])item.Hinh3.ToArray() != null)
+                    picdd.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinhdaidien.ToString());
+                    pich1.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh1.ToString());
+                    pich2.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh2.ToString());
+                    pich3.Image = new Bitmap(Application.StartupPath + "\\image\\Data_Images\\Data_Images\\" + item.Hinh3.ToString());
+
+                    /*if ((byte[])item.Hinhdaidien.ToArray() != null && (byte[])item.Hinh1.ToArray() != null && (byte[])item.Hinh2.ToArray() != null && (byte[])item.Hinh3.ToArray() != null)
                     {
                         byte[] bImage = null;
                         bImage = (byte[])item.Hinhdaidien.ToArray();
@@ -721,7 +743,7 @@ namespace QuanLyShopQuanAo
                         arrImage1 = bImage1;
                         arrImage2 = bImage2;
                         arrImage3 = bImage3;
-                    }
+                    }*/
                 }
             }
         }

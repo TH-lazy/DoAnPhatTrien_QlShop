@@ -88,14 +88,10 @@ namespace QuanLyShopQuanAo
             this.cboMau = new System.Windows.Forms.ComboBox();
             this.cboSize = new System.Windows.Forms.ComboBox();
             this.picdd = new System.Windows.Forms.PictureBox();
-            this.btnThemHinhDD = new System.Windows.Forms.Button();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.pich3 = new System.Windows.Forms.PictureBox();
             this.pich2 = new System.Windows.Forms.PictureBox();
             this.pich1 = new System.Windows.Forms.PictureBox();
-            this.btnThemHinh1 = new System.Windows.Forms.Button();
-            this.btnThemHinh2 = new System.Windows.Forms.Button();
-            this.btnThemHinh3 = new System.Windows.Forms.Button();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
@@ -116,6 +112,10 @@ namespace QuanLyShopQuanAo
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.txtHinhdaidien = new System.Windows.Forms.TextBox();
+            this.txtHinh2 = new System.Windows.Forms.TextBox();
+            this.txtHinh1 = new System.Windows.Forms.TextBox();
+            this.txtHinh3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -652,6 +652,10 @@ namespace QuanLyShopQuanAo
             // 
             // xtraTabPage3
             // 
+            this.xtraTabPage3.Controls.Add(this.txtHinh3);
+            this.xtraTabPage3.Controls.Add(this.txtHinh1);
+            this.xtraTabPage3.Controls.Add(this.txtHinh2);
+            this.xtraTabPage3.Controls.Add(this.txtHinhdaidien);
             this.xtraTabPage3.Controls.Add(this.txtMaHang2);
             this.xtraTabPage3.Controls.Add(this.labelControl29);
             this.xtraTabPage3.Controls.Add(this.cboMaCT);
@@ -661,14 +665,10 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage3.Controls.Add(this.cboMau);
             this.xtraTabPage3.Controls.Add(this.cboSize);
             this.xtraTabPage3.Controls.Add(this.picdd);
-            this.xtraTabPage3.Controls.Add(this.btnThemHinhDD);
             this.xtraTabPage3.Controls.Add(this.labelControl18);
             this.xtraTabPage3.Controls.Add(this.pich3);
             this.xtraTabPage3.Controls.Add(this.pich2);
             this.xtraTabPage3.Controls.Add(this.pich1);
-            this.xtraTabPage3.Controls.Add(this.btnThemHinh1);
-            this.xtraTabPage3.Controls.Add(this.btnThemHinh2);
-            this.xtraTabPage3.Controls.Add(this.btnThemHinh3);
             this.xtraTabPage3.Controls.Add(this.labelControl16);
             this.xtraTabPage3.Controls.Add(this.labelControl15);
             this.xtraTabPage3.Controls.Add(this.labelControl14);
@@ -755,26 +755,16 @@ namespace QuanLyShopQuanAo
             // 
             // picdd
             // 
-            this.picdd.Location = new System.Drawing.Point(248, 222);
+            this.picdd.Location = new System.Drawing.Point(248, 174);
             this.picdd.Name = "picdd";
             this.picdd.Size = new System.Drawing.Size(224, 113);
             this.picdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picdd.TabIndex = 39;
             this.picdd.TabStop = false;
             // 
-            // btnThemHinhDD
-            // 
-            this.btnThemHinhDD.Location = new System.Drawing.Point(309, 359);
-            this.btnThemHinhDD.Name = "btnThemHinhDD";
-            this.btnThemHinhDD.Size = new System.Drawing.Size(100, 37);
-            this.btnThemHinhDD.TabIndex = 38;
-            this.btnThemHinhDD.Text = "Chọn hình";
-            this.btnThemHinhDD.UseVisualStyleBackColor = true;
-            this.btnThemHinhDD.Click += new System.EventHandler(this.btnThemHinhDD_Click);
-            // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(86, 292);
+            this.labelControl18.Location = new System.Drawing.Point(86, 244);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(77, 17);
             this.labelControl18.TabIndex = 37;
@@ -782,7 +772,7 @@ namespace QuanLyShopQuanAo
             // 
             // pich3
             // 
-            this.pich3.Location = new System.Drawing.Point(741, 423);
+            this.pich3.Location = new System.Drawing.Point(741, 393);
             this.pich3.Name = "pich3";
             this.pich3.Size = new System.Drawing.Size(224, 113);
             this.pich3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -791,7 +781,7 @@ namespace QuanLyShopQuanAo
             // 
             // pich2
             // 
-            this.pich2.Location = new System.Drawing.Point(741, 222);
+            this.pich2.Location = new System.Drawing.Point(741, 174);
             this.pich2.Name = "pich2";
             this.pich2.Size = new System.Drawing.Size(224, 113);
             this.pich2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -800,46 +790,16 @@ namespace QuanLyShopQuanAo
             // 
             // pich1
             // 
-            this.pich1.Location = new System.Drawing.Point(248, 423);
+            this.pich1.Location = new System.Drawing.Point(248, 393);
             this.pich1.Name = "pich1";
             this.pich1.Size = new System.Drawing.Size(224, 113);
             this.pich1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pich1.TabIndex = 34;
             this.pich1.TabStop = false;
             // 
-            // btnThemHinh1
-            // 
-            this.btnThemHinh1.Location = new System.Drawing.Point(309, 554);
-            this.btnThemHinh1.Name = "btnThemHinh1";
-            this.btnThemHinh1.Size = new System.Drawing.Size(100, 37);
-            this.btnThemHinh1.TabIndex = 33;
-            this.btnThemHinh1.Text = "Chọn hình";
-            this.btnThemHinh1.UseVisualStyleBackColor = true;
-            this.btnThemHinh1.Click += new System.EventHandler(this.btnThemHinh1_Click);
-            // 
-            // btnThemHinh2
-            // 
-            this.btnThemHinh2.Location = new System.Drawing.Point(805, 359);
-            this.btnThemHinh2.Name = "btnThemHinh2";
-            this.btnThemHinh2.Size = new System.Drawing.Size(100, 37);
-            this.btnThemHinh2.TabIndex = 32;
-            this.btnThemHinh2.Text = "Chọn hình";
-            this.btnThemHinh2.UseVisualStyleBackColor = true;
-            this.btnThemHinh2.Click += new System.EventHandler(this.btnThemHinh2_Click);
-            // 
-            // btnThemHinh3
-            // 
-            this.btnThemHinh3.Location = new System.Drawing.Point(805, 554);
-            this.btnThemHinh3.Name = "btnThemHinh3";
-            this.btnThemHinh3.Size = new System.Drawing.Size(100, 37);
-            this.btnThemHinh3.TabIndex = 31;
-            this.btnThemHinh3.Text = "Chọn hình";
-            this.btnThemHinh3.UseVisualStyleBackColor = true;
-            this.btnThemHinh3.Click += new System.EventHandler(this.btnThemHinh3_Click);
-            // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(592, 477);
+            this.labelControl16.Location = new System.Drawing.Point(592, 447);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(36, 16);
             this.labelControl16.TabIndex = 27;
@@ -847,7 +807,7 @@ namespace QuanLyShopQuanAo
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(592, 292);
+            this.labelControl15.Location = new System.Drawing.Point(592, 244);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(36, 16);
             this.labelControl15.TabIndex = 26;
@@ -855,7 +815,7 @@ namespace QuanLyShopQuanAo
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(92, 477);
+            this.labelControl14.Location = new System.Drawing.Point(92, 447);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(36, 16);
             this.labelControl14.TabIndex = 25;
@@ -1023,6 +983,42 @@ namespace QuanLyShopQuanAo
             this.emptySpaceItem7.Size = new System.Drawing.Size(817, 303);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // txtHinhdaidien
+            // 
+            this.txtHinhdaidien.Enabled = false;
+            this.txtHinhdaidien.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinhdaidien.Location = new System.Drawing.Point(185, 333);
+            this.txtHinhdaidien.Name = "txtHinhdaidien";
+            this.txtHinhdaidien.Size = new System.Drawing.Size(349, 28);
+            this.txtHinhdaidien.TabIndex = 49;
+            // 
+            // txtHinh2
+            // 
+            this.txtHinh2.Enabled = false;
+            this.txtHinh2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinh2.Location = new System.Drawing.Point(690, 333);
+            this.txtHinh2.Name = "txtHinh2";
+            this.txtHinh2.Size = new System.Drawing.Size(349, 28);
+            this.txtHinh2.TabIndex = 50;
+            // 
+            // txtHinh1
+            // 
+            this.txtHinh1.Enabled = false;
+            this.txtHinh1.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinh1.Location = new System.Drawing.Point(185, 549);
+            this.txtHinh1.Name = "txtHinh1";
+            this.txtHinh1.Size = new System.Drawing.Size(349, 28);
+            this.txtHinh1.TabIndex = 51;
+            // 
+            // txtHinh3
+            // 
+            this.txtHinh3.Enabled = false;
+            this.txtHinh3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHinh3.Location = new System.Drawing.Point(690, 549);
+            this.txtHinh3.Name = "txtHinh3";
+            this.txtHinh3.Size = new System.Drawing.Size(349, 28);
+            this.txtHinh3.TabIndex = 52;
+            // 
             // Frm_HangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1092,14 +1088,10 @@ namespace QuanLyShopQuanAo
         private System.Windows.Forms.DataGridView drvMau;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private System.Windows.Forms.PictureBox picdd;
-        private System.Windows.Forms.Button btnThemHinhDD;
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private System.Windows.Forms.PictureBox pich3;
         private System.Windows.Forms.PictureBox pich2;
         private System.Windows.Forms.PictureBox pich1;
-        private System.Windows.Forms.Button btnThemHinh1;
-        private System.Windows.Forms.Button btnThemHinh2;
-        private System.Windows.Forms.Button btnThemHinh3;
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LabelControl labelControl14;
@@ -1159,5 +1151,9 @@ namespace QuanLyShopQuanAo
         private DevExpress.XtraEditors.TextEdit txtTrongluong;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private System.Windows.Forms.TextBox txtHinh3;
+        private System.Windows.Forms.TextBox txtHinh1;
+        private System.Windows.Forms.TextBox txtHinh2;
+        private System.Windows.Forms.TextBox txtHinhdaidien;
     }
 }

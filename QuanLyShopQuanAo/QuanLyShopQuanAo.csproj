@@ -239,6 +239,7 @@
     <EmbeddedResource Include="Trangchu.resx">
       <DependentUpon>Trangchu.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="image\Data_Images.rar" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -264,6 +265,101 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconscan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\Capture.PNG" />
+    <Content Include="image\Data_Images\Data_Images\306b57ac-4527-0100-3bbe-0017ba573ac1.jpg" />
+    <Content Include="image\Data_Images\Data_Images\33181116-e676-0100-78ff-0017d2c5ac31.jpg" />
+    <Content Include="image\Data_Images\Data_Images\4437a856-b31a-1300-72ff-0016033a7cbc.jpg" />
+    <Content Include="image\Data_Images\Data_Images\5OT20W006_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\5OT20W006_vang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\5TS21S003.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS20C025_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS20C025_hong.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS21C008_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS21C008_vang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS21C015.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS21S019_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS21S019_hong.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6DS21S019_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6LS20W008_do.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6LS20W008_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6LS20W008_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6LS21S014_1.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6LS21S014_2.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6LS21S015_1.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6LS21S015_2.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TE20C002_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TE20C002_vang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TE20W018.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TE20W030_tim.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TE20W030_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TP21S002_do.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TP21S002_vang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TP21S002_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TS21C009_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TS21C009_do.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TS21C009_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TS21S001_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TS21S001_hong.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TS21S001_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\6TS21S001_vang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BJ20A009_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BJ20A009_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BJ20W002.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BJ21S002.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BK21S001_cham.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BK21S001_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BK21S001_nau.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BK21S001_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BS21C002.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BS21S003_cham.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BS21S003_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BS21S003_nau.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BS21S007_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8BS21S007_xam.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8LS21S001.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8LS21S002_xam.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8LS21S002_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W009_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W009_nau.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W009_xam.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W020_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W020_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W021_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W021_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W024_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT20W024_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8OT21S001.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TE20W001_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TE20W001_do.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TE20W008_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TE20W008_xam.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TE20W023_den.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TE20W023_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH20A006_1.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH20A006_2.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH20A006_3.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S002_1.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S002_2.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S005_xam.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S005_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S006_cham.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S006_lam.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S006_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S009_trang.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TH21S009_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TP21A002_do.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TP21A002_xanh.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TP21A003.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TP21S001.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TP21S006.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TP21S007.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TS21C005.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TS21S001.jpg" />
+    <Content Include="image\Data_Images\Data_Images\8TS21S004.jpg" />
+    <Content Include="image\Data_Images\Data_Images\9f44f8b1-7919-0500-e2b6-0017deb04863.jpg" />
+    <Content Include="image\Data_Images\Data_Images\a6075851-6ca9-0a00-6ab8-00152feb683c.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
