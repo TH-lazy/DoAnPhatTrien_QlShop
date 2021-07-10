@@ -1,15 +1,15 @@
-* {
+﻿* {
     padding: 0;
     margin: 0;
     border: 0;
     box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
 
 html {
     font-family: Arial, Helvetica, sans-serif;
@@ -52,7 +52,6 @@ body {
 
 .slider-cr {
     margin-top: 108px;
-    padding-top: 108px;
     height: 50%;
 }
 
@@ -80,11 +79,11 @@ body {
     background-color: red;
 }
 
-.logo > img {
-    width: 188px;
-    height: 51px;
-    border-radius: 5px;
-}
+    .logo > img {
+        width: 188px;
+        height: 51px;
+        border-radius: 5px;
+    }
 
 .account {
     float: right;
@@ -95,9 +94,9 @@ body {
     position: relative;
 }
 
-.account:hover .account-menu {
-    display: block;
-}
+    .account:hover .account-menu {
+        display: block;
+    }
 
 .account-menu {
     position: absolute;
@@ -158,57 +157,57 @@ body {
     list-style-type: none;
 }
 
-#navcontent > li {
-    display: inline-block;
-}
+    #navcontent > li {
+        display: inline-block;
+    }
 
-#navcontent li {
-    position: relative;
-}
+    #navcontent li {
+        position: relative;
+    }
 
-#navcontent > li > a {
-    text-transform: uppercase;
-    color: white;
-}
+    #navcontent > li > a {
+        text-transform: uppercase;
+        color: white;
+    }
 
-#navcontent li a {
-    color: white;
-    text-decoration: none;
-    line-height: 56px;
-    font-size: 16px;
-    padding: 0 24px;
-    display: inline-block;
-}
+    #navcontent li a {
+        color: white;
+        text-decoration: none;
+        line-height: 56px;
+        font-size: 16px;
+        padding: 0 24px;
+        display: inline-block;
+    }
 
-#navcontent .subnav li:hover,
-#navcontent > li:hover > a {
-    color: black;
-    background-color: #ccc;
-}
+    #navcontent .subnav li:hover,
+    #navcontent > li:hover > a {
+        color: black;
+        background-color: #ccc;
+    }
 
-#navcontent .subnav {
-    min-width: 160px;
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-}
+    #navcontent .subnav {
+        min-width: 160px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    }
 
-#navcontent .subnav a {
-    color: black;
-    padding: 0 24px;
-    line-height: 38px;
-}
+        #navcontent .subnav a {
+            color: black;
+            padding: 0 24px;
+            line-height: 38px;
+        }
 
-#navcontent li:hover .subnav {
-    display: block;
-}
+    #navcontent li:hover .subnav {
+        display: block;
+    }
 
-.subnav li {
-    width: 212px;
-}
+    .subnav li {
+        width: 212px;
+    }
 
 
 img {
@@ -251,21 +250,21 @@ button {
     box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.05);
 }
 
-.simple-search button {
-    padding: 12px 30px;
-    color: white;
-    flex-shrink: 0;
-    background-color: #2cccff;
-}
+    .simple-search button {
+        padding: 12px 30px;
+        color: white;
+        flex-shrink: 0;
+        background-color: #2cccff;
+    }
 
-.simple-search input {
-    width: 100%;
-    padding: 12px;
-    background-color: white;
-    -webkit-appearance: none;
-    font-size: 14px;
-    font-weight: 500;
-}
+    .simple-search input {
+        width: 100%;
+        padding: 12px;
+        background-color: white;
+        -webkit-appearance: none;
+        font-size: 14px;
+        font-weight: 500;
+    }
 
 .cart-form-submit {
     color: white;
@@ -314,6 +313,10 @@ button {
 .title-sp {
     font-size: 40px;
     margin-left: 35%;
+}
+
+#container2 {
+    margin-top: 108px;
 }
 
 .content {
@@ -410,56 +413,56 @@ p {
     z-index: 2;
 }
 
-.login-form input {
-    padding: 1.5rem;
-    border: 1px solid #eee;
-    color: #333;
-    border-radius: 4px;
-    margin-bottom: 1.5rem;
-    display: block;
-    width: 100%;
-    transition: border 0.25s linear;
-    font-weight: normal;
-}
-
-    .login-form input:focus {
-        border-color: var(--primary);
+    .login-form input {
+        padding: 1.5rem;
+        border: 1px solid #eee;
+        color: #333;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        display: block;
+        width: 100%;
+        transition: border 0.25s linear;
+        font-weight: normal;
     }
 
-.login-form .forgot {
-    display: inline-block;
-    text-transform: uppercase;
-    color: #333;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
+        .login-form input:focus {
+            border-color: var(--primary);
+        }
 
-.login-form button {
-    width: 100%;
-    padding: 1.5rem;
-    border-radius: 4px;
-    color: white;
-    background-color: var(--primary);
-    text-transform: uppercase;
-}
+    .login-form .forgot {
+        display: inline-block;
+        text-transform: uppercase;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
 
-.login-form .input-icon {
-    position: relative;
-}
+    .login-form button {
+        width: 100%;
+        padding: 1.5rem;
+        border-radius: 4px;
+        color: white;
+        background-color: var(--primary);
+        text-transform: uppercase;
+    }
 
-.login-form .input-icon input {
-    padding-right: 4rem;
-}
+    .login-form .input-icon {
+        position: relative;
+    }
 
-.login-form .input-icon i {
-    position: absolute;
-    top: 50%;
-    right: 1.5rem;
-    transform: translateY(-50%);
-    color: #ccc;
-    cursor: pointer;
-}
+        .login-form .input-icon input {
+            padding-right: 4rem;
+        }
+
+        .login-form .input-icon i {
+            position: absolute;
+            top: 50%;
+            right: 1.5rem;
+            transform: translateY(-50%);
+            color: #ccc;
+            cursor: pointer;
+        }
 
 
 .account-form-submit:hover {
@@ -544,6 +547,16 @@ p {
         color: var(--primary);
     }
 
+
+.a-btn {
+    color: white;
+    text-decoration: none;
+}
+
+    .a-btn:hover {
+        color: red;
+    }
+
 .close {
     color: #aaaaaa;
     float: right;
@@ -552,10 +565,9 @@ p {
     margin-top: -27px;
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
