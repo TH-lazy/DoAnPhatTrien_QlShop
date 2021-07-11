@@ -45,13 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -194,6 +196,7 @@
       <DependentUpon>QlShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\SanPhamModel.cs" />
     <Compile Include="NhaCungCap.cs">
       <DependentUpon>QlShop.tt</DependentUpon>
     </Compile>
@@ -738,10 +741,14 @@
     <Content Include="Views\Shared\PlayoutShared.cshtml" />
     <Content Include="Views\Home\TrangChu.cshtml" />
     <Content Include="Views\SanPham\ShowSanPham.cshtml" />
+    <Content Include="Views\SanPham\XemChiTietSp.cshtml" />
+    <Content Include="Views\SanPham\XemChiTietSp1.cshtml" />
+    <Content Include="Views\GioHang\GoHangPartial.cshtml" />
+    <Content Include="Views\Home\Index1.cshtml" />
+    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GioHang\" />
     <Folder Include="Views\KhachHang\" />
   </ItemGroup>
   <ItemGroup>
