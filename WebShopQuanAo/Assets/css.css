@@ -87,7 +87,7 @@ body {
 
 .account {
     float: right;
-    margin-top: 9px;
+    margin-top: 18px;
     width: 15%;
     margin-right: 12px;
     font-size: 12px;
@@ -139,7 +139,7 @@ body {
 
 .btncart {
     float: right;
-    margin-top: 9px;
+    margin-top: 18px;
     width: 15%;
     font-size: 12px;
     position: relative;
@@ -287,7 +287,7 @@ button {
 .account-form-submit {
     color: white;
     /* padding: 1.5rem; */
-    padding: 8px 0;
+    padding: 8px 35px;
     width: 100%;
     max-width: 25rem;
     border-radius: 5rem;
@@ -579,3 +579,4 @@ p {
 #spchitiet{
     font-size:16px;
 }
+

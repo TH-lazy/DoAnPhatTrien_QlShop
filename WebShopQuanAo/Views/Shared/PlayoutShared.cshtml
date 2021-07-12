@@ -32,12 +32,12 @@
                         <input type="text" placeholder="Nhập thông tin." />
                         <button type="submit">Search</button>
                     </div>
-                    <div class="btncart">
-                        <button type="submit" class="cart-form-submit"><i class="ti-shopping-cart"></i> Giỏ Hàng(<span class-cart-noti>0</span>)</button>
+                    <div class="btncart" style="margin-top:18px">
+                        @Html.Action("GioHangPartial", "GioHang")
                     </div>
                     <div class="account">
-                        <button type="submit" class="account-form-submit"><i class="ti-user"></i> Tài khoản</button>
 
+                        <a class="account-form-submit" href="@Url.Action("DangNhap","KhachHang")"><i class="ti-user"></i>Tài khoản</a>
                         <ul class="account-menu">
                             <li class="account-item"><a href="#">Tài khoản của tôi</a></li>
                             <li class="account-item"><a href="#">Thoát</a></li>
@@ -96,23 +96,6 @@
         </div>
     </div>
 
-    <div class="model">
-
-        <div class="model-overplay"></div>
-        <div class="model-body">
-            <form class="login-form" autocomplete="off" action="#">
-                <p class="title-frm">Đăng nhập</p>
-                <input type="email" name="email" placeholder="Email" />
-                <div class="input-icon">
-                    <input type="password" name="email" placeholder="Password" />
-                    <i class="fa fa-eye show-password"></i>
-                </div>
-                <a href="#" class="forgot">Forgot password?</a>
-                <button>Sign in</button>
-            </form>
-        </div>
-    </div>
-
     <div class="container">
         <div class="row slider-cr">
             <div class="col-md-12">
@@ -153,8 +136,6 @@
 
             </div>
         </div>
-
-        <h1 class="title-sp">Danh Mục Sản Phẩm</h1>
 
         <div class="content">        
             <div class="row">

@@ -587,6 +587,7 @@
     <Content Include="Assets\icons\themify-icons\SVG\zoom-in.svg" />
     <Content Include="Assets\icons\themify-icons\SVG\zoom-out.svg" />
     <Content Include="Assets\icons\themify-icons\themify-icons.css" />
+    <Content Include="Assets\image\185.jpg" />
     <Content Include="Assets\image\Capture.PNG" />
     <Content Include="Assets\image\Data_Images\Data_Images\306b57ac-4527-0100-3bbe-0017ba573ac1.jpg" />
     <Content Include="Assets\image\Data_Images\Data_Images\33181116-e676-0100-78ff-0017d2c5ac31.jpg" />
@@ -743,13 +744,15 @@
     <Content Include="Views\SanPham\ShowSanPham.cshtml" />
     <Content Include="Views\SanPham\XemChiTietSp.cshtml" />
     <Content Include="Views\SanPham\XemChiTietSp1.cshtml" />
-    <Content Include="Views\GioHang\GoHangPartial.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\KhachHang\DangNhap.cshtml" />
+    <Content Include="Views\KhachHang\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\KhachHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

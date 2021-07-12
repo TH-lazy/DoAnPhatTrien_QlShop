@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/PlayoutShared.cshtml";
 }
 
-<div class="row" #id="spchitiet">
+<div class="row" #id="spchitiet" style="font-size:16px">
     <div class="col-md-4">
 
         @foreach (var hh in Model.hangHoas)
@@ -13,13 +13,13 @@
         }
     </div>
     <div class="col-md-8">
-
+        <h2 style="color:black; text-align:center">Thông tin sản phẩm</h2>
         @foreach (var hh in Model.hangHoas)
         {
 
             <span>Mã Hàng: @hh.MaHang</span><br />
             <span>@hh.TenHang</span><br />
-            <span>Giá bán: @string.Format("{0:0,0}", @hh.GiaBanLe) VNĐ</span>
+            <span style="color:red;">Giá bán: @string.Format("{0:0,0}", @hh.GiaBanLe) VNĐ</span>
         }
         <table class="table border-dark table-borderless">
             @foreach (var item in Model.chiTietHangHoas)
