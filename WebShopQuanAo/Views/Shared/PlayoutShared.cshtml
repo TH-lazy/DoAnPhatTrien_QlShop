@@ -36,13 +36,7 @@
                         @Html.Action("GioHangPartial", "GioHang")
                     </div>
                     <div class="account">
-
-                        <a class="account-form-submit" href="@Url.Action("DangNhap","KhachHang")"><i class="ti-user"></i>Tài khoản</a>
-                        <ul class="account-menu">
-                            <li class="account-item"><a href="#">Tài khoản của tôi</a></li>
-                            <li class="account-item"><a href="#">Thoát</a></li>
-                        </ul>
-
+                        @Html.Action("KhachHangPartial", "KhachHang")
                     </div>
                 </div>
             </div>
@@ -55,13 +49,18 @@
                             <i class="ti-menu"></i> Dành cho nam <i class="ti-angle-double-down"></i>
                         </a>
                         <ul class="subnav">
-                            <li><a href="#">Áo khoác</a></li>
-                            <li><a href="#">Áo hoodie</a></li>
-                            <li><a href="#">Áo sơ mi</a></li>
-                            <li><a href="#">Áo thun</a></li>
-                            <li><a href="#">Quần jean</a></li>
-                            <li><a href="#">Quần dài</a></li>
-                            <li><a href="#">Quần short</a></li>
+                            <li><a href="@Url.Action("SPTheoLH2","LoaiSP")">Áo khoác nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH7","LoaiSP")">Áo hoodie</a></li>
+                            <li><a href="@Url.Action("SPTheoLH1","LoaiSP")">Áo sơ mi</a></li>
+                            <li><a href="@Url.Action("SPTheoLH3","LoaiSP")">Áo thun nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH12","LoaiSP")">Áo phông nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH17","LoaiSP")">Áo polo nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH20","LoaiSP")">Áo len nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH4","LoaiSP")">Quần jean nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH5","LoaiSP")">Quần tây nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH19","LoaiSP")">Quần short</a></li>
+                            <li><a href="@Url.Action("SPTheoLH6","LoaiSP")">Quần joger nam</a></li>
+                            <li><a href="@Url.Action("SPTheoLH14","LoaiSP")">Đồ bộ nam</a></li>
                         </ul>
                     </li>
                     <li>
@@ -69,14 +68,18 @@
                             <i class="ti-menu"></i> Dành cho nữ <i class="ti-angle-double-down"></i>
                         </a>
                         <ul class="subnav">
-                            <li><a href="#">Áo khoác</a></li>
-                            <li><a href="#">Áo hoodie</a></li>
-                            <li><a href="#">Áo sơ mi</a></li>
-                            <li><a href="#">Áo thun</a></li>
-                            <li><a href="#">Quần jean</a></li>
-                            <li><a href="#">Quần dài</a></li>
-                            <li><a href="#">Váy dài</a></li>
-                            <li><a href="#">Chân Váy</a></li>
+                            <li><a href="@Url.Action("SPTheoLH24","LoaiSP")">Áo khoác nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH7","LoaiSP")">Áo hoodie</a></li>
+                            <li><a href="@Url.Action("SPTheoLH25","LoaiSP")">Áo sơ mi nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH21","LoaiSP")">Áo thun nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH18","LoaiSP")">Áo len nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH15","LoaiSP")">Áo phông nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH16","LoaiSP")">Áo polo nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH22","LoaiSP")">Quần jean nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH23","LoaiSP")">Quần dài nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH11","LoaiSP")">Váy liền nữ</a></li>
+                            <li><a href="@Url.Action("SPTheoLH26","LoaiSP")">Chân Váy</a></li>
+                            <li><a href="@Url.Action("SPTheoLH13","LoaiSP")">Đồ bộ nữ</a></li>
                         </ul>
                     </li>
                     <li>
@@ -84,9 +87,9 @@
                             <i class="ti-menu"></i> Khác <i class="ti-angle-double-down"></i>
                         </a>
                         <ul class="subnav">
-                            <li><a href="#">Balo - Túi</a></li>
-                            <li><a href="#">Phụ kiện</a></li>
-                            <li><a href="#">Giày - dép</a></li>
+                            <li><a href="@Url.Action("SPTheoLH8","LoaiSP")">Balo - Túi</a></li>
+                            <li><a href="@Url.Action("SPTheoLH9","LoaiSP")">Phụ kiện</a></li>
+                            <li><a href="@Url.Action("SPTheoLH10","LoaiSP")">Giày - dép</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Giới thiệu</a></li>

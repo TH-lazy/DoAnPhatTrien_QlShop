@@ -1,0 +1,26 @@
+﻿@using WebShopQuanAo.Models
+
+@{
+    var session = Session[WebShopQuanAo.Common.CommonConstans.USER_SESSION];
+    var user = Session["user"] as User;
+}
+
+@if (user == null)
+{
+    <a class="account-form-submit" href="@Url.Action("DangNhap","KhachHang")">
+        <i class="ti-user"></i>Tài khoản
+    </a>
+}
+else
+{
+    string hoten = @user.UserName;
+    string ten = hoten.Substring(0,hoten.IndexOf(" ")) + "...";
+    <a class="account-form-submit" href="@Url.Action("DangNhap","KhachHang")">
+        <i class="ti-user"></i>Xin chào: @ten
+    </a>
+    <ul class="account-menu">
+        <li class="account-item"><a href="@Url.Action("ThongTinTaiKhoan1","KhachHang")">Tài khoản của tôi</a></li>
+        <li class="account-item">@Html.ActionLink("Thoát", "DangXuat","KhachHang")</li>
+    </ul>
+    
+}

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebShopQuanAo.Models;
+using WebShopQuanAo.Common;
+using System.Data;
 
 namespace WebShopQuanAo.Controllers
 {
@@ -25,6 +27,15 @@ namespace WebShopQuanAo.Controllers
             if (kq != null)
             {
                 Session["TaiKhoan"] = kq;
+                Session["user"] = new User()
+                {
+                    login = tendn,
+                    UserName = kq.TenKH
+                };
+                var userSession = new User();
+                userSession.login = tendn;
+                userSession.UserName = kq.TenKH;
+                Session.Add(CommonConstans.USER_SESSION,userSession);
                 return RedirectToAction("ShowSanPham", "SanPham");
             }
             else
@@ -37,6 +48,14 @@ namespace WebShopQuanAo.Controllers
         public ActionResult DangNhap()
         {
             return View();
+        }
+
+
+        public ActionResult KhachHangPartial()
+        {
+            var session = Session[WebShopQuanAo.Common.CommonConstans.USER_SESSION];
+            ViewBag.UserName = session;
+            return PartialView();
         }
 
         public ActionResult DangKy()
@@ -103,6 +122,51 @@ namespace WebShopQuanAo.Controllers
             }
             return View();
 
+        }
+
+
+        public ViewResult ThongTinTaiKhoan()
+        {
+            string tk = "";
+            var user = Session["user"] as User;
+            tk = user.login;
+            var List = db.KhachHangs.Single(s => s.Taikhoan == tk);
+            return View(List);
+
+        }
+
+        public ActionResult ThongTinTaiKhoan1()
+        {
+            string tk = "";
+            var user = Session["user"] as User;
+            tk = user.login;
+            var List = db.KhachHangs.Single(s => s.Taikhoan == tk);
+            KhachHang sp = db.KhachHangs.Single(d => d.Taikhoan == tk);
+            if (sp == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sp);
+        }
+        [HttpPost]
+        public ActionResult ThongTinTaiKhoan1(KhachHang sp)
+        {
+            if (ModelState.IsValid)
+            {
+                db.KhachHangs.Attach(sp);
+                db.Entry(sp).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ShowSanPham", "SanPham");
+            }
+            return View(sp);
+        }
+
+
+        public ActionResult DangXuat()
+        {
+            Session["user"] = null;
+
+            return RedirectToAction("ShowSanPham", "SanPham");
         }
 
     }

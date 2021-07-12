@@ -143,9 +143,11 @@
     <Compile Include="ChucVu.cs">
       <DependentUpon>QlShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Common\CommonConstans.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\LoaiSPController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="DonViTinh.cs">
       <DependentUpon>QlShop.tt</DependentUpon>
@@ -197,6 +199,7 @@
     </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\SanPhamModel.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="NhaCungCap.cs">
       <DependentUpon>QlShop.tt</DependentUpon>
     </Compile>
@@ -750,6 +753,37 @@
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\KhachHang\DangNhap.cshtml" />
     <Content Include="Views\KhachHang\DangKy.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH1.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH2.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH3.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH4.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH5.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH6.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH7.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH8.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH9.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH10.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH11.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH12.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH13.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH14.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH15.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH16.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH17.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH18.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH19.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH20.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH21.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH22.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH23.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH24.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH25.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH26.cshtml" />
+    <Content Include="Views\LoaiSP\ShowSanPham.cshtml" />
+    <Content Include="Views\LoaiSP\XemChiTietSp1.cshtml" />
+    <Content Include="Views\KhachHang\KhachHangPartial.cshtml" />
+    <Content Include="Views\KhachHang\ThongTinTaiKhoan.cshtml" />
+    <Content Include="Views\KhachHang\ThongTinTaiKhoan1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
