@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Data_QLBanQuanAo" Class="QLShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=MSI;Initial Catalog=Data_QLBanQuanAo;User ID=sa" SettingsObjectName="DAL_BLL.Properties.Settings" SettingsPropertyName="Data_QLBanQuanAoConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-RHQ2P6N;Initial Catalog=QL_BanQuanAo;Integrated Security=True" SettingsObjectName="DAL_BLL.Properties.Settings" SettingsPropertyName="QL_BanQuanAoConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChiTiet_HoaDonBanSi" Member="ChiTiet_HoaDonBanSis">
     <Type Name="ChiTiet_HoaDonBanSi">
       <Column Name="MaCTHDS" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

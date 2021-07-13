@@ -12,7 +12,7 @@ namespace DAL_BLL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,7 +26,8 @@ namespace DAL_BLL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSI;Initial Catalog=QL_BanQuanAo;User ID=sa;Password=sa2012")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RHQ2P6N;Initial Catalog=QL_BanQuanAo;Integrated Security=True" +
+            "")]
         public string QL_BanQuanAoConnectionString {
             get {
                 return ((string)(this["QL_BanQuanAoConnectionString"]));

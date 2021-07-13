@@ -105,7 +105,7 @@ namespace DAL_BLL
     #endregion
 		
 		public QLShopDataContext() : 
-				base(global::DAL_BLL.Properties.Settings.Default.Data_QLBanQuanAoConnectionString, mappingSource)
+				base(global::DAL_BLL.Properties.Settings.Default.QL_BanQuanAoConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

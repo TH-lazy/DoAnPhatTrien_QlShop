@@ -204,5 +204,17 @@ namespace QuanLyShopQuanAo
             Frm_NhapHang f = new Frm_NhapHang();
             f.Show();
         }
+
+        private void sbtBKPhieuNhapKho_Click(object sender, EventArgs e)
+        {
+            Frm_BaoCao fbc = new Frm_BaoCao("nhapkho");
+            fbc.Show();
+        }
+
+        private void sbtBKPhieuNhapKhoCT_Click(object sender, EventArgs e)
+        {
+            Frm_BaoCao fbc = new Frm_BaoCao("nhapkhochitiet");
+            fbc.Show();
+        }
     }
 }
