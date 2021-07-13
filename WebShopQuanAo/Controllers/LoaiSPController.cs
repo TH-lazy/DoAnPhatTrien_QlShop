@@ -17,6 +17,28 @@ namespace WebShopQuanAo.Controllers
             return View();
         }
 
+        public ViewResult SPDanhChoNam(string maLoai = "Nam")
+        {
+            var ListSp = db.HangHoas.Where(s => s.DanhCho == maLoai).ToList();
+            if (ListSp.Count == 0)
+            {
+                ViewBag.SanPham = "Không có Sản Phẩm nào thuộc Loại này !";
+            }
+            return View(ListSp);
+
+        }
+
+        public ViewResult SPDanhChoNu(string maLoai = "Nữ")
+        {
+            var ListSp = db.HangHoas.Where(s => s.DanhCho == maLoai).ToList();
+            if (ListSp.Count == 0)
+            {
+                ViewBag.SanPham = "Không có Sản Phẩm nào thuộc Loại này !";
+            }
+            return View(ListSp);
+
+        }
+
         public ViewResult SPTheoLH1(string maLoai = "LH0001")
         {
             var ListSp = db.HangHoas.Where(s => s.MaLoai == maLoai).ToList();

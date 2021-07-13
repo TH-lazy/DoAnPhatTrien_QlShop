@@ -29,7 +29,7 @@
                     <td colspan="2">@Html.DisplayFor(modelItem => item.KichThuoc.TenSize), @Html.DisplayFor(modelItem => item.MauSac.TenMau)</td>
                     <td colspan="2">Còn lại: @Html.DisplayFor(modelItem => item.SoLuong)</td>
                     <td>
-                        <a href="@Url.Action("ThemGioHang", "GioHang", new {@ms = item.MaHang, @strURL = Request.Url.ToString() })">
+                        <a href="@Url.Action("ThemGioHang", "GioHang", new {@ms = item.MaHang, @msct = item.MaCTHH, @strURL = Request.Url.ToString() })">
                             <input type="submit" value="MUA NGAY" class="btn btn-primary" />
                         </a>
                     </td>

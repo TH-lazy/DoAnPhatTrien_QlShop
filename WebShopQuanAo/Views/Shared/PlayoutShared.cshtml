@@ -1,6 +1,5 @@
 ﻿
 @{
-    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -28,10 +27,16 @@
                     <img src="~/Assets/image/Capture.PNG" alt="logo">
                 </div>
                 <div class="navright">
-                    <div class="simple-search">
-                        <input type="text" placeholder="Nhập thông tin." />
-                        <button type="submit">Search</button>
-                    </div>
+                    @using (Html.BeginForm("ShowSanPham", "SanPham", FormMethod.Get))
+                    {
+                        <div class="simple-search">
+
+                            <input type="text" placeholder="Nhập thông tin." name="searchString" />
+                            <button type="submit">Search</button>
+
+                        </div>
+                    }
+
                     <div class="btncart" style="margin-top:18px">
                         @Html.Action("GioHangPartial", "GioHang")
                     </div>
@@ -43,9 +48,9 @@
 
             <div class="nav2">
                 <ul id="navcontent">
-                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="@Url.Action("ShowSanPham","SanPham")">Trang chủ</a></li>
                     <li>
-                        <a href="#">
+                        <a href="@Url.Action("SPDanhChoNam","LoaiSP")">
                             <i class="ti-menu"></i> Dành cho nam <i class="ti-angle-double-down"></i>
                         </a>
                         <ul class="subnav">
@@ -64,7 +69,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="@Url.Action("SPDanhChoNu","LoaiSP")">
                             <i class="ti-menu"></i> Dành cho nữ <i class="ti-angle-double-down"></i>
                         </a>
                         <ul class="subnav">
@@ -83,7 +88,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="@Url.Action("SPTheoLH9","LoaiSP")">
                             <i class="ti-menu"></i> Khác <i class="ti-angle-double-down"></i>
                         </a>
                         <ul class="subnav">
@@ -92,7 +97,7 @@
                             <li><a href="@Url.Action("SPTheoLH10","LoaiSP")">Giày - dép</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="@Url.Action("GioiThieu","Home")">Giới thiệu</a></li>
                     <li><a href="#">Khuyến mãi</a></li>
                 </ul>
             </div>
@@ -140,7 +145,7 @@
             </div>
         </div>
 
-        <div class="content">        
+        <div class="content" style="font-size:16px;">        
             <div class="row">
                 @RenderBody()
             </div>

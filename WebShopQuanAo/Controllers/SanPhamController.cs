@@ -16,12 +16,20 @@ namespace WebShopQuanAo.Controllers
             return View();
         }
 
-        public ActionResult ShowSanPham()
+        public ActionResult ShowSanPham(string searchString)
         {
-            var ListHangHoa = db.HangHoas.OrderBy(s => s.MaHang).ToList();
+            IOrderedQueryable<HangHoa> ListHangHoa = db.HangHoas;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ListHangHoa = ListHangHoa.Where(x => x.TenHang.Contains(searchString)).OrderByDescending(x => x.MaHang);
+            }
+            else
+            {
+                ListHangHoa = ListHangHoa.OrderBy(s => s.MaHang);
+            }
+
             return View(ListHangHoa);
         }
-
 
         public HangHoa XemChiTiet(string ms)
         {

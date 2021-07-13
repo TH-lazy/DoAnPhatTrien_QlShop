@@ -105,7 +105,7 @@ namespace DAL_BLL
     #endregion
 		
 		public QLShopDataContext() : 
-				base(global::DAL_BLL.Properties.Settings.Default.Data_QLBanQuanAoConnectionString, mappingSource)
+				base(global::DAL_BLL.Properties.Settings.Default.Data_QLBanQuanAoConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2487,6 +2487,8 @@ namespace DAL_BLL
 		
 		private string _DanhCho;
 		
+		private string _HinhAnh;
+		
 		private EntitySet<ChiTiet_HoaDonBanSi> _ChiTiet_HoaDonBanSis;
 		
 		private EntitySet<ChiTiet_PhieuNhapKho> _ChiTiet_PhieuNhapKhos;
@@ -2545,6 +2547,8 @@ namespace DAL_BLL
     partial void OnMoTaChanged();
     partial void OnDanhChoChanging(string value);
     partial void OnDanhChoChanged();
+    partial void OnHinhAnhChanging(string value);
+    partial void OnHinhAnhChanged();
     #endregion
 		
 		public HangHoa()
@@ -2971,6 +2975,26 @@ namespace DAL_BLL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhAnh", DbType="NVarChar(MAX)")]
+		public string HinhAnh
+		{
+			get
+			{
+				return this._HinhAnh;
+			}
+			set
+			{
+				if ((this._HinhAnh != value))
+				{
+					this.OnHinhAnhChanging(value);
+					this.SendPropertyChanging();
+					this._HinhAnh = value;
+					this.SendPropertyChanged("HinhAnh");
+					this.OnHinhAnhChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HangHoa_ChiTiet_HoaDonBanSi", Storage="_ChiTiet_HoaDonBanSis", ThisKey="MaHang", OtherKey="MaHang")]
 		public EntitySet<ChiTiet_HoaDonBanSi> ChiTiet_HoaDonBanSis
 		{
@@ -3206,6 +3230,8 @@ namespace DAL_BLL
 		
 		private EntitySet<HoaDon_BanSi> _HoaDon_BanSis;
 		
+		private EntitySet<HoaDonBanLe> _HoaDonBanLes;
+		
 		private EntitySet<PhieuChiTien> _PhieuChiTiens;
 		
     #region Extensibility Method Definitions
@@ -3221,6 +3247,7 @@ namespace DAL_BLL
 		public HinhThuc()
 		{
 			this._HoaDon_BanSis = new EntitySet<HoaDon_BanSi>(new Action<HoaDon_BanSi>(this.attach_HoaDon_BanSis), new Action<HoaDon_BanSi>(this.detach_HoaDon_BanSis));
+			this._HoaDonBanLes = new EntitySet<HoaDonBanLe>(new Action<HoaDonBanLe>(this.attach_HoaDonBanLes), new Action<HoaDonBanLe>(this.detach_HoaDonBanLes));
 			this._PhieuChiTiens = new EntitySet<PhieuChiTien>(new Action<PhieuChiTien>(this.attach_PhieuChiTiens), new Action<PhieuChiTien>(this.detach_PhieuChiTiens));
 			OnCreated();
 		}
@@ -3278,6 +3305,19 @@ namespace DAL_BLL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HinhThuc_HoaDonBanLe", Storage="_HoaDonBanLes", ThisKey="MaHT", OtherKey="MaHT")]
+		public EntitySet<HoaDonBanLe> HoaDonBanLes
+		{
+			get
+			{
+				return this._HoaDonBanLes;
+			}
+			set
+			{
+				this._HoaDonBanLes.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HinhThuc_PhieuChiTien", Storage="_PhieuChiTiens", ThisKey="MaHT", OtherKey="MaHT")]
 		public EntitySet<PhieuChiTien> PhieuChiTiens
 		{
@@ -3318,6 +3358,18 @@ namespace DAL_BLL
 		}
 		
 		private void detach_HoaDon_BanSis(HoaDon_BanSi entity)
+		{
+			this.SendPropertyChanging();
+			entity.HinhThuc = null;
+		}
+		
+		private void attach_HoaDonBanLes(HoaDonBanLe entity)
+		{
+			this.SendPropertyChanging();
+			entity.HinhThuc = this;
+		}
+		
+		private void detach_HoaDonBanLes(HoaDonBanLe entity)
 		{
 			this.SendPropertyChanging();
 			entity.HinhThuc = null;
@@ -3973,7 +4025,11 @@ namespace DAL_BLL
 		
 		private string _GhiChu;
 		
+		private string _MaHT;
+		
 		private EntitySet<ChiTietHoaDonBanLe> _ChiTietHoaDonBanLes;
+		
+		private EntityRef<HinhThuc> _HinhThuc;
 		
 		private EntityRef<KhachHang> _KhachHang;
 		
@@ -4009,11 +4065,14 @@ namespace DAL_BLL
     partial void OnTongTienChanged();
     partial void OnGhiChuChanging(string value);
     partial void OnGhiChuChanged();
+    partial void OnMaHTChanging(string value);
+    partial void OnMaHTChanged();
     #endregion
 		
 		public HoaDonBanLe()
 		{
 			this._ChiTietHoaDonBanLes = new EntitySet<ChiTietHoaDonBanLe>(new Action<ChiTietHoaDonBanLe>(this.attach_ChiTietHoaDonBanLes), new Action<ChiTietHoaDonBanLe>(this.detach_ChiTietHoaDonBanLes));
+			this._HinhThuc = default(EntityRef<HinhThuc>);
 			this._KhachHang = default(EntityRef<KhachHang>);
 			this._LoaiThue = default(EntityRef<LoaiThue>);
 			this._NhanVien = default(EntityRef<NhanVien>);
@@ -4272,6 +4331,30 @@ namespace DAL_BLL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHT", DbType="NChar(20)")]
+		public string MaHT
+		{
+			get
+			{
+				return this._MaHT;
+			}
+			set
+			{
+				if ((this._MaHT != value))
+				{
+					if (this._HinhThuc.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaHTChanging(value);
+					this.SendPropertyChanging();
+					this._MaHT = value;
+					this.SendPropertyChanged("MaHT");
+					this.OnMaHTChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HoaDonBanLe_ChiTietHoaDonBanLe", Storage="_ChiTietHoaDonBanLes", ThisKey="MaHDL", OtherKey="MaHDL")]
 		public EntitySet<ChiTietHoaDonBanLe> ChiTietHoaDonBanLes
 		{
@@ -4282,6 +4365,40 @@ namespace DAL_BLL
 			set
 			{
 				this._ChiTietHoaDonBanLes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="HinhThuc_HoaDonBanLe", Storage="_HinhThuc", ThisKey="MaHT", OtherKey="MaHT", IsForeignKey=true)]
+		public HinhThuc HinhThuc
+		{
+			get
+			{
+				return this._HinhThuc.Entity;
+			}
+			set
+			{
+				HinhThuc previousValue = this._HinhThuc.Entity;
+				if (((previousValue != value) 
+							|| (this._HinhThuc.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._HinhThuc.Entity = null;
+						previousValue.HoaDonBanLes.Remove(this);
+					}
+					this._HinhThuc.Entity = value;
+					if ((value != null))
+					{
+						value.HoaDonBanLes.Add(this);
+						this._MaHT = value.MaHT;
+					}
+					else
+					{
+						this._MaHT = default(string);
+					}
+					this.SendPropertyChanged("HinhThuc");
+				}
 			}
 		}
 		

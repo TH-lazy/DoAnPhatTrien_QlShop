@@ -192,5 +192,47 @@ namespace DAL_BLL
                             };
             return ct;
         }
+
+        public List<HoaDonBanLe> lay()
+        {
+            return qldhdl.HoaDonBanLes.Select(m => m).ToList();
+        }
+
+        public int demCTHDL(int mahdl)
+        {
+            return qldhdl.ChiTietHoaDonBanLes.Select(m => m).Where(ma => ma.MaHDL == mahdl).Count();
+        }
+
+
+        public bool xoaHoaDonRong(int mahdl)
+        {
+            if (demCTHDL(mahdl) == 0)
+            {
+                HoaDonBanLe hd = qldhdl.HoaDonBanLes.Single(m => m.MaHDL == mahdl);
+                qldhdl.HoaDonBanLes.DeleteOnSubmit(hd);
+                qldhdl.SubmitChanges();
+                return true;
+            }
+            return true;
+        }
+
+
+        public IQueryable layHDChuaGiao(string chuoi)
+        {
+            IQueryable ct = from h in qldhdl.ChiTietHoaDonBanLes where h.GhiChu == chuoi select new { h.MaCTHDL, h.HangHoa.MaHang, h.HangHoa.TenHang, h.MaCTHH, h.HangHoa.MaDVT, h.HangHoa.GiaBanLe, h.SoLuong, h.ThanhTien, h.GhiChu };
+            return ct;
+        }
+
+        public bool UpdateCTHDL(int ma,string chuoi)
+        {
+            if (KT1CTHDL(ma)!= 0)
+            {
+                ChiTietHoaDonBanLe ct = qldhdl.ChiTietHoaDonBanLes.Single(m => m.MaCTHDL == ma);
+                ct.GhiChu = chuoi;
+                qldhdl.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -155,6 +155,7 @@
           <Property Name="SoTienGiam" Type="float" />
           <Property Name="TongTien" Type="float" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="200" />
+          <Property Name="MaHT" Type="nchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
@@ -412,6 +413,18 @@
             </Principal>
             <Dependent Role="ChiTiet_PhieuNhapKho">
               <PropertyRef Name="MaPhieuNhap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_HDL_HTTT">
+          <End Role="HinhThuc" Type="Self.HinhThuc" Multiplicity="0..1" />
+          <End Role="HoaDonBanLe" Type="Self.HoaDonBanLe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhThuc">
+              <PropertyRef Name="MaHT" />
+            </Principal>
+            <Dependent Role="HoaDonBanLe">
+              <PropertyRef Name="MaHT" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -712,6 +725,10 @@
             <End Role="PhieuNhapKho" EntitySet="PhieuNhapKho" />
             <End Role="ChiTiet_PhieuNhapKho" EntitySet="ChiTiet_PhieuNhapKho" />
           </AssociationSet>
+          <AssociationSet Name="fk_HDL_HTTT" Association="Self.fk_HDL_HTTT">
+            <End Role="HinhThuc" EntitySet="HinhThuc" />
+            <End Role="HoaDonBanLe" EntitySet="HoaDonBanLe" />
+          </AssociationSet>
           <AssociationSet Name="fk_HDL_KH" Association="Self.fk_HDL_KH">
             <End Role="KhachHang" EntitySet="KhachHang" />
             <End Role="HoaDonBanLe" EntitySet="HoaDonBanLe" />
@@ -929,6 +946,7 @@
           <Property Name="TenHT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HoaDon_BanSi" Relationship="Self.fk_HDS_HT" FromRole="HinhThuc" ToRole="HoaDon_BanSi" />
           <NavigationProperty Name="PhieuChiTiens" Relationship="Self.fk_PCT_HT" FromRole="HinhThuc" ToRole="PhieuChiTien" />
+          <NavigationProperty Name="HoaDonBanLes" Relationship="Data_QLBanQuanAoModel.fk_HDL_HTTT" FromRole="HinhThuc" ToRole="HoaDonBanLe" />
         </EntityType>
         <EntityType Name="HoaDon_BanSi">
           <Key>
@@ -975,6 +993,8 @@
           <NavigationProperty Name="KhachHang" Relationship="Self.fk_HDL_KH" FromRole="HoaDonBanLe" ToRole="KhachHang" />
           <NavigationProperty Name="NhanVien" Relationship="Self.fk_HDL_MaNV" FromRole="HoaDonBanLe" ToRole="NhanVien" />
           <NavigationProperty Name="LoaiThue" Relationship="Self.fk_HDL_Thue" FromRole="HoaDonBanLe" ToRole="LoaiThue" />
+          <Property Name="MaHT" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="HinhThuc" Relationship="Data_QLBanQuanAoModel.fk_HDL_HTTT" FromRole="HoaDonBanLe" ToRole="HinhThuc" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
@@ -1636,7 +1656,23 @@
             <End Role="NhanVien" EntitySet="NhanViens" />
             <End Role="PhieuNhapKho" EntitySet="PhieuNhapKhoes" />
           </AssociationSet>
+          <AssociationSet Name="fk_HDL_HTTT" Association="Data_QLBanQuanAoModel.fk_HDL_HTTT">
+            <End Role="HinhThuc" EntitySet="HinhThucs" />
+            <End Role="HoaDonBanLe" EntitySet="HoaDonBanLes" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="fk_HDL_HTTT">
+          <End Type="Data_QLBanQuanAoModel.HinhThuc" Role="HinhThuc" Multiplicity="0..1" />
+          <End Type="Data_QLBanQuanAoModel.HoaDonBanLe" Role="HoaDonBanLe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HinhThuc">
+              <PropertyRef Name="MaHT" />
+            </Principal>
+            <Dependent Role="HoaDonBanLe">
+              <PropertyRef Name="MaHT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1785,6 +1821,7 @@
           <EntitySetMapping Name="HoaDonBanLes">
             <EntityTypeMapping TypeName="Data_QLBanQuanAoModel.HoaDonBanLe">
               <MappingFragment StoreEntitySet="HoaDonBanLe">
+                <ScalarProperty Name="MaHT" ColumnName="MaHT" />
                 <ScalarProperty Name="MaHDL" ColumnName="MaHDL" />
                 <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
                 <ScalarProperty Name="NgayHT" ColumnName="NgayHT" />

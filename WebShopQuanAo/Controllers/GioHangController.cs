@@ -27,14 +27,14 @@ namespace WebShopQuanAo.Controllers
             return lstGioHang;
         }
 
-        public ActionResult ThemGioHang(string ms, string strUrl)
+        public ActionResult ThemGioHang(string ms, int msct, string strUrl)
         {
             List<GioHang> lstGioHang = layGioHang();
 
-            GioHang HangHoa = lstGioHang.Find(sp => sp.iMaSP == ms);
+            GioHang HangHoa = lstGioHang.Find(sp => sp.iMaSP == ms && sp.iMaCTSP == msct);
             if (HangHoa == null)
             {
-                HangHoa = new GioHang(ms);
+                HangHoa = new GioHang(ms,msct);
                 lstGioHang.Add(HangHoa);
                 return Redirect(strUrl);
 
@@ -55,6 +55,30 @@ namespace WebShopQuanAo.Controllers
                 tsl = lstGioHang.Sum(sp => sp.iSoLuong);
             }
             return tsl;
+        }
+
+        private void capNhatSoLuong(string mahang, int mact)
+        {
+            int sl = 0;
+            List<ChiTietHangHoa> ls = new List<ChiTietHangHoa>();
+            ls = db.ChiTietHangHoas.Select(m => m).Where(ma => ma.MaHang == mahang && ma.MaCTHH == mact).ToList();
+            foreach (var item in ls)
+            {
+                sl = sl + int.Parse(item.SoLuong.ToString());
+            }
+            HangHoa hh = db.HangHoas.Single(m => m.MaHang == mahang);
+            hh.SoLuongTon = sl;
+            db.SaveChanges();
+        }
+
+        private void trusoluong(string mahang, int mact, int soluong)
+        {
+            int so = 0;
+            ChiTietHangHoa ct = db.ChiTietHangHoas.Single(ma => ma.MaHang == mahang && ma.MaCTHH == mact);
+            so = int.Parse(ct.SoLuong.ToString());
+            so = so - soluong;
+            ct.SoLuong = so;
+            db.SaveChanges();
         }
 
         private double TongThanhTien()
@@ -111,7 +135,11 @@ namespace WebShopQuanAo.Controllers
             GioHang sp = lstgh.Single(m => m.iMaSP == masp);
             if (sp != null)
             {
+                
                 sp.iSoLuong = int.Parse(f["txtsl"].ToString());
+             
+                sp.sSize = f["txtss"];
+                sp.sMauSac = f["txtsm"];
             }
             return RedirectToAction("GioHang", "GioHang");
         }
@@ -153,6 +181,8 @@ namespace WebShopQuanAo.Controllers
             ddh.NgayHT = DateTime.Now;
             ddh.MaNV = 2;
             ddh.MaThue = "LT0001";
+            ddh.MaHT = "HT0004";
+            ddh.TongTien = TongThanhTien();
             //ddh.DaThanhToan = "Chưa thanh toán";
             //ddh.TinhTrangGiaoHang = 0;
             db.HoaDonBanLes.Add(ddh);
@@ -162,13 +192,19 @@ namespace WebShopQuanAo.Controllers
                 ChiTietHoaDonBanLe ctdh = new ChiTietHoaDonBanLe();
                 ctdh.MaHDL = ddh.MaHDL;
                 ctdh.MaHang = item.iMaSP;
+                ctdh.MaCTHH = item.iMaCTSP;
+                ctdh.GiaBan = item.dDonGia;
                 ctdh.SoLuong = item.iSoLuong;
-                ctdh.HangHoa.GiaBanLe = item.dDonGia;
+                ctdh.ThanhTien = item.dThanhTien;
+                ctdh.GhiChu = "Chưa giao hàng";
                 db.ChiTietHoaDonBanLes.Add(ctdh);
-
+                trusoluong(item.iMaSP,item.iMaCTSP,item.iSoLuong);
+                capNhatSoLuong(item.iMaSP, item.iMaCTSP);
             }
             db.SaveChanges();
+            
             Session["GioHang"] = null;
+            
             return RedirectToAction("XacNhanDonHang", "GioHang");
         }
 

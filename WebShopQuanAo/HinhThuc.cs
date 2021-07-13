@@ -18,6 +18,7 @@ namespace WebShopQuanAo
         {
             this.HoaDon_BanSi = new HashSet<HoaDon_BanSi>();
             this.PhieuChiTiens = new HashSet<PhieuChiTien>();
+            this.HoaDonBanLes = new HashSet<HoaDonBanLe>();
         }
     
         public string MaHT { get; set; }
@@ -25,5 +26,6 @@ namespace WebShopQuanAo
     
         public virtual ICollection<HoaDon_BanSi> HoaDon_BanSi { get; set; }
         public virtual ICollection<PhieuChiTien> PhieuChiTiens { get; set; }
+        public virtual ICollection<HoaDonBanLe> HoaDonBanLes { get; set; }
     }
 }

@@ -784,6 +784,10 @@
     <Content Include="Views\KhachHang\KhachHangPartial.cshtml" />
     <Content Include="Views\KhachHang\ThongTinTaiKhoan.cshtml" />
     <Content Include="Views\KhachHang\ThongTinTaiKhoan1.cshtml" />
+    <Content Include="Views\GioHang\Dathang.cshtml" />
+    <Content Include="Views\Home\GioiThieu.cshtml" />
+    <Content Include="Views\LoaiSP\SPDanhChoNam.cshtml" />
+    <Content Include="Views\LoaiSP\SPDanhChoNu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
