@@ -37,6 +37,8 @@ namespace QuanLyShopQuanAo
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,9 +56,9 @@ namespace QuanLyShopQuanAo
             // 
             this.cboCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCamera.FormattingEnabled = true;
-            this.cboCamera.Location = new System.Drawing.Point(110, 12);
+            this.cboCamera.Location = new System.Drawing.Point(83, 12);
             this.cboCamera.Name = "cboCamera";
-            this.cboCamera.Size = new System.Drawing.Size(296, 28);
+            this.cboCamera.Size = new System.Drawing.Size(210, 28);
             this.cboCamera.TabIndex = 1;
             // 
             // btnNhap
@@ -100,11 +102,36 @@ namespace QuanLyShopQuanAo
             this.simpleButton1.Text = "Kết thúc";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(320, 16);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(81, 21);
+            this.radioButton1.TabIndex = 6;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "barcode";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(476, 15);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(73, 21);
+            this.radioButton2.TabIndex = 7;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "qrcode";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // Frm_Qrcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 333);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.txtMabc);
             this.Controls.Add(this.btnNhap);
@@ -131,5 +158,7 @@ namespace QuanLyShopQuanAo
         private System.Windows.Forms.TextBox txtMabc;
         private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }

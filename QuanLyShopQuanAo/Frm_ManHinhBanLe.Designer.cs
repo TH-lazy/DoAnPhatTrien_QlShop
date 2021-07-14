@@ -38,6 +38,7 @@ namespace QuanLyShopQuanAo
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -97,7 +98,7 @@ namespace QuanLyShopQuanAo
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cboHT = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -209,6 +210,16 @@ namespace QuanLyShopQuanAo
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 184;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Mẫu Hàng";
+            this.gridColumn11.FieldName = "MaCTHH";
+            this.gridColumn11.MinWidth = 25;
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 2;
+            this.gridColumn11.Width = 135;
             // 
             // gridColumn3
             // 
@@ -696,6 +707,7 @@ namespace QuanLyShopQuanAo
             // 
             // panelControl3
             // 
+            this.panelControl3.Controls.Add(this.cboHT);
             this.panelControl3.Controls.Add(this.cboMau);
             this.panelControl3.Controls.Add(this.cboSize);
             this.panelControl3.Controls.Add(this.label12);
@@ -796,7 +808,7 @@ namespace QuanLyShopQuanAo
             this.dtpNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayLap.Location = new System.Drawing.Point(576, 60);
             this.dtpNgayLap.Name = "dtpNgayLap";
-            this.dtpNgayLap.Size = new System.Drawing.Size(334, 28);
+            this.dtpNgayLap.Size = new System.Drawing.Size(162, 28);
             this.dtpNgayLap.TabIndex = 16;
             // 
             // label11
@@ -858,15 +870,14 @@ namespace QuanLyShopQuanAo
             this.simpleButton13.TabIndex = 6;
             this.simpleButton13.Click += new System.EventHandler(this.simpleButton13_Click);
             // 
-            // gridColumn11
+            // cboHT
             // 
-            this.gridColumn11.Caption = "Mẫu Hàng";
-            this.gridColumn11.FieldName = "MaCTHH";
-            this.gridColumn11.MinWidth = 25;
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 2;
-            this.gridColumn11.Width = 135;
+            this.cboHT.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboHT.FormattingEnabled = true;
+            this.cboHT.Location = new System.Drawing.Point(748, 60);
+            this.cboHT.Name = "cboHT";
+            this.cboHT.Size = new System.Drawing.Size(162, 29);
+            this.cboHT.TabIndex = 28;
             // 
             // Frm_ManHinhBanLe
             // 
@@ -978,5 +989,6 @@ namespace QuanLyShopQuanAo
         private System.Windows.Forms.ComboBox cboMau;
         private System.Windows.Forms.ComboBox cboSize;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private System.Windows.Forms.ComboBox cboHT;
     }
 }

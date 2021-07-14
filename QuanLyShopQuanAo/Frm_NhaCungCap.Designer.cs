@@ -181,7 +181,6 @@ namespace QuanLyShopQuanAo
             // 
             // dgv_DSNCC
             // 
-            this.dgv_DSNCC.AllowUserToAddRows = false;
             this.dgv_DSNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_DSNCC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,

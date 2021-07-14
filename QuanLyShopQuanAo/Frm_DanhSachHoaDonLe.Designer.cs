@@ -42,14 +42,6 @@ namespace QuanLyShopQuanAo
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-            this.label2 = new System.Windows.Forms.Label();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,6 +51,14 @@ namespace QuanLyShopQuanAo
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -210,6 +210,96 @@ namespace QuanLyShopQuanAo
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "MaCTHDL";
+            this.gridColumn1.FieldName = "MaCTHDL";
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 94;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Mã Hàng";
+            this.gridColumn2.FieldName = "MaHang";
+            this.gridColumn2.MinWidth = 25;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 94;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Tên Hàng";
+            this.gridColumn3.FieldName = "TenHang";
+            this.gridColumn3.MinWidth = 25;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 94;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Mẫu Hàng";
+            this.gridColumn4.FieldName = "MaCTHH";
+            this.gridColumn4.MinWidth = 25;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 94;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "DVT";
+            this.gridColumn5.FieldName = "MaDVT";
+            this.gridColumn5.MinWidth = 25;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 94;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Giá bán";
+            this.gridColumn6.FieldName = "GiaBanLe";
+            this.gridColumn6.MinWidth = 25;
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.Width = 94;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Số Lượng";
+            this.gridColumn7.FieldName = "SoLuong";
+            this.gridColumn7.MinWidth = 25;
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.Width = 94;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Thành Tiền";
+            this.gridColumn8.FieldName = "ThanhTien";
+            this.gridColumn8.MinWidth = 25;
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.Width = 94;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Ghi Chú";
+            this.gridColumn9.FieldName = "GhiChu";
+            this.gridColumn9.MinWidth = 25;
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 8;
+            this.gridColumn9.Width = 94;
+            // 
             // panelControl8
             // 
             this.panelControl8.Controls.Add(this.label3);
@@ -283,96 +373,6 @@ namespace QuanLyShopQuanAo
             this.label2.Size = new System.Drawing.Size(206, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "Danh sách hóa đơn";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "gridColumn1";
-            this.gridColumn1.FieldName = "MaCTHDL";
-            this.gridColumn1.MinWidth = 25;
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 94;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "gridColumn2";
-            this.gridColumn2.FieldName = "MaHang";
-            this.gridColumn2.MinWidth = 25;
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 94;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "gridColumn3";
-            this.gridColumn3.FieldName = "TenHang";
-            this.gridColumn3.MinWidth = 25;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 94;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "gridColumn4";
-            this.gridColumn4.FieldName = "MaCTHH";
-            this.gridColumn4.MinWidth = 25;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 94;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "gridColumn5";
-            this.gridColumn5.FieldName = "MaDVT";
-            this.gridColumn5.MinWidth = 25;
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 94;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "gridColumn6";
-            this.gridColumn6.FieldName = "GiaBanLe";
-            this.gridColumn6.MinWidth = 25;
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 94;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "gridColumn7";
-            this.gridColumn7.FieldName = "SoLuong";
-            this.gridColumn7.MinWidth = 25;
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
-            this.gridColumn7.Width = 94;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "gridColumn8";
-            this.gridColumn8.FieldName = "ThanhTien";
-            this.gridColumn8.MinWidth = 25;
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
-            this.gridColumn8.Width = 94;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "gridColumn9";
-            this.gridColumn9.FieldName = "GhiChu";
-            this.gridColumn9.MinWidth = 25;
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 8;
-            this.gridColumn9.Width = 94;
             // 
             // Frm_DanhSachHoaDonLe
             // 

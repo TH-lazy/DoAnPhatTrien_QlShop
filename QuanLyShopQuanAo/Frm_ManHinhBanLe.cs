@@ -14,10 +14,12 @@ namespace QuanLyShopQuanAo
 {
     public partial class Frm_ManHinhBanLe : DevExpress.XtraEditors.XtraForm
     {
+        
         int mahdl;
 
         float tienhang;
         public String maqr;
+        string nhanvien ="";
 
         QLShopDataContext qlhds = new QLShopDataContext();
         HangHoaDALBLL hanghoa = new HangHoaDALBLL();
@@ -30,13 +32,18 @@ namespace QuanLyShopQuanAo
             InitializeComponent();
         }
 
+        public Frm_ManHinhBanLe(string nv): this()
+        {
+            nhanvien = nv;
+        }
+
         private void Frm_ManHinhBanLe_Load(object sender, EventArgs e)
         {
             cboHangHoa.DataSource = hanghoa.loadHangHoa();
             cboHangHoa.DisplayMember = "TenHang";
             cboHangHoa.ValueMember = "MaHang";
 
-            cboNhanVien.DataSource = doiTac.loadNhanVien();
+            cboNhanVien.DataSource = doiTac.laynhanvien(nhanvien);
             cboNhanVien.DisplayMember = "TenNV";
             cboNhanVien.ValueMember = "MaNV";
 
@@ -51,6 +58,11 @@ namespace QuanLyShopQuanAo
             cboThue.DataSource = hanghoa.loadThue();
             cboThue.DisplayMember = "TenThue";
             cboThue.ValueMember = "MaThue";
+
+            cboHT.DataSource = hanghoa.loadHinhThuc();
+            cboHT.DisplayMember = "TenHT";
+            cboHT.ValueMember = "MaHT";
+
 
             if (rdoMacDinh.Checked)
             {
@@ -218,7 +230,7 @@ namespace QuanLyShopQuanAo
         private void simpleButton5_Click(object sender, EventArgs e)
         {
 
-            if (hd.themHoaDon(DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), int.Parse(cboKhachHang.SelectedValue.ToString()), int.Parse(cboNhanVien.SelectedValue.ToString()), cboThue.SelectedValue.ToString(), int.Parse(txtThue.Text), float.Parse(txtTienThue.Text), float.Parse(txtGiamGia.Text), float.Parse(txtTienGiam.Text), float.Parse(txtTongTien.Text), ""))
+            if (hd.themHoaDon(DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), int.Parse(cboKhachHang.SelectedValue.ToString()), int.Parse(cboNhanVien.SelectedValue.ToString()), cboThue.SelectedValue.ToString(), int.Parse(txtThue.Text), float.Parse(txtTienThue.Text), float.Parse(txtGiamGia.Text), float.Parse(txtTienGiam.Text), float.Parse(txtTongTien.Text), "",cboHT.SelectedValue.ToString()))
             {
                 cboHangHoa.Focus();
                 txtSoLuong.Enabled = true;
@@ -443,9 +455,10 @@ namespace QuanLyShopQuanAo
             cboSize.DisplayMember = "MaSize";
             cboSize.ValueMember = "MaSize";
 
-            //cboMau.DataSource = hanghoa.laySizeHang(cboHangHoa.SelectedValue.ToString());
+            //cboMau.DataSource = hanghoa.layMauHang(cboSize.SelectedValue.ToString());
             //cboMau.DisplayMember = "TenMau";
             //cboMau.ValueMember = "MaMau";
+
             cboKhoHang.DataSource = hanghoa.layKhoHang(cboHangHoa.SelectedValue.ToString());
             cboKhoHang.DisplayMember = "TenKho";
             cboKhoHang.ValueMember = "MaKho";
@@ -453,7 +466,8 @@ namespace QuanLyShopQuanAo
 
         private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboMau.DataSource = hanghoa.layMauHang(cboSize.SelectedValue.ToString());
+            cboMau.DataSource = null;
+            cboMau.DataSource = hanghoa.layMauHang(cboHangHoa.SelectedValue.ToString(),cboSize.SelectedValue.ToString());
             cboMau.DisplayMember = "TenMau";
             cboMau.ValueMember = "MaMau";
         }

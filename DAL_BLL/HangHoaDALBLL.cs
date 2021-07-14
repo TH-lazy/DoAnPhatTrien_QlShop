@@ -531,10 +531,15 @@ namespace DAL_BLL
             return hs;
         }
 
-        public IQueryable layMauHang(string size)
+        public IQueryable layMauHang(string hang,string size)
         {
-            IQueryable hs = (from h in qlhanghoa.ChiTietHangHoas where h.MaSize == size select new { h.MaCTHH, h.KichThuoc.MaSize, h.MauSac.MaMau, h.MauSac.TenMau }).Distinct();
+            IQueryable hs = (from h in qlhanghoa.ChiTietHangHoas where (h.MaHang == hang && h.MaSize == size) select new { h.MaCTHH, h.KichThuoc.MaSize, h.MauSac.MaMau, h.MauSac.TenMau }).Distinct();
             return hs;
+        } 
+
+        public List<ChiTietHangHoa> layMauHang1(string hang, string size)
+        {
+            return qlhanghoa.ChiTietHangHoas.Select(m => m).Where(ma => ma.MaHang == hang && ma.MaSize == size).ToList();
         }
 
         public IQueryable layKhoHang(string mahang)

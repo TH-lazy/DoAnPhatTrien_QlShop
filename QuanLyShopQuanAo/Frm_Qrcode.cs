@@ -39,11 +39,36 @@ namespace QuanLyShopQuanAo
         VideoCaptureDevice videoCaptureDevice;
         private void btnNhap_Click(object sender, EventArgs e)
         {
-            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cboCamera.SelectedIndex].MonikerString);
-            videoCaptureDevice.NewFrame += FinalFrame_NewFrame;
-            videoCaptureDevice.Start();
-            timer1.Start();
+            
+            if (radioButton1.Checked)
+            {
+                videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cboCamera.SelectedIndex].MonikerString);
+                videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+                videoCaptureDevice.Start();
+            }
+            else
+            {
+                videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cboCamera.SelectedIndex].MonikerString);
+                videoCaptureDevice.NewFrame += FinalFrame_NewFrame;
+                videoCaptureDevice.Start();
+                timer1.Start();
+            }
 
+        }
+
+        private void VideoCaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            BarcodeReader barcodeReader = new BarcodeReader();
+            var result = barcodeReader.Decode(bitmap);
+            if (result != null)
+            {
+                txtMabc.Invoke(new MethodInvoker(delegate ()
+                {
+                    txtMabc.Text = result.ToString();
+                }));
+            }
+            pictureBox1.Image = bitmap;
         }
 
         private void Frm_Qrcode_Load(object sender, EventArgs e)
@@ -66,7 +91,12 @@ namespace QuanLyShopQuanAo
         {
             //đây nè đóng lại
             //if (videoCaptureDevice.IsRunning == true)
-               //videoCaptureDevice.Stop();
+            //videoCaptureDevice.Stop();
+            if (videoCaptureDevice != null)
+            {
+                if (videoCaptureDevice.IsRunning == true)
+                    videoCaptureDevice.Stop();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

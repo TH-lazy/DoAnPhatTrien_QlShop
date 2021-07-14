@@ -21,7 +21,7 @@ namespace DAL_BLL
         }
 
 
-        public bool themHoaDon(DateTime ngaylap, DateTime ngayht, int kh, int nv, string mathue, int sothue, float tienthue, float giamgia, float sotiengiam, float tongtien, string ghichu)
+        public bool themHoaDon(DateTime ngaylap, DateTime ngayht, int kh, int nv, string mathue, int sothue, float tienthue, float giamgia, float sotiengiam, float tongtien, string ghichu, string ht)
         {
             HoaDonBanLe hd = new HoaDonBanLe();
             hd.NgayLap = ngaylap;
@@ -35,6 +35,7 @@ namespace DAL_BLL
             hd.SoTienGiam = sotiengiam;
             hd.TongTien = tongtien;
             hd.GhiChu = ghichu;
+            hd.MaHT = ht;
             qldhdl.HoaDonBanLes.InsertOnSubmit(hd);
             qldhdl.SubmitChanges();
             return true;
@@ -204,16 +205,19 @@ namespace DAL_BLL
         }
 
 
-        public bool xoaHoaDonRong(int mahdl)
+        public bool xoaHDR(int mahdl)
         {
-            if (demCTHDL(mahdl) == 0)
+            if (KTHoaDon(mahdl) > 0)
             {
-                HoaDonBanLe hd = qldhdl.HoaDonBanLes.Single(m => m.MaHDL == mahdl);
-                qldhdl.HoaDonBanLes.DeleteOnSubmit(hd);
-                qldhdl.SubmitChanges();
-                return true;
+                if (KTCTHDL(mahdl) <= 0)
+                {
+                    HoaDonBanLe hd = qldhdl.HoaDonBanLes.Single(ma => ma.MaHDL == mahdl);
+                    qldhdl.HoaDonBanLes.DeleteOnSubmit(hd);
+                    qldhdl.SubmitChanges();
+                    return true;
+                }              
             }
-            return true;
+            return false;
         }
 
 

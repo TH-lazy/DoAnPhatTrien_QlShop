@@ -38,11 +38,12 @@ namespace QuanLyShopQuanAo
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             List<HoaDonBanLe> l = new List<HoaDonBanLe>();
+            l = hoadon.lay();
             foreach (var item in l)
             {
-                hoadon.xoaHDL(item.MaHDL);
+                hoadon.xoaHDR(item.MaHDL);
             }
-            gridControl2.DataSource = hoadon.loadHoaDon();
+            gridControl1.DataSource = hoadon.loadHoaDon();
             MessageBox.Show("Ok");
         }
 
@@ -54,14 +55,14 @@ namespace QuanLyShopQuanAo
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             string trangthai = "Đã giao";
-            List<ChiTietHoaDonBanLe> hd = hoadon.loadHDCT(int.Parse(gridView1.GetFocusedRowCellValue("MaCTHDL").ToString()));
+            List<ChiTietHoaDonBanLe> hd = hoadon.loadHDCT(int.Parse(gridView2.GetFocusedRowCellValue("MaCTHDL").ToString()));
             foreach (var item in hd)
             {
                 if (item.GhiChu == "Chưa giao hàng")
                 {
-                    if (hoadon.UpdateCTHDL(int.Parse(gridView1.GetFocusedRowCellValue("MaCTHDL").ToString()), trangthai))
+                    if (hoadon.UpdateCTHDL(int.Parse(gridView2.GetFocusedRowCellValue("MaCTHDL").ToString()), trangthai))
                     {
-                        gridControl2.DataSource = hoadon.loadHoaDon();
+                        gridControl2.DataSource = hoadon.loadChiTietHD(int.Parse(gridView1.GetFocusedRowCellValue("MaHDL").ToString()));
                         MessageBox.Show("Thành công.");
                     }
                 }

@@ -77,8 +77,6 @@ namespace QuanLyShopQuanAo
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -86,13 +84,13 @@ namespace QuanLyShopQuanAo
             this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
@@ -106,9 +104,9 @@ namespace QuanLyShopQuanAo
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -175,6 +173,8 @@ namespace QuanLyShopQuanAo
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 12;
             this.ribbon.Name = "ribbon";
+            this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
+            this.ribbonPageCategory1});
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem7);
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem8);
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem9);
@@ -725,8 +725,6 @@ namespace QuanLyShopQuanAo
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.Color.White;
-            this.groupBox8.Controls.Add(this.simpleButton4);
-            this.groupBox8.Controls.Add(this.simpleButton5);
             this.groupBox8.Controls.Add(this.simpleButton3);
             this.groupBox8.Controls.Add(this.simpleButton2);
             this.groupBox8.Controls.Add(this.simpleButton1);
@@ -736,38 +734,10 @@ namespace QuanLyShopQuanAo
             this.groupBox8.ForeColor = System.Drawing.Color.Blue;
             this.groupBox8.Location = new System.Drawing.Point(0, 0);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(936, 704);
+            this.groupBox8.Size = new System.Drawing.Size(916, 704);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Nhập liệu";
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(329, 180);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton4.Size = new System.Drawing.Size(276, 59);
-            this.simpleButton4.TabIndex = 5;
-            this.simpleButton4.Text = "Bảng giá bán sỉ";
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.simpleButton5.Appearance.Options.UseFont = true;
-            this.simpleButton5.Appearance.Options.UseForeColor = true;
-            this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
-            this.simpleButton5.Location = new System.Drawing.Point(25, 180);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.simpleButton5.Size = new System.Drawing.Size(275, 59);
-            this.simpleButton5.TabIndex = 4;
-            this.simpleButton5.Text = "Bảng giá bán lẻ";
             // 
             // simpleButton3
             // 
@@ -822,7 +792,7 @@ namespace QuanLyShopQuanAo
             this.groupBox9.ForeColor = System.Drawing.Color.Blue;
             this.groupBox9.Location = new System.Drawing.Point(3, 331);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(930, 370);
+            this.groupBox9.Size = new System.Drawing.Size(910, 370);
             this.groupBox9.TabIndex = 0;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Báo cáo";
@@ -869,19 +839,6 @@ namespace QuanLyShopQuanAo
             this.simpleButton6.TabIndex = 6;
             this.simpleButton6.Text = "Danh sách hóa đơn bán lẻ";
             this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.BackColor = System.Drawing.Color.White;
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox7.Location = new System.Drawing.Point(936, 0);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(532, 704);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Bảng kê";
             // 
             // xtraTabPage5
             // 
@@ -945,6 +902,16 @@ namespace QuanLyShopQuanAo
             this.groupBox14.TabIndex = 6;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Nhập liệu";
+            // 
+            // simpleButton9
+            // 
+            this.simpleButton9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton9.ImageOptions.SvgImage")));
+            this.simpleButton9.Location = new System.Drawing.Point(22, 42);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(272, 54);
+            this.simpleButton9.TabIndex = 2;
+            this.simpleButton9.Text = "Nhập kho";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // groupBox15
             // 
@@ -1071,22 +1038,10 @@ namespace QuanLyShopQuanAo
             // 
             // xtraTabPage10
             // 
-            this.xtraTabPage10.Controls.Add(this.groupBox23);
             this.xtraTabPage10.Controls.Add(this.groupBox22);
             this.xtraTabPage10.Name = "xtraTabPage10";
             this.xtraTabPage10.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage10.Text = "Công nợ";
-            // 
-            // groupBox23
-            // 
-            this.groupBox23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox23.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox23.Location = new System.Drawing.Point(885, 0);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(583, 704);
-            this.groupBox23.TabIndex = 1;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "Công nợ phải trả";
             // 
             // groupBox22
             // 
@@ -1099,15 +1054,23 @@ namespace QuanLyShopQuanAo
             this.groupBox22.TabStop = false;
             this.groupBox22.Text = "Công nợ phải thu";
             // 
-            // simpleButton9
+            // groupBox7
             // 
-            this.simpleButton9.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton9.ImageOptions.SvgImage")));
-            this.simpleButton9.Location = new System.Drawing.Point(22, 42);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.Size = new System.Drawing.Size(272, 54);
-            this.simpleButton9.TabIndex = 2;
-            this.simpleButton9.Text = "Nhập kho";
-            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
+            this.groupBox7.BackColor = System.Drawing.Color.White;
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.ForeColor = System.Drawing.Color.Blue;
+            this.groupBox7.Location = new System.Drawing.Point(916, 0);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(552, 704);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Bảng kê";
+            // 
+            // ribbonPageCategory1
+            // 
+            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
+            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
             // 
             // Trangchu
             // 
@@ -1187,7 +1150,6 @@ namespace QuanLyShopQuanAo
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.GroupBox groupBox11;
         private System.Windows.Forms.GroupBox groupBox12;
@@ -1200,7 +1162,6 @@ namespace QuanLyShopQuanAo
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.GroupBox groupBox21;
         private System.Windows.Forms.GroupBox groupBox19;
-        private System.Windows.Forms.GroupBox groupBox23;
         private System.Windows.Forms.GroupBox groupBox22;
         private DevExpress.XtraEditors.SimpleButton btnKhoHang;
         private DevExpress.XtraEditors.SimpleButton btnThemNhaCungCap;
@@ -1215,8 +1176,6 @@ namespace QuanLyShopQuanAo
         private DevExpress.XtraEditors.SimpleButton btnThue;
         private DevExpress.XtraEditors.SimpleButton btnLoaiKH;
         private DevExpress.XtraEditors.SimpleButton btnLoaiHang;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
@@ -1232,5 +1191,7 @@ namespace QuanLyShopQuanAo
         private DevExpress.XtraEditors.SimpleButton simpleButton15;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
     }
 }
