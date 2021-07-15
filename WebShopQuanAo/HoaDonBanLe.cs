@@ -31,10 +31,12 @@ namespace WebShopQuanAo
         public Nullable<double> SoTienGiam { get; set; }
         public Nullable<double> TongTien { get; set; }
         public string GhiChu { get; set; }
+        public string MaHT { get; set; }
     
         public virtual ICollection<ChiTietHoaDonBanLe> ChiTietHoaDonBanLes { get; set; }
         public virtual KhachHang KhachHang { get; set; }
         public virtual NhanVien NhanVien { get; set; }
         public virtual LoaiThue LoaiThue { get; set; }
+        public virtual HinhThuc HinhThuc { get; set; }
     }
 }

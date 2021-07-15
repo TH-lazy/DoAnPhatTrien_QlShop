@@ -45,13 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -141,9 +143,11 @@
     <Compile Include="ChucVu.cs">
       <DependentUpon>QlShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="Common\CommonConstans.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\LoaiSPController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="DonViTinh.cs">
       <DependentUpon>QlShop.tt</DependentUpon>
@@ -194,6 +198,8 @@
       <DependentUpon>QlShop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\SanPhamModel.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="NhaCungCap.cs">
       <DependentUpon>QlShop.tt</DependentUpon>
     </Compile>
@@ -584,6 +590,7 @@
     <Content Include="Assets\icons\themify-icons\SVG\zoom-in.svg" />
     <Content Include="Assets\icons\themify-icons\SVG\zoom-out.svg" />
     <Content Include="Assets\icons\themify-icons\themify-icons.css" />
+    <Content Include="Assets\image\185.jpg" />
     <Content Include="Assets\image\Capture.PNG" />
     <Content Include="Assets\image\Data_Images\Data_Images\306b57ac-4527-0100-3bbe-0017ba573ac1.jpg" />
     <Content Include="Assets\image\Data_Images\Data_Images\33181116-e676-0100-78ff-0017d2c5ac31.jpg" />
@@ -738,11 +745,52 @@
     <Content Include="Views\Shared\PlayoutShared.cshtml" />
     <Content Include="Views\Home\TrangChu.cshtml" />
     <Content Include="Views\SanPham\ShowSanPham.cshtml" />
+    <Content Include="Views\SanPham\XemChiTietSp.cshtml" />
+    <Content Include="Views\SanPham\XemChiTietSp1.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\Home\Index1.cshtml" />
+    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\KhachHang\DangNhap.cshtml" />
+    <Content Include="Views\KhachHang\DangKy.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH1.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH2.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH3.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH4.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH5.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH6.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH7.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH8.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH9.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH10.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH11.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH12.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH13.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH14.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH15.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH16.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH17.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH18.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH19.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH20.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH21.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH22.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH23.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH24.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH25.cshtml" />
+    <Content Include="Views\LoaiSP\SPTheoLH26.cshtml" />
+    <Content Include="Views\LoaiSP\ShowSanPham.cshtml" />
+    <Content Include="Views\LoaiSP\XemChiTietSp1.cshtml" />
+    <Content Include="Views\KhachHang\KhachHangPartial.cshtml" />
+    <Content Include="Views\KhachHang\ThongTinTaiKhoan.cshtml" />
+    <Content Include="Views\KhachHang\ThongTinTaiKhoan1.cshtml" />
+    <Content Include="Views\GioHang\Dathang.cshtml" />
+    <Content Include="Views\Home\GioiThieu.cshtml" />
+    <Content Include="Views\LoaiSP\SPDanhChoNam.cshtml" />
+    <Content Include="Views\LoaiSP\SPDanhChoNu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GioHang\" />
-    <Folder Include="Views\KhachHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

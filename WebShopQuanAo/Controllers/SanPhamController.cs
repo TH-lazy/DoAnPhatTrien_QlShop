@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebShopQuanAo.Models;
 
 namespace WebShopQuanAo.Controllers
 {
@@ -15,10 +16,55 @@ namespace WebShopQuanAo.Controllers
             return View();
         }
 
-        public ActionResult ShowSanPham()
+        public ActionResult ShowSanPham(string searchString)
         {
-            var ListHangHoa = db.HangHoas.OrderBy(s => s.MaHang).ToList();
+            IOrderedQueryable<HangHoa> ListHangHoa = db.HangHoas;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                ListHangHoa = ListHangHoa.Where(x => x.TenHang.Contains(searchString)).OrderByDescending(x => x.MaHang);
+            }
+            else
+            {
+                ListHangHoa = ListHangHoa.OrderBy(s => s.MaHang);
+            }
+
             return View(ListHangHoa);
+        }
+
+        public HangHoa XemChiTiet(string ms)
+        {
+            return db.HangHoas.Find(ms);
+        }
+
+        public ActionResult XemChiTietSp(string ms)
+        {
+            string sp = XemChiTiet(ms).MaHang;
+            if (sp == null)
+            {
+                return HttpNotFound();
+            }
+            ChiTietHangHoa chitiet = db.ChiTietHangHoas.Single(s => s.MaHang == ms);
+            if (chitiet == null)
+            {
+                return HttpNotFound();
+            }
+            return View(chitiet);
+        }
+
+
+        public ActionResult XemChiTietSp1(string ms)
+        {
+            string sp = XemChiTiet(ms).MaHang;
+            if (sp == null)
+            {
+                return HttpNotFound();
+            }
+            var tables = new SanPhamModel
+            {
+                hangHoas = db.HangHoas.Select(m => m).Where(ma => ma.MaHang == ms).ToList(),
+                chiTietHangHoas = db.ChiTietHangHoas.Select(m => m).Where(ma =>ma.MaHang == ms).ToList(),          
+            };
+            return View(tables);
         }
     }
 }

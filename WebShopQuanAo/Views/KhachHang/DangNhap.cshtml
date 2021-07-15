@@ -1,0 +1,62 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossOrigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url(../../Assets/image/185.jpg)
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="margin: auto;">
+        <div style="width:660px ;height:260px; background-color:rgba(214, 209, 209,0.2); margin:auto; margin-top:15%;">
+            <h1 style="text-align:center; color:rgb(75, 235, 241); font-size: 44px;">Đăng Nhập</h1>
+            <table #id="dangnhap" class="table border-dark table-borderless" style="width:600px; margin:auto;">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary(true)
+                    {
+                        <tr>
+                            <td style="text-align: right; width:100px;">Tên tài khoản:</td>
+                            <td>@Html.TextBox("TenDN", "", new { @class = "form-control" }) @ViewData["Loi1"]</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right; width:100px;">Mật khẩu:</td>
+                            <td>@Html.Password("Matkhau", "", new { @class = "form-control" }) @ViewData["Loi1"]</td>
+                        </tr>
+                        <tr style="text-align:center">
+                            <td style="text-align:center" colspan="2">
+                                <input type="submit" class="btn btn-primary" value="Đăng Nhập" />
+                                <a href="@Url.Action("DangKy","KhachHang")" class="btn btn-primary" style="width:106px"> Đăng Ký</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-right">
+                                <a href="@Url.Action("ShowSanPham","SanPham")"> Quay về trang chủ</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p style="color:red">@ViewBag.Kq</p>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

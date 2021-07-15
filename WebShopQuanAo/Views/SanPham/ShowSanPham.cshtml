@@ -5,26 +5,24 @@
     Layout = "~/Views/Shared/PlayoutShared.cshtml";
 }
 
+<h1 class="title-sp">Danh Mục Sản Phẩm</h1>
 @foreach (var item in Model)
 {
-<div class="col-md-3">
-    <div class="card">
-        <img src="@Url.Content("~/Assets/image/Data_Images/Data_Images/"+item.HinhAnh)" class="card-img-top" alt="Ảnh sản phẩm">
-        <div class="card-body">
-            <h5 class="card-title">@Html.DisplayFor(modelItem => item.TenHang)</h5>
-            <p class="card-text">
-                Giá bán: @Html.DisplayFor(modelItem => item.GiaBanLe) VND
-            </p>
-            <div class="row">
-                <div class="col-md-6">
-                    <a class ="button-effect btn btn-primary" href="@Url.Action("XemChiTietSp", new { @ms=item.MaHang })">Xem chi tiết SP<i class="fal fa-long-arrow-right"></i></a>
-                </div>
-                <div class="col-md-6">
-                    <a class ="button-effect btn btn-primary" href="@Url.Action("ThemGioHang", "GioHang", new {@ms = item.MaHang, @strURL = Request.Url.ToString() })">Thêm vào giỏ <i class="ti-shopping-cart"></i></a>
+    <div class="col-md-3">
+        <div class="card">
+            <img src="@Url.Content("~/Assets/image/Data_Images/Data_Images/"+item.HinhAnh)" class="card-img-top" alt="Ảnh sản phẩm">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.TenHang)</h5>
+                <p class="card-text">
+                    Giá bán: @Html.DisplayFor(modelItem => item.GiaBanLe) VND
+                </p>
+                <div class="row">
+                    <div class="col-md-10">
+                        <a class="button-effect btn btn-primary" href="@Url.Action("XemChiTietSp1", new { @ms=item.MaHang })">Xem chi tiết sản phẩm<i class="fal fa-long-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 }
 

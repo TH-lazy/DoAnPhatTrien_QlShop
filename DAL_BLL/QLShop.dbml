@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Data_QLBanQuanAo" Class="QLShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-RHQ2P6N;Initial Catalog=QL_BanQuanAo;Integrated Security=True" SettingsObjectName="DAL_BLL.Properties.Settings" SettingsPropertyName="QL_BanQuanAoConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MSI;Initial Catalog=Data_QLBanQuanAo;Persist Security Info=True;User ID=sa" SettingsObjectName="DAL_BLL.Properties.Settings" SettingsPropertyName="Data_QLBanQuanAoConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ChiTiet_HoaDonBanSi" Member="ChiTiet_HoaDonBanSis">
     <Type Name="ChiTiet_HoaDonBanSi">
       <Column Name="MaCTHDS" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -119,6 +119,7 @@
       <Column Name="QuyCach" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Column Name="MoTa" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
       <Column Name="DanhCho" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="HangHoa_ChiTiet_HoaDonBanSi" Member="ChiTiet_HoaDonBanSis" ThisKey="MaHang" OtherKey="MaHang" Type="ChiTiet_HoaDonBanSi" />
       <Association Name="HangHoa_ChiTiet_PhieuNhapKho" Member="ChiTiet_PhieuNhapKhos" ThisKey="MaHang" OtherKey="MaHang" Type="ChiTiet_PhieuNhapKho" />
       <Association Name="HangHoa_ChiTietHangHoa" Member="ChiTietHangHoas" ThisKey="MaHang" OtherKey="MaHang" Type="ChiTietHangHoa" />
@@ -133,6 +134,7 @@
       <Column Name="MaHT" Type="System.String" DbType="NChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenHT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="HinhThuc_HoaDon_BanSi" Member="HoaDon_BanSis" ThisKey="MaHT" OtherKey="MaHT" Type="HoaDon_BanSi" />
+      <Association Name="HinhThuc_HoaDonBanLe" Member="HoaDonBanLes" ThisKey="MaHT" OtherKey="MaHT" Type="HoaDonBanLe" />
       <Association Name="HinhThuc_PhieuChiTien" Member="PhieuChiTiens" ThisKey="MaHT" OtherKey="MaHT" Type="PhieuChiTien" />
     </Type>
   </Table>
@@ -174,7 +176,9 @@
       <Column Name="SoTienGiam" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="TongTien" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MaHT" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
       <Association Name="HoaDonBanLe_ChiTietHoaDonBanLe" Member="ChiTietHoaDonBanLes" ThisKey="MaHDL" OtherKey="MaHDL" Type="ChiTietHoaDonBanLe" />
+      <Association Name="HinhThuc_HoaDonBanLe" Member="HinhThuc" ThisKey="MaHT" OtherKey="MaHT" Type="HinhThuc" IsForeignKey="true" />
       <Association Name="KhachHang_HoaDonBanLe" Member="KhachHang" ThisKey="MaKH" OtherKey="MaKH" Type="KhachHang" IsForeignKey="true" />
       <Association Name="LoaiThue_HoaDonBanLe" Member="LoaiThue" ThisKey="MaThue" OtherKey="MaThue" Type="LoaiThue" IsForeignKey="true" />
       <Association Name="NhanVien_HoaDonBanLe" Member="NhanVien" ThisKey="MaNV" OtherKey="MaNV" Type="NhanVien" IsForeignKey="true" />

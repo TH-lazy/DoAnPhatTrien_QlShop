@@ -1,0 +1,65 @@
+﻿@model WebShopQuanAo.ChiTietHangHoa
+@{
+    ViewBag.Title = "XemChiTietSp";
+    Layout = "~/Views/Shared/PlayoutShared.cshtml";
+}
+
+<table class="table border-dark mx-3 mb-3 mt-3">
+    <tr class="text-left">
+        <td>
+            <img src="@Url.Content("~/Assets/image/Data_Images/Data_Images/"+ Model.Hinhdaidien)" alt="Image">
+        </td>
+    </tr>
+    <tr class="text-left">
+        <td>Mã Sản Phẩm: @Model.MaHang</td>
+    </tr>
+    <tr class="text-left">
+        <td>Tên Sản Phẩm: @Model.HangHoa.TenHang</td>
+    </tr>
+    <tr class="text-left">
+        <td style="font-weight:bold;color:red">
+            Giá bán: @string.Format("{0:0,0}", @Model.HangHoa.GiaBanLe) VNĐ
+        </td>
+    </tr>
+
+    <tr>
+        @foreach (var item in Model.KichThuoc.MaSize)
+        {
+            <td>
+                @Model.KichThuoc.TenSize, @Model.MauSac.TenMau
+            </td>
+            <td>
+                @Model.SoLuong
+            </td>
+            <td>
+             
+                <a href="@Url.Action("ThemGioHang", "GioHang", new {@ms = Model.MaHang, @strURL = Request.Url.ToString() })">
+                    <input type="submit" value="MUA NGAY" class="btn btn-primary" /> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
+                </a>
+            </td>
+        }
+    </tr>
+
+    <tr class="text-left">
+        <td>
+            Kiểu dáng: @Model.HangHoa.KieuDang
+        </td>
+    </tr>
+    <tr class="text-left">
+        <td>
+            Xuất xứ: @Model.HangHoa.XuatXu
+        </td>
+    </tr>
+    <tr class="text-left">
+        <td>
+            Nhà sản xuất: @Model.HangHoa.NhaSanXuat
+        </td>
+    </tr>
+    <tr class="text-left">
+        <td>
+            Năm sản xuất: @Model.HangHoa.NamSanXuat
+        </td>
+    </tr>
+
+</table>
+

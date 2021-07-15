@@ -1,0 +1,75 @@
+﻿@model WebShopQuanAo.Models.SanPhamModel
+@{
+    ViewBag.Title = "XemChiTietSp1";
+    Layout = "~/Views/Shared/PlayoutShared.cshtml";
+}
+
+<div class="row" #id="spchitiet" style="font-size:16px">
+    <div class="col-md-4">
+
+        @foreach (var hh in Model.hangHoas)
+        {
+            <img src="@Url.Content("~/Assets/image/Data_Images/Data_Images/"+ hh.HinhAnh)" alt="Image">
+        }
+    </div>
+    <div class="col-md-8">
+        <h2 style="color:black; text-align:center">Thông tin sản phẩm</h2>
+        @foreach (var hh in Model.hangHoas)
+        {
+
+            <span>Mã Hàng: @hh.MaHang</span><br />
+            <span>@hh.TenHang</span><br />
+            <span style="color:red;">Giá bán: @string.Format("{0:0,0}", @hh.GiaBanLe) VNĐ</span>
+        }
+        <table class="table border-dark table-borderless">
+            @foreach (var item in Model.chiTietHangHoas)
+            {
+
+                <tr>
+                    <td colspan="2">@Html.DisplayFor(modelItem => item.KichThuoc.TenSize), @Html.DisplayFor(modelItem => item.MauSac.TenMau)</td>
+                    <td colspan="2">Còn lại: @Html.DisplayFor(modelItem => item.SoLuong)</td>
+                    <td>
+                        <a href="@Url.Action("ThemGioHang", "GioHang", new {@ms = item.MaHang, @strURL = Request.Url.ToString() })">
+                            <input type="submit" value="MUA NGAY" class="btn btn-primary" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <h3 style="text-align:center; color:crimson">Mô tả sản phẩm</h3>
+    <div class="col-md-6">
+        @foreach (var item in Model.hangHoas)
+        {
+            <h4>Thông tin chi tiết sản phẩm</h4>
+            <ul>
+                <li>
+                    @item.TenHang
+                </li>
+                <li>
+                    Kiểu dáng: @item.KieuDang
+                </li>
+                <li>
+                    Xuất xứ: @item.XuatXu
+                </li>
+                <li>
+                    Nhà sản xuất: @item.NhaSanXuat
+                </li>
+                <li>
+                    Năm sản xuất: @item.NamSanXuat
+                </li>
+            </ul>
+        }
+
+    </div>
+    <div class="col-md-6" style="text-align:center">
+        <h4>Mô tả sản phẩm</h4>
+        @foreach (var item in Model.hangHoas)
+        {
+            @item.MoTa
+        }
+
+    </div>
+
+</div>
+

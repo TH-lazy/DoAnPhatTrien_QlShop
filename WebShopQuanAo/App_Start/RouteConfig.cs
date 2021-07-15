@@ -18,6 +18,7 @@ namespace WebShopQuanAo
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "SanPham", action = "ShowSanPham", id = UrlParameter.Optional }
             );
+
         }
     }
 }

@@ -13,6 +13,11 @@ namespace WebShopQuanAo.Controllers
             return View();
         }
 
+        public ActionResult Index1()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -28,6 +33,11 @@ namespace WebShopQuanAo.Controllers
         }
 
         public ActionResult TrangChu()
+        {
+            return View();
+        }
+
+        public ActionResult GioiThieu()
         {
             return View();
         }

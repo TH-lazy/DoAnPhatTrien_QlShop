@@ -1,0 +1,74 @@
+﻿@model WebShopQuanAo.KhachHang
+@{
+    ViewBag.Title = "ThongTinTaiKhoan";
+    Layout = "~/Views/Shared/PlayoutShared.cshtml";
+}
+
+<h1 style="text-align:center; color:rgb(108, 245, 240); margin-left:100px;">Thông tin tài khoản</h1>
+<fieldset>
+    <legend>Khách Hàng</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.MaKH)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaKH)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.TenKH)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TenKH)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.NgaySinh)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgaySinh)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.GioiTinh)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GioiTinh)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Taikhoan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Taikhoan)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.SoDienThoai)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SoDienThoai)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Matkhau)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Matkhau)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.DiaChi)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DiaChi)
+    </div>
+</fieldset>
+

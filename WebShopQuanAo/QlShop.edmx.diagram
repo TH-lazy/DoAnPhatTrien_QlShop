@@ -59,6 +59,7 @@
         <AssociationConnector Association="Data_QLBanQuanAoModel.fk_PNK_NCC" ManuallyRouted="false" />
         <AssociationConnector Association="Data_QLBanQuanAoModel.fk_PCT_MaNV" ManuallyRouted="false" />
         <AssociationConnector Association="Data_QLBanQuanAoModel.fk_PNK_NV" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_QLBanQuanAoModel.fk_HDL_HTTT" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
