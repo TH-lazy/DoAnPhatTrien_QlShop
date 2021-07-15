@@ -28,10 +28,89 @@ namespace DAL_BLL
             return qlpn.PhieuNhapKhos.Select(m => m).ToList();
         }
 
-        //public List<ChiTiet_PhieuNhapKho> layCTPNK(string mapn)
-        //{
+        public List<PhieuNhapKho> lay_PNK(int manv, string malo, string mancc, DateTime dateStart, DateTime dateEnd)
+        {
+            // 8 trường hợp vì dateStart và dateEnd luôn có dữ liệu --> luôn where ngày lập phiếu
+            // Thay vì viết 8 phương thức khác nhau --> viết chung 1 phương thức gọi 1 lần
+            #region --- Các trường hợp ---
+            if (malo != "")
+            {
+                if(mancc != "")
+                {
+                    if(manv != 0) // where: malo, mancc, manv
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.MaNV == manv).Where(p => p.MaNCC == mancc).Where(p => p.MaLo == malo)
+                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                    else // where: malo, mancc
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.MaLo == malo).Where(p => p.MaNCC == mancc)
+                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                }
+                else
+                {
+                    if(manv != 0) // where: malo, manv
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.MaLo == malo).Where(p => p.MaNV == manv)
+                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                    else // where: malo
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.MaLo == malo)
+                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                }
+            }
+            else
+            {
+                if (mancc != "")
+                {
+                    if(manv != 0) // where: mancc, manv
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.MaNCC == mancc).Where(p => p.MaNV == manv)
+                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                    else // where: mancc
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.MaNCC == mancc)
+                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                }
+                else
+                {
+                    if(manv != 0) // where: manv
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.MaNV == manv)
+                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                    else // chỉ where ngày lập phiếu
+                    {
+                        return qlpn.PhieuNhapKhos.Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
+                    }
+                }
+            }
+            #endregion
+        }
 
-        //}
+        public List<ChiTiet_PhieuNhapKho> layCTPNK()
+        {
+            return qlpn.ChiTiet_PhieuNhapKhos.Select(m => m).ToList();
+        }
+
+        public List<ChiTiet_PhieuNhapKho> lay_CTPNK(int manv, string malo, string mancc, DateTime dateStart, DateTime dateEnd)
+        {
+            List<ChiTiet_PhieuNhapKho> list_ctpn = new List<ChiTiet_PhieuNhapKho>();
+            // lấy phiếu nhập với các điều kiện như trên
+            List<PhieuNhapKho> listpn = lay_PNK(manv, malo, mancc, dateStart, dateEnd);
+
+            // lấy tất cả chi tiết phiếu nhập có cùng mã phiếu nhập
+            foreach(PhieuNhapKho pn in listpn)
+            {
+                list_ctpn.AddRange(qlpn.ChiTiet_PhieuNhapKhos.Where(ctpn => ctpn.MaPhieuNhap == pn.MaPhieuNhap));
+            }
+            return list_ctpn;
+        }
         public int KTPNK(string mpn)
         {
             return qlpn.PhieuNhapKhos.Select(m => m).Where(ma => ma.MaPhieuNhap == mpn).Count();
