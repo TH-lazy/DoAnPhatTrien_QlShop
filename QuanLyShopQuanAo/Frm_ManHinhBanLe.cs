@@ -18,6 +18,7 @@ namespace QuanLyShopQuanAo
 
         float tienhang;
         public String maqr;
+        string nhanvien = "";
 
         QLShopDataContext qlhds = new QLShopDataContext();
         HangHoaDALBLL hanghoa = new HangHoaDALBLL();
@@ -30,13 +31,19 @@ namespace QuanLyShopQuanAo
             InitializeComponent();
         }
 
+        public Frm_ManHinhBanLe(string nv)
+            : this()
+        {
+            nhanvien = nv;
+        }
+
         private void Frm_ManHinhBanLe_Load(object sender, EventArgs e)
         {
             cboHangHoa.DataSource = hanghoa.loadHangHoa();
             cboHangHoa.DisplayMember = "TenHang";
             cboHangHoa.ValueMember = "MaHang";
 
-            cboNhanVien.DataSource = doiTac.loadNhanVien();
+            cboNhanVien.DataSource = doiTac.laynhanvien(nhanvien);
             cboNhanVien.DisplayMember = "TenNV";
             cboNhanVien.ValueMember = "MaNV";
 
@@ -51,6 +58,14 @@ namespace QuanLyShopQuanAo
             cboThue.DataSource = hanghoa.loadThue();
             cboThue.DisplayMember = "TenThue";
             cboThue.ValueMember = "MaThue";
+
+
+            cboHinhThuc.DataSource = doiTac.loadhinhthuc();
+            cboHinhThuc.DisplayMember = "TenHT";
+            cboHinhThuc.ValueMember = "MaHT";
+
+
+            txtGhiChu.Text = "";
 
             if (rdoMacDinh.Checked)
             {
@@ -217,8 +232,8 @@ namespace QuanLyShopQuanAo
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-
-            if (hd.themHoaDon(DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), int.Parse(cboKhachHang.SelectedValue.ToString()), int.Parse(cboNhanVien.SelectedValue.ToString()), cboThue.SelectedValue.ToString(), int.Parse(txtThue.Text), float.Parse(txtTienThue.Text), float.Parse(txtGiamGia.Text), float.Parse(txtTienGiam.Text), float.Parse(txtTongTien.Text), ""))
+            simpleButton5.Enabled = false;
+            if (hd.themHoaDon(DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), DateTime.ParseExact(dtpNgayLap.Text, "dd/MM/yyyy", null), int.Parse(cboKhachHang.SelectedValue.ToString()), int.Parse(cboNhanVien.SelectedValue.ToString()), cboThue.SelectedValue.ToString(), int.Parse(txtThue.Text), float.Parse(txtTienThue.Text), float.Parse(txtGiamGia.Text), float.Parse(txtTienGiam.Text), float.Parse(txtTongTien.Text), "",cboHinhThuc.SelectedValue.ToString()))
             {
                 cboHangHoa.Focus();
                 txtSoLuong.Enabled = true;
@@ -228,6 +243,7 @@ namespace QuanLyShopQuanAo
 
         private void simpleButton6_Click(object sender, EventArgs e)
         {
+            simpleButton5.Enabled = true;
             if (txtSoLuong.Enabled == false)
             {
                 MessageBox.Show("Hiện tại không có hóa đơn để xóa.");
@@ -323,20 +339,25 @@ namespace QuanLyShopQuanAo
 
         private void simpleButton9_Click(object sender, EventArgs e)
         {
+            simpleButton5.Enabled = true;
             if (hd.capNhatHoaDon(mahdl, int.Parse(txtThue.Text), float.Parse(txtTienThue.Text), float.Parse(txtGiamGia.Text), float.Parse(txtTienGiam.Text), float.Parse(txtTongTien.Text)))
             {
-                MessageBox.Show("Lưu hóa đơn thành công.");
-                txtSoLuong.Text = "";
-                txtTienHang.Text = "0";
-                txtThue.Text = "0";
-                txtTienThue.Text = "0";
-                txtGiamGia.Text = "0";
-                txtTienGiam.Text = "0";
-                txtTongTien.Text = "0";
-                txtTienKhachDua.Text = "0";
-                txtTienThoi.Text = "0";
-                txtSoLuong.Enabled = false;
-                gridControl1.DataSource = "";
+                if (hd.ghichuhoadon(mahdl,txtGhiChu.Text))
+                {
+                    MessageBox.Show("Lưu hóa đơn thành công.");
+                    txtSoLuong.Text = "";
+                    txtTienHang.Text = "0";
+                    txtThue.Text = "0";
+                    txtTienThue.Text = "0";
+                    txtGiamGia.Text = "0";
+                    txtTienGiam.Text = "0";
+                    txtTongTien.Text = "0";
+                    txtTienKhachDua.Text = "0";
+                    txtTienThoi.Text = "0";
+                    txtSoLuong.Enabled = false;
+                    gridControl1.DataSource = "";
+                    txtGhiChu.Text = "";
+                }
             }
         }
 
@@ -434,7 +455,7 @@ namespace QuanLyShopQuanAo
 
         private void simpleButton12_Click(object sender, EventArgs e)
         {
-            
+            simpleButton5.Enabled = true; 
         }
 
         private void cboHangHoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -453,7 +474,8 @@ namespace QuanLyShopQuanAo
 
         private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboMau.DataSource = hanghoa.layMauHang(cboSize.SelectedValue.ToString());
+            cboMau.DataSource = null;
+            cboMau.DataSource = hanghoa.layMauHang(cboHangHoa.SelectedValue.ToString(), cboSize.SelectedValue.ToString());
             cboMau.DisplayMember = "TenMau";
             cboMau.ValueMember = "MaMau";
         }

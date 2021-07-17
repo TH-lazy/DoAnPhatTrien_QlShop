@@ -9,8 +9,40 @@ namespace DAL_BLL
     public class DoiTac
     {
         QLShopDataContext qlDoitac = new QLShopDataContext();
+
         public DoiTac()
         { }
+
+        public IQueryable<HinhThuc> loadhinhthuc()
+        {
+            return qlDoitac.HinhThucs.Select(m => m);
+        }
+        public int KTDangNhap(string tk, string mk)
+        {
+            return qlDoitac.NhanViens.Select(m => m).Where(ma => ma.TenDN == tk && ma.MatKhau == mk).Count();
+
+        }
+        public bool dangNhap(string tk, string mk)
+        {
+            if (KTDangNhap(tk, mk) == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public string laychucvu(string tk, string mk)
+        {
+            string cv = "";
+            NhanVien nv = qlDoitac.NhanViens.Single(m => m.TenDN == tk && m.MatKhau == mk);
+            cv = nv.MaCV;
+            return cv;
+        }
+
+        public IQueryable<NhanVien> laynhanvien(string tk)
+        {
+            return qlDoitac.NhanViens.Select(m => m).Where(ma => ma.TenDN == tk);
+        }
 
         public IQueryable<ChucVu> loadChucVu()
         {

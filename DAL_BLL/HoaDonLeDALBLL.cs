@@ -21,7 +21,7 @@ namespace DAL_BLL
         }
 
 
-        public bool themHoaDon(DateTime ngaylap, DateTime ngayht, int kh, int nv, string mathue, int sothue, float tienthue, float giamgia, float sotiengiam, float tongtien, string ghichu)
+        public bool themHoaDon(DateTime ngaylap, DateTime ngayht, int kh, int nv, string mathue, int sothue, float tienthue, float giamgia, float sotiengiam, float tongtien, string ghichu, string ht)
         {
             HoaDonBanLe hd = new HoaDonBanLe();
             hd.NgayLap = ngaylap;
@@ -35,6 +35,7 @@ namespace DAL_BLL
             hd.SoTienGiam = sotiengiam;
             hd.TongTien = tongtien;
             hd.GhiChu = ghichu;
+            hd.MaHT = ht;
             qldhdl.HoaDonBanLes.InsertOnSubmit(hd);
             qldhdl.SubmitChanges();
             return true;
@@ -229,6 +230,19 @@ namespace DAL_BLL
             {
                 ChiTietHoaDonBanLe ct = qldhdl.ChiTietHoaDonBanLes.Single(m => m.MaCTHDL == ma);
                 ct.GhiChu = chuoi;
+                qldhdl.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
+
+        public bool ghichuhoadon(int mahdl, string ghichu)
+        {
+            if (KTHoaDon(mahdl) ==1)
+            {
+                HoaDonBanLe hd = qldhdl.HoaDonBanLes.Single(m => m.MaHDL == mahdl);
+                hd.GhiChu = ghichu;
                 qldhdl.SubmitChanges();
                 return true;
             }

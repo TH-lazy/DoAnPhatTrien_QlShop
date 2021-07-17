@@ -701,5 +701,11 @@ namespace DAL_BLL
                            };
             return l;
         }
+
+        public IQueryable layMauHang(string hang, string size)
+        {
+            IQueryable hs = (from h in qlhanghoa.ChiTietHangHoas where (h.MaHang == hang && h.MaSize == size) select new { h.MaCTHH, h.KichThuoc.MaSize, h.MauSac.MaMau, h.MauSac.TenMau }).Distinct();
+            return hs;
+        } 
     } 
 }

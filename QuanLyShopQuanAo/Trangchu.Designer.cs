@@ -191,6 +191,7 @@ namespace QuanLyShopQuanAo
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
             this.ribbon.Size = new System.Drawing.Size(1474, 58);
+            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // barButtonItem2
             // 

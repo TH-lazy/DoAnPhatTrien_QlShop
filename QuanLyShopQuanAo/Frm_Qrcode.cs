@@ -52,7 +52,7 @@ namespace QuanLyShopQuanAo
             foreach (FilterInfo Device in filterInfoCollection)
             {
                 cboCamera.Items.Add(Device.Name);
-            }    
+            }
             cboCamera.SelectedIndex = 0;
             //videoCaptureDevice = new VideoCaptureDevice();
         }
@@ -66,7 +66,7 @@ namespace QuanLyShopQuanAo
         {
             //đây nè đóng lại
             //if (videoCaptureDevice.IsRunning == true)
-               //videoCaptureDevice.Stop();
+            //videoCaptureDevice.Stop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace QuanLyShopQuanAo
                     //timer1.Stop();
                     if (videoCaptureDevice.IsRunning == true)
                         videoCaptureDevice.Stop();
-                }    
+                }
             }
         }
 
@@ -108,9 +108,9 @@ namespace QuanLyShopQuanAo
                 formcha2.maqr = txtMabc.Text;
                 formcha2.capnhat();
             }
-            
 
-            
+
+
             this.Close();
         }
 

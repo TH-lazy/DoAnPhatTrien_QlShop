@@ -16,7 +16,7 @@ namespace QuanLyShopQuanAo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Trangchu());
+            Application.Run(new Frm_DangNhap());
         }
     }
 }

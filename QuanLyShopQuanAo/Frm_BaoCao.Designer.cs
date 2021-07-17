@@ -265,6 +265,7 @@ namespace QuanLyShopQuanAo
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(937, 66);
             this.panelControl2.TabIndex = 0;
+            this.panelControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl2_Paint);
             // 
             // panelControl4
             // 

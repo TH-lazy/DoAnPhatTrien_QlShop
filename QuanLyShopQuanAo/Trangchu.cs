@@ -13,14 +13,29 @@ namespace QuanLyShopQuanAo
 {
     public partial class Trangchu : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        string chucvu = "";
+        string taikhoan = "";
         public Trangchu()
         {
             InitializeComponent();
         }
 
+
+        public Trangchu(string mess, string tk)
+            : this()
+        {
+            chucvu = mess;
+            taikhoan = tk;
+        }
+
         private void Trangchu_Load(object sender, EventArgs e)
         {
-            
+
+            if (chucvu.Equals("CV0001"))
+            {
+                xtraTabPage4.Visible = true;
+                xtraTabPage1.PageEnabled = xtraTabPage2.PageEnabled = xtraTabPage3.PageEnabled = xtraTabPage5.PageEnabled = xtraTabPage6.PageEnabled = xtraTabPage7.PageEnabled = xtraTabPage8.PageEnabled = xtraTabPage9.PageEnabled = xtraTabPage10.PageEnabled = false;
+            }
         }
 
         private void a_Click(object sender, EventArgs e)
@@ -178,7 +193,7 @@ namespace QuanLyShopQuanAo
 
         private void simpleButton1_Click_1(object sender, EventArgs e)
         {
-            Frm_ManHinhBanLe f = new Frm_ManHinhBanLe();
+            Frm_ManHinhBanLe f = new Frm_ManHinhBanLe(taikhoan);
             f.Show();
         }
 
@@ -215,6 +230,11 @@ namespace QuanLyShopQuanAo
         {
             Frm_BaoCao fbc = new Frm_BaoCao("nhapkhochitiet");
             fbc.Show();
+        }
+
+        private void ribbon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -220,5 +220,10 @@ namespace QuanLyShopQuanAo
             comboBox3.DisplayMember = "TenNCC";
             comboBox3.ValueMember = "MaNCC";
         }
+
+        private void panelControl2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
