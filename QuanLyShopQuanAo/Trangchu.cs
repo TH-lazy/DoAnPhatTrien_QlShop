@@ -222,19 +222,45 @@ namespace QuanLyShopQuanAo
 
         private void sbtBKPhieuNhapKho_Click(object sender, EventArgs e)
         {
-            Frm_BaoCao fbc = new Frm_BaoCao("nhapkho");
-            fbc.Show();
+            if (!IsAlreadyOpen("Frm_BaoCao"))
+            {
+                Frm_BaoCao fbc = new Frm_BaoCao("bk_nhapkho");
+                fbc.Show();
+            }
         }
 
         private void sbtBKPhieuNhapKhoCT_Click(object sender, EventArgs e)
         {
-            Frm_BaoCao fbc = new Frm_BaoCao("nhapkhochitiet");
-            fbc.Show();
+            if(!IsAlreadyOpen("Frm_BaoCao"))
+            {
+                Frm_BaoCao fbc = new Frm_BaoCao("bk_ctnhapkho");
+                fbc.Show();
+            }
         }
 
         private void ribbon_Click(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        ///     Check if a form is already open.
+        /// </summary>
+        /// <param name="formname">Name of the form.</param>
+        /// <returns>true if the form is opened, otherwise, false</returns>
+        private bool IsAlreadyOpen(string formname)
+        {
+            FormCollection forms = Application.OpenForms;
+            foreach(Form f in forms)
+            {
+                if (f.Name == formname)
+                {
+                    f.Focus();
+                    return true;
+                }  
+            }
+            // else
+            return false;
         }
     }
 }

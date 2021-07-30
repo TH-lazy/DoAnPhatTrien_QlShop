@@ -28,69 +28,39 @@ namespace DAL_BLL
             return qlpn.PhieuNhapKhos.Select(m => m).ToList();
         }
 
-        public List<PhieuNhapKho> lay_PNK(int manv, string malo, string mancc, DateTime dateStart, DateTime dateEnd)
+        /// <summary>
+        ///     Lấy các thông tin của Phiếu nhập kho với các điều kiện có thể null.<br/>
+        ///     Chỉ dùng để hiển thị lên datagridview.
+        /// </summary>
+        /// <param name="manv"> mã NV lập của Phiếu nhập</param>
+        /// <param name="malo"> mã lô của Phiếu nhập</param>
+        /// <param name="mancc"> mã NCC của Phiếu nhập</param>
+        /// <param name="dateStart"> ngày đầu của khoảng thời gian </param>
+        /// <param name="dateEnd"> ngày cuối của khoảng thời gian </param>
+        /// <returns> Danh sách gồm: mã phiếu, ngày lập, mã NV lập, tổng sl, tổng thành tiền, mô tả </returns>
+        public IQueryable lay_PNK_DK(int manv, string malo, string mancc, DateTime dateStart, DateTime dateEnd)
         {
             // 8 trường hợp vì dateStart và dateEnd luôn có dữ liệu --> luôn where ngày lập phiếu
-            // Thay vì viết 8 phương thức khác nhau --> viết chung 1 phương thức gọi 1 lần
-            #region --- Các trường hợp ---
-            if (malo != "")
+            // Viết dạng chaining where clauses
+            var list = qlpn.ChiTiet_PhieuNhapKhos.AsQueryable();
+            if (manv != 0)
             {
-                if(mancc != "")
-                {
-                    if(manv != 0) // where: malo, mancc, manv
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.MaNV == manv).Where(p => p.MaNCC == mancc).Where(p => p.MaLo == malo)
-                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                    else // where: malo, mancc
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.MaLo == malo).Where(p => p.MaNCC == mancc)
-                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                }
-                else
-                {
-                    if(manv != 0) // where: malo, manv
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.MaLo == malo).Where(p => p.MaNV == manv)
-                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                    else // where: malo
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.MaLo == malo)
-                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                }
+                list = list.Where(pn => pn.PhieuNhapKho.MaNV == manv);
             }
-            else
+            if (malo != null)
             {
-                if (mancc != "")
-                {
-                    if(manv != 0) // where: mancc, manv
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.MaNCC == mancc).Where(p => p.MaNV == manv)
-                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                    else // where: mancc
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.MaNCC == mancc)
-                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                }
-                else
-                {
-                    if(manv != 0) // where: manv
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.MaNV == manv)
-                            .Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                    else // chỉ where ngày lập phiếu
-                    {
-                        return qlpn.PhieuNhapKhos.Where(p => p.NgayLapPhieu >= dateStart && p.NgayLapPhieu <= dateEnd).ToList();
-                    }
-                }
+                list = list.Where(pn => pn.PhieuNhapKho.MaLo == malo);
             }
-            #endregion
+            if (mancc != null)
+            {
+                list = list.Where(pn => pn.PhieuNhapKho.MaNCC == mancc);
+            }
+            if(dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
+            {
+                list = list.Where(pn => pn.PhieuNhapKho.NgayLapPhieu >= dateStart && pn.PhieuNhapKho.NgayLapPhieu <= dateEnd);
+            }
+            return list.GroupBy(pn => new { pn.MaPhieuNhap, pn.PhieuNhapKho.NgayLapPhieu, pn.PhieuNhapKho.MaNV, pn.PhieuNhapKho.MoTa })
+                .Select(pn => new { ma = pn.Key, sl = pn.Sum(p => p.SoLuong), tt = pn.Sum(p => p.ThanhTien)});
         }
 
         public List<ChiTiet_PhieuNhapKho> layCTPNK()
@@ -98,18 +68,81 @@ namespace DAL_BLL
             return qlpn.ChiTiet_PhieuNhapKhos.Select(m => m).ToList();
         }
 
-        public List<ChiTiet_PhieuNhapKho> lay_CTPNK(int manv, string malo, string mancc, DateTime dateStart, DateTime dateEnd)
+        /// <summary>
+        ///     Lấy thông tin chi tiết Phiếu nhập. Điều kiện có thể null.<br/>
+        ///     Chỉ dùng để hiển thị lên datagridview.
+        /// </summary>
+        /// <param name="manv"> mã NV của Phiếu nhập </param>
+        /// <param name="malo"> mã lô của Phiếu nhập </param>
+        /// <param name="mancc"> mã NCC của Phiếu nhập </param>
+        /// <param name="dateStart"> ngày đầu của khoảng thời gian </param>
+        /// <param name="dateEnd"> ngày cuối của khoảng thời gian </param>
+        /// <returns> Danh sách gồm rất nhiều thuộc tính. Demo để thấy toàn bộ danh sách.</returns>
+        public IQueryable layCTPNK_DK(int manv, string malo, string mancc, string mahang, DateTime dateStart, DateTime dateEnd)
         {
-            List<ChiTiet_PhieuNhapKho> list_ctpn = new List<ChiTiet_PhieuNhapKho>();
-            // lấy phiếu nhập với các điều kiện như trên
-            List<PhieuNhapKho> listpn = lay_PNK(manv, malo, mancc, dateStart, dateEnd);
+            // viết dạng chaining where clauses
+            var ctpn = qlpn.ChiTiet_PhieuNhapKhos.AsQueryable();
 
-            // lấy tất cả chi tiết phiếu nhập có cùng mã phiếu nhập
-            foreach(PhieuNhapKho pn in listpn)
+            if (manv != 0)
             {
-                list_ctpn.AddRange(qlpn.ChiTiet_PhieuNhapKhos.Where(ctpn => ctpn.MaPhieuNhap == pn.MaPhieuNhap));
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.MaNV == manv);
             }
-            return list_ctpn;
+            if (malo != null)
+            {
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.MaLo == malo);
+            }
+            if (mancc != null)
+            {
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.MaNCC == mancc);
+            }
+            if (mahang != null)
+            {
+                ctpn = ctpn.Where(pn => pn.MaHang == mahang);
+            }
+            if(dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
+            {
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.NgayLapPhieu >= dateStart && pn.PhieuNhapKho.NgayLapPhieu <= dateEnd);
+            }
+
+            return ctpn.Select(ct => new { ct.MaPhieuNhap, ct.PhieuNhapKho.NgayLapPhieu, ct.PhieuNhapKho.NhanVien.TenNV, ct.PhieuNhapKho.MaNCC, ct.PhieuNhapKho.NhaCungCap.TenNCC, ct.MaHang, ct.HangHoa.TenHang, ct.HangHoa.MaDVT, ct.SoLuong, ct.GiaVon, ct.ThanhTien, ct.PhieuNhapKho.LoHang.TenLo, ct.MoTa });
+        }
+
+        /// <summary>
+        ///     Lấy ds Chi tiết PNK dạng List để dữ liệu được chính xác. Điều kiện có thể null.
+        /// </summary>
+        /// <param name="manv"> mã NV của Phiếu nhập </param>
+        /// <param name="malo"> mã lô của Phiếu nhập </param>
+        /// <param name="mancc"> mã NCC của Phiếu nhập </param>
+        /// <param name="dateStart"> ngày đầu của khoảng thời gian </param>
+        /// <param name="dateEnd"> ngày cuối của khoảng thời gian </param>
+        /// <returns> List Chi tiết Phiếu nhập </returns>
+        public List<ChiTiet_PhieuNhapKho> lay_CTPNK_DK(int manv, string malo, string mancc, string mahang, DateTime dateStart, DateTime dateEnd)
+        {
+            // viết dạng chaining where clauses
+            var ctpn = qlpn.ChiTiet_PhieuNhapKhos.AsQueryable();
+
+            if (manv != 0)
+            {
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.MaNV == manv);
+            }
+            if (malo != null)
+            {
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.MaLo == malo);
+            }
+            if (mancc != null)
+            {
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.MaNCC == mancc);
+            }
+            if (mahang != null)
+            {
+                ctpn = ctpn.Where(pn => pn.MaHang == mahang);
+            }
+            if(dateEnd != DateTime.MinValue && dateStart != DateTime.MinValue)
+            {
+                ctpn = ctpn.Where(pn => pn.PhieuNhapKho.NgayLapPhieu >= dateStart && pn.PhieuNhapKho.NgayLapPhieu <= dateEnd);
+            }
+            
+            return ctpn.ToList();
         }
         public int KTPNK(string mpn)
         {

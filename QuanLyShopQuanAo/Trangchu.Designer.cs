@@ -190,7 +190,7 @@ namespace QuanLyShopQuanAo
             this.ribbon.QuickToolbarItemLinks.Add(this.barButtonItem6);
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-            this.ribbon.Size = new System.Drawing.Size(1474, 58);
+            this.ribbon.Size = new System.Drawing.Size(1474, 71);
             this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
             // barButtonItem2
@@ -276,9 +276,9 @@ namespace QuanLyShopQuanAo
             // 
             this.panelControl1.Controls.Add(this.a);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 58);
+            this.panelControl1.Location = new System.Drawing.Point(0, 71);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1474, 758);
+            this.panelControl1.Size = new System.Drawing.Size(1474, 745);
             this.panelControl1.TabIndex = 0;
             // 
             // a
@@ -299,7 +299,7 @@ namespace QuanLyShopQuanAo
             this.a.Location = new System.Drawing.Point(2, 2);
             this.a.Name = "a";
             this.a.SelectedTabPage = this.xtraTabPage3;
-            this.a.Size = new System.Drawing.Size(1470, 754);
+            this.a.Size = new System.Drawing.Size(1470, 741);
             this.a.TabIndex = 0;
             this.a.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -319,7 +319,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage3.Controls.Add(this.groupBox5);
             this.xtraTabPage3.Controls.Add(this.groupBox4);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage3.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage3.Text = "Danh mục";
             // 
             // groupBox5
@@ -336,7 +336,7 @@ namespace QuanLyShopQuanAo
             this.groupBox5.ForeColor = System.Drawing.Color.Blue;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1031, 723);
+            this.groupBox5.Size = new System.Drawing.Size(1031, 704);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Nhập liệu";
@@ -426,7 +426,7 @@ namespace QuanLyShopQuanAo
             this.groupBox6.Controls.Add(this.btnDSHang);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox6.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox6.Location = new System.Drawing.Point(3, 365);
+            this.groupBox6.Location = new System.Drawing.Point(3, 346);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(1025, 355);
             this.groupBox6.TabIndex = 0;
@@ -537,7 +537,7 @@ namespace QuanLyShopQuanAo
             this.groupBox4.ForeColor = System.Drawing.Color.Blue;
             this.groupBox4.Location = new System.Drawing.Point(1031, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(437, 723);
+            this.groupBox4.Size = new System.Drawing.Size(437, 704);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh mục khác";
@@ -673,7 +673,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage1.Appearance.PageClient.BackColor = System.Drawing.Color.Black;
             this.xtraTabPage1.Appearance.PageClient.Options.UseBackColor = true;
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1468, 717);
             this.xtraTabPage1.Text = "Home";
             // 
             // xtraTabPage2
@@ -681,7 +681,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage2.Controls.Add(this.groupBox2);
             this.xtraTabPage2.Controls.Add(this.groupBox1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1468, 717);
             this.xtraTabPage2.Text = "Hệ thống";
             // 
             // groupBox2
@@ -690,7 +690,7 @@ namespace QuanLyShopQuanAo
             this.groupBox2.ForeColor = System.Drawing.Color.Blue;
             this.groupBox2.Location = new System.Drawing.Point(906, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(562, 723);
+            this.groupBox2.Size = new System.Drawing.Size(562, 717);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tiện ích hệ thống";
@@ -702,7 +702,7 @@ namespace QuanLyShopQuanAo
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(906, 723);
+            this.groupBox1.Size = new System.Drawing.Size(906, 717);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tiện ích";
@@ -711,7 +711,7 @@ namespace QuanLyShopQuanAo
             // 
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox3.Location = new System.Drawing.Point(3, 370);
+            this.groupBox3.Location = new System.Drawing.Point(3, 364);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(900, 350);
             this.groupBox3.TabIndex = 0;
@@ -723,7 +723,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage4.Controls.Add(this.groupBox8);
             this.xtraTabPage4.Controls.Add(this.groupBox7);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1468, 717);
             this.xtraTabPage4.Text = "Bán hàng";
             // 
             // groupBox8
@@ -740,7 +740,7 @@ namespace QuanLyShopQuanAo
             this.groupBox8.ForeColor = System.Drawing.Color.Blue;
             this.groupBox8.Location = new System.Drawing.Point(0, 0);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(936, 723);
+            this.groupBox8.Size = new System.Drawing.Size(936, 717);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Nhập liệu";
@@ -824,7 +824,7 @@ namespace QuanLyShopQuanAo
             this.groupBox9.Controls.Add(this.simpleButton6);
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox9.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox9.Location = new System.Drawing.Point(3, 350);
+            this.groupBox9.Location = new System.Drawing.Point(3, 344);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(930, 370);
             this.groupBox9.TabIndex = 0;
@@ -882,7 +882,7 @@ namespace QuanLyShopQuanAo
             this.groupBox7.ForeColor = System.Drawing.Color.Blue;
             this.groupBox7.Location = new System.Drawing.Point(936, 0);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(532, 723);
+            this.groupBox7.Size = new System.Drawing.Size(532, 717);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Bảng kê";
@@ -892,7 +892,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage5.Controls.Add(this.groupBox10);
             this.xtraTabPage5.Controls.Add(this.groupBox12);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage5.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage5.Text = "Mua hàng";
             // 
             // groupBox10
@@ -902,7 +902,7 @@ namespace QuanLyShopQuanAo
             this.groupBox10.ForeColor = System.Drawing.Color.Blue;
             this.groupBox10.Location = new System.Drawing.Point(0, 0);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(766, 723);
+            this.groupBox10.Size = new System.Drawing.Size(766, 704);
             this.groupBox10.TabIndex = 5;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Nhập liệu";
@@ -911,7 +911,7 @@ namespace QuanLyShopQuanAo
             // 
             this.groupBox11.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox11.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox11.Location = new System.Drawing.Point(3, 305);
+            this.groupBox11.Location = new System.Drawing.Point(3, 286);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(760, 415);
             this.groupBox11.TabIndex = 1;
@@ -924,7 +924,7 @@ namespace QuanLyShopQuanAo
             this.groupBox12.ForeColor = System.Drawing.Color.Blue;
             this.groupBox12.Location = new System.Drawing.Point(766, 0);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(702, 723);
+            this.groupBox12.Size = new System.Drawing.Size(702, 704);
             this.groupBox12.TabIndex = 4;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Bảng kê";
@@ -934,7 +934,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage6.Controls.Add(this.groupBox14);
             this.xtraTabPage6.Controls.Add(this.groupBox13);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage6.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage6.Text = "Tồn kho";
             // 
             // groupBox14
@@ -945,7 +945,7 @@ namespace QuanLyShopQuanAo
             this.groupBox14.ForeColor = System.Drawing.Color.Blue;
             this.groupBox14.Location = new System.Drawing.Point(0, 0);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(916, 723);
+            this.groupBox14.Size = new System.Drawing.Size(916, 704);
             this.groupBox14.TabIndex = 6;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Nhập liệu";
@@ -964,7 +964,7 @@ namespace QuanLyShopQuanAo
             // 
             this.groupBox15.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox15.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox15.Location = new System.Drawing.Point(3, 322);
+            this.groupBox15.Location = new System.Drawing.Point(3, 303);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(910, 398);
             this.groupBox15.TabIndex = 1;
@@ -979,7 +979,7 @@ namespace QuanLyShopQuanAo
             this.groupBox13.ForeColor = System.Drawing.Color.Blue;
             this.groupBox13.Location = new System.Drawing.Point(916, 0);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(552, 723);
+            this.groupBox13.Size = new System.Drawing.Size(552, 704);
             this.groupBox13.TabIndex = 5;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Bảng kê";
@@ -1009,7 +1009,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage7.Controls.Add(this.groupBox17);
             this.xtraTabPage7.Controls.Add(this.groupBox16);
             this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage7.Size = new System.Drawing.Size(1468, 717);
             this.xtraTabPage7.Text = "Thu chi";
             // 
             // groupBox17
@@ -1020,7 +1020,7 @@ namespace QuanLyShopQuanAo
             this.groupBox17.ForeColor = System.Drawing.Color.Blue;
             this.groupBox17.Location = new System.Drawing.Point(0, 0);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(944, 723);
+            this.groupBox17.Size = new System.Drawing.Size(944, 717);
             this.groupBox17.TabIndex = 7;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Nhập liệu";
@@ -1039,7 +1039,7 @@ namespace QuanLyShopQuanAo
             // 
             this.groupBox18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox18.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox18.Location = new System.Drawing.Point(3, 326);
+            this.groupBox18.Location = new System.Drawing.Point(3, 320);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(938, 394);
             this.groupBox18.TabIndex = 1;
@@ -1052,7 +1052,7 @@ namespace QuanLyShopQuanAo
             this.groupBox16.ForeColor = System.Drawing.Color.Blue;
             this.groupBox16.Location = new System.Drawing.Point(944, 0);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(524, 723);
+            this.groupBox16.Size = new System.Drawing.Size(524, 717);
             this.groupBox16.TabIndex = 6;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Bảng kê";
@@ -1062,7 +1062,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage8.Controls.Add(this.groupBox20);
             this.xtraTabPage8.Controls.Add(this.groupBox19);
             this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage8.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage8.Text = "Khuyễn mãi";
             // 
             // groupBox20
@@ -1072,7 +1072,7 @@ namespace QuanLyShopQuanAo
             this.groupBox20.ForeColor = System.Drawing.Color.Blue;
             this.groupBox20.Location = new System.Drawing.Point(0, 0);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(845, 723);
+            this.groupBox20.Size = new System.Drawing.Size(845, 704);
             this.groupBox20.TabIndex = 6;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "Nhập liệu";
@@ -1081,7 +1081,7 @@ namespace QuanLyShopQuanAo
             // 
             this.groupBox21.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox21.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox21.Location = new System.Drawing.Point(3, 305);
+            this.groupBox21.Location = new System.Drawing.Point(3, 286);
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Size = new System.Drawing.Size(839, 415);
             this.groupBox21.TabIndex = 1;
@@ -1094,7 +1094,7 @@ namespace QuanLyShopQuanAo
             this.groupBox19.ForeColor = System.Drawing.Color.Blue;
             this.groupBox19.Location = new System.Drawing.Point(845, 0);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(623, 723);
+            this.groupBox19.Size = new System.Drawing.Size(623, 704);
             this.groupBox19.TabIndex = 1;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Bảng kê";
@@ -1102,7 +1102,7 @@ namespace QuanLyShopQuanAo
             // xtraTabPage9
             // 
             this.xtraTabPage9.Name = "xtraTabPage9";
-            this.xtraTabPage9.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage9.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage9.Text = "Báo cáo";
             // 
             // xtraTabPage10
@@ -1110,7 +1110,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage10.Controls.Add(this.groupBox23);
             this.xtraTabPage10.Controls.Add(this.groupBox22);
             this.xtraTabPage10.Name = "xtraTabPage10";
-            this.xtraTabPage10.Size = new System.Drawing.Size(1468, 723);
+            this.xtraTabPage10.Size = new System.Drawing.Size(1468, 717);
             this.xtraTabPage10.Text = "Công nợ";
             // 
             // groupBox23
@@ -1119,7 +1119,7 @@ namespace QuanLyShopQuanAo
             this.groupBox23.ForeColor = System.Drawing.Color.Blue;
             this.groupBox23.Location = new System.Drawing.Point(885, 0);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(583, 723);
+            this.groupBox23.Size = new System.Drawing.Size(583, 717);
             this.groupBox23.TabIndex = 1;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Công nợ phải trả";
@@ -1130,7 +1130,7 @@ namespace QuanLyShopQuanAo
             this.groupBox22.ForeColor = System.Drawing.Color.Blue;
             this.groupBox22.Location = new System.Drawing.Point(0, 0);
             this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(885, 723);
+            this.groupBox22.Size = new System.Drawing.Size(885, 717);
             this.groupBox22.TabIndex = 0;
             this.groupBox22.TabStop = false;
             this.groupBox22.Text = "Công nợ phải thu";
@@ -1138,7 +1138,7 @@ namespace QuanLyShopQuanAo
             // Trangchu
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1474, 816);
             this.Controls.Add(this.panelControl1);
