@@ -108,6 +108,19 @@ namespace QuanLyShopQuanAo
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.xtraTabPage9 = new DevExpress.XtraTab.XtraTabPage();
+            this.mainPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBCHangHoa = new System.Windows.Forms.GroupBox();
+            this.Panel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBCHoaDon = new System.Windows.Forms.GroupBox();
+            this.Panel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.sbt_BKHDLe = new DevExpress.XtraEditors.SimpleButton();
+            this.sbt_BKCTHDLe = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBCKho = new System.Windows.Forms.GroupBox();
+            this.Panel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.sbtBK_PhieuNK = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtBK_CTPhieuNK = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBCThuChi = new System.Windows.Forms.GroupBox();
+            this.Panel4 = new System.Windows.Forms.TableLayoutPanel();
             this.xtraTabPage10 = new DevExpress.XtraTab.XtraTabPage();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
@@ -135,6 +148,14 @@ namespace QuanLyShopQuanAo
             this.groupBox17.SuspendLayout();
             this.xtraTabPage8.SuspendLayout();
             this.groupBox20.SuspendLayout();
+            this.xtraTabPage9.SuspendLayout();
+            this.mainPanel.SuspendLayout();
+            this.groupBCHangHoa.SuspendLayout();
+            this.groupBCHoaDon.SuspendLayout();
+            this.Panel2.SuspendLayout();
+            this.groupBCKho.SuspendLayout();
+            this.Panel3.SuspendLayout();
+            this.groupBCThuChi.SuspendLayout();
             this.xtraTabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -673,7 +694,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage1.Appearance.PageClient.BackColor = System.Drawing.Color.Black;
             this.xtraTabPage1.Appearance.PageClient.Options.UseBackColor = true;
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1468, 717);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage1.Text = "Home";
             // 
             // xtraTabPage2
@@ -681,7 +702,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage2.Controls.Add(this.groupBox2);
             this.xtraTabPage2.Controls.Add(this.groupBox1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1468, 717);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage2.Text = "Hệ thống";
             // 
             // groupBox2
@@ -690,7 +711,7 @@ namespace QuanLyShopQuanAo
             this.groupBox2.ForeColor = System.Drawing.Color.Blue;
             this.groupBox2.Location = new System.Drawing.Point(906, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(562, 717);
+            this.groupBox2.Size = new System.Drawing.Size(562, 704);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tiện ích hệ thống";
@@ -702,7 +723,7 @@ namespace QuanLyShopQuanAo
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(906, 717);
+            this.groupBox1.Size = new System.Drawing.Size(906, 704);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tiện ích";
@@ -711,7 +732,7 @@ namespace QuanLyShopQuanAo
             // 
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox3.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox3.Location = new System.Drawing.Point(3, 364);
+            this.groupBox3.Location = new System.Drawing.Point(3, 351);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(900, 350);
             this.groupBox3.TabIndex = 0;
@@ -723,7 +744,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage4.Controls.Add(this.groupBox8);
             this.xtraTabPage4.Controls.Add(this.groupBox7);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(1468, 717);
+            this.xtraTabPage4.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage4.Text = "Bán hàng";
             // 
             // groupBox8
@@ -740,7 +761,7 @@ namespace QuanLyShopQuanAo
             this.groupBox8.ForeColor = System.Drawing.Color.Blue;
             this.groupBox8.Location = new System.Drawing.Point(0, 0);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(936, 717);
+            this.groupBox8.Size = new System.Drawing.Size(936, 704);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Nhập liệu";
@@ -824,7 +845,7 @@ namespace QuanLyShopQuanAo
             this.groupBox9.Controls.Add(this.simpleButton6);
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox9.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox9.Location = new System.Drawing.Point(3, 344);
+            this.groupBox9.Location = new System.Drawing.Point(3, 331);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(930, 370);
             this.groupBox9.TabIndex = 0;
@@ -882,7 +903,7 @@ namespace QuanLyShopQuanAo
             this.groupBox7.ForeColor = System.Drawing.Color.Blue;
             this.groupBox7.Location = new System.Drawing.Point(936, 0);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(532, 717);
+            this.groupBox7.Size = new System.Drawing.Size(532, 704);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Bảng kê";
@@ -1009,7 +1030,7 @@ namespace QuanLyShopQuanAo
             this.xtraTabPage7.Controls.Add(this.groupBox17);
             this.xtraTabPage7.Controls.Add(this.groupBox16);
             this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(1468, 717);
+            this.xtraTabPage7.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage7.Text = "Thu chi";
             // 
             // groupBox17
@@ -1020,7 +1041,7 @@ namespace QuanLyShopQuanAo
             this.groupBox17.ForeColor = System.Drawing.Color.Blue;
             this.groupBox17.Location = new System.Drawing.Point(0, 0);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(944, 717);
+            this.groupBox17.Size = new System.Drawing.Size(944, 704);
             this.groupBox17.TabIndex = 7;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Nhập liệu";
@@ -1039,7 +1060,7 @@ namespace QuanLyShopQuanAo
             // 
             this.groupBox18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox18.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox18.Location = new System.Drawing.Point(3, 320);
+            this.groupBox18.Location = new System.Drawing.Point(3, 307);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(938, 394);
             this.groupBox18.TabIndex = 1;
@@ -1052,7 +1073,7 @@ namespace QuanLyShopQuanAo
             this.groupBox16.ForeColor = System.Drawing.Color.Blue;
             this.groupBox16.Location = new System.Drawing.Point(944, 0);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(524, 717);
+            this.groupBox16.Size = new System.Drawing.Size(524, 704);
             this.groupBox16.TabIndex = 6;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Bảng kê";
@@ -1101,16 +1122,219 @@ namespace QuanLyShopQuanAo
             // 
             // xtraTabPage9
             // 
+            this.xtraTabPage9.Controls.Add(this.mainPanel);
             this.xtraTabPage9.Name = "xtraTabPage9";
             this.xtraTabPage9.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage9.Text = "Báo cáo";
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.ColumnCount = 4;
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.mainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.mainPanel.Controls.Add(this.groupBCHangHoa, 0, 0);
+            this.mainPanel.Controls.Add(this.groupBCHoaDon, 1, 0);
+            this.mainPanel.Controls.Add(this.groupBCKho, 2, 0);
+            this.mainPanel.Controls.Add(this.groupBCThuChi, 3, 0);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mainPanel.Location = new System.Drawing.Point(0, 35);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.RowCount = 1;
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 669F));
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 669F));
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 669F));
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 669F));
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 669F));
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 669F));
+            this.mainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 669F));
+            this.mainPanel.Size = new System.Drawing.Size(1468, 669);
+            this.mainPanel.TabIndex = 0;
+            // 
+            // groupBCHangHoa
+            // 
+            this.groupBCHangHoa.Controls.Add(this.Panel1);
+            this.groupBCHangHoa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBCHangHoa.ForeColor = System.Drawing.Color.Blue;
+            this.groupBCHangHoa.Location = new System.Drawing.Point(3, 3);
+            this.groupBCHangHoa.Name = "groupBCHangHoa";
+            this.groupBCHangHoa.Size = new System.Drawing.Size(361, 663);
+            this.groupBCHangHoa.TabIndex = 0;
+            this.groupBCHangHoa.TabStop = false;
+            this.groupBCHangHoa.Text = "Hàng hóa";
+            // 
+            // Panel1
+            // 
+            this.Panel1.ColumnCount = 1;
+            this.Panel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Panel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Panel1.Location = new System.Drawing.Point(3, 19);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.RowCount = 8;
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel1.Size = new System.Drawing.Size(355, 641);
+            this.Panel1.TabIndex = 0;
+            // 
+            // groupBCHoaDon
+            // 
+            this.groupBCHoaDon.Controls.Add(this.Panel2);
+            this.groupBCHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBCHoaDon.ForeColor = System.Drawing.Color.Blue;
+            this.groupBCHoaDon.Location = new System.Drawing.Point(370, 3);
+            this.groupBCHoaDon.Name = "groupBCHoaDon";
+            this.groupBCHoaDon.Size = new System.Drawing.Size(361, 663);
+            this.groupBCHoaDon.TabIndex = 1;
+            this.groupBCHoaDon.TabStop = false;
+            this.groupBCHoaDon.Text = "Hóa đơn";
+            // 
+            // Panel2
+            // 
+            this.Panel2.ColumnCount = 1;
+            this.Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Panel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Panel2.Controls.Add(this.sbt_BKHDLe, 0, 0);
+            this.Panel2.Controls.Add(this.sbt_BKCTHDLe, 0, 1);
+            this.Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Panel2.Location = new System.Drawing.Point(3, 19);
+            this.Panel2.Name = "Panel2";
+            this.Panel2.RowCount = 8;
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel2.Size = new System.Drawing.Size(355, 641);
+            this.Panel2.TabIndex = 1;
+            // 
+            // sbt_BKHDLe
+            // 
+            this.sbt_BKHDLe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbt_BKHDLe.ImageOptions.Image")));
+            this.sbt_BKHDLe.Location = new System.Drawing.Point(3, 3);
+            this.sbt_BKHDLe.Name = "sbt_BKHDLe";
+            this.sbt_BKHDLe.Size = new System.Drawing.Size(272, 54);
+            this.sbt_BKHDLe.TabIndex = 5;
+            this.sbt_BKHDLe.Text = "Bảng kê Hóa đơn bán lẻ";
+            this.sbt_BKHDLe.Click += new System.EventHandler(this.sbt_BKHDLe_Click);
+            // 
+            // sbt_BKCTHDLe
+            // 
+            this.sbt_BKCTHDLe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbt_BKCTHDLe.ImageOptions.Image")));
+            this.sbt_BKCTHDLe.Location = new System.Drawing.Point(3, 83);
+            this.sbt_BKCTHDLe.Name = "sbt_BKCTHDLe";
+            this.sbt_BKCTHDLe.Size = new System.Drawing.Size(272, 54);
+            this.sbt_BKCTHDLe.TabIndex = 6;
+            this.sbt_BKCTHDLe.Text = "Bảng kê chi tiết Hóa đơn bán lẻ";
+            this.sbt_BKCTHDLe.Click += new System.EventHandler(this.sbt_BKCTHDLe_Click);
+            // 
+            // groupBCKho
+            // 
+            this.groupBCKho.Controls.Add(this.Panel3);
+            this.groupBCKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBCKho.ForeColor = System.Drawing.Color.Blue;
+            this.groupBCKho.Location = new System.Drawing.Point(737, 3);
+            this.groupBCKho.Name = "groupBCKho";
+            this.groupBCKho.Size = new System.Drawing.Size(361, 663);
+            this.groupBCKho.TabIndex = 2;
+            this.groupBCKho.TabStop = false;
+            this.groupBCKho.Text = "Kho";
+            // 
+            // Panel3
+            // 
+            this.Panel3.ColumnCount = 1;
+            this.Panel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Panel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Panel3.Controls.Add(this.sbtBK_PhieuNK, 0, 0);
+            this.Panel3.Controls.Add(this.sbtBK_CTPhieuNK, 0, 1);
+            this.Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Panel3.Location = new System.Drawing.Point(3, 19);
+            this.Panel3.Name = "Panel3";
+            this.Panel3.RowCount = 8;
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel3.Size = new System.Drawing.Size(355, 641);
+            this.Panel3.TabIndex = 1;
+            // 
+            // sbtBK_PhieuNK
+            // 
+            this.sbtBK_PhieuNK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtBK_PhieuNK.ImageOptions.Image")));
+            this.sbtBK_PhieuNK.Location = new System.Drawing.Point(3, 3);
+            this.sbtBK_PhieuNK.Name = "sbtBK_PhieuNK";
+            this.sbtBK_PhieuNK.Size = new System.Drawing.Size(272, 54);
+            this.sbtBK_PhieuNK.TabIndex = 4;
+            this.sbtBK_PhieuNK.Text = "Bảng kê Phiếu nhập kho";
+            this.sbtBK_PhieuNK.Click += new System.EventHandler(this.sbtBK_PhieuNK_Click);
+            // 
+            // sbtBK_CTPhieuNK
+            // 
+            this.sbtBK_CTPhieuNK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("sbtBK_CTPhieuNK.ImageOptions.Image")));
+            this.sbtBK_CTPhieuNK.Location = new System.Drawing.Point(3, 83);
+            this.sbtBK_CTPhieuNK.Name = "sbtBK_CTPhieuNK";
+            this.sbtBK_CTPhieuNK.Size = new System.Drawing.Size(272, 54);
+            this.sbtBK_CTPhieuNK.TabIndex = 5;
+            this.sbtBK_CTPhieuNK.Text = "Bảng kê chi tiết Phiếu nhập kho";
+            this.sbtBK_CTPhieuNK.Click += new System.EventHandler(this.sbtBK_CTPhieuNK_Click);
+            // 
+            // groupBCThuChi
+            // 
+            this.groupBCThuChi.Controls.Add(this.Panel4);
+            this.groupBCThuChi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBCThuChi.ForeColor = System.Drawing.Color.Blue;
+            this.groupBCThuChi.Location = new System.Drawing.Point(1104, 3);
+            this.groupBCThuChi.Name = "groupBCThuChi";
+            this.groupBCThuChi.Size = new System.Drawing.Size(361, 663);
+            this.groupBCThuChi.TabIndex = 3;
+            this.groupBCThuChi.TabStop = false;
+            this.groupBCThuChi.Text = "Thu chi";
+            // 
+            // Panel4
+            // 
+            this.Panel4.ColumnCount = 1;
+            this.Panel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.Panel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Panel4.Location = new System.Drawing.Point(3, 19);
+            this.Panel4.Name = "Panel4";
+            this.Panel4.RowCount = 8;
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.Panel4.Size = new System.Drawing.Size(355, 641);
+            this.Panel4.TabIndex = 1;
             // 
             // xtraTabPage10
             // 
             this.xtraTabPage10.Controls.Add(this.groupBox23);
             this.xtraTabPage10.Controls.Add(this.groupBox22);
             this.xtraTabPage10.Name = "xtraTabPage10";
-            this.xtraTabPage10.Size = new System.Drawing.Size(1468, 717);
+            this.xtraTabPage10.Size = new System.Drawing.Size(1468, 704);
             this.xtraTabPage10.Text = "Công nợ";
             // 
             // groupBox23
@@ -1119,7 +1343,7 @@ namespace QuanLyShopQuanAo
             this.groupBox23.ForeColor = System.Drawing.Color.Blue;
             this.groupBox23.Location = new System.Drawing.Point(885, 0);
             this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(583, 717);
+            this.groupBox23.Size = new System.Drawing.Size(583, 704);
             this.groupBox23.TabIndex = 1;
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "Công nợ phải trả";
@@ -1130,7 +1354,7 @@ namespace QuanLyShopQuanAo
             this.groupBox22.ForeColor = System.Drawing.Color.Blue;
             this.groupBox22.Location = new System.Drawing.Point(0, 0);
             this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(885, 717);
+            this.groupBox22.Size = new System.Drawing.Size(885, 704);
             this.groupBox22.TabIndex = 0;
             this.groupBox22.TabStop = false;
             this.groupBox22.Text = "Công nợ phải thu";
@@ -1173,6 +1397,14 @@ namespace QuanLyShopQuanAo
             this.groupBox17.ResumeLayout(false);
             this.xtraTabPage8.ResumeLayout(false);
             this.groupBox20.ResumeLayout(false);
+            this.xtraTabPage9.ResumeLayout(false);
+            this.mainPanel.ResumeLayout(false);
+            this.groupBCHangHoa.ResumeLayout(false);
+            this.groupBCHoaDon.ResumeLayout(false);
+            this.Panel2.ResumeLayout(false);
+            this.groupBCKho.ResumeLayout(false);
+            this.Panel3.ResumeLayout(false);
+            this.groupBCThuChi.ResumeLayout(false);
             this.xtraTabPage10.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1261,5 +1493,18 @@ namespace QuanLyShopQuanAo
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraEditors.SimpleButton sbtBKPhieuNhapKho;
         private DevExpress.XtraEditors.SimpleButton sbtBKPhieuNhapKhoCT;
+        private System.Windows.Forms.TableLayoutPanel mainPanel;
+        private System.Windows.Forms.GroupBox groupBCHangHoa;
+        private System.Windows.Forms.GroupBox groupBCHoaDon;
+        private System.Windows.Forms.GroupBox groupBCKho;
+        private System.Windows.Forms.TableLayoutPanel Panel1;
+        private System.Windows.Forms.TableLayoutPanel Panel2;
+        private System.Windows.Forms.TableLayoutPanel Panel3;
+        private DevExpress.XtraEditors.SimpleButton sbtBK_PhieuNK;
+        private DevExpress.XtraEditors.SimpleButton sbtBK_CTPhieuNK;
+        private System.Windows.Forms.GroupBox groupBCThuChi;
+        private System.Windows.Forms.TableLayoutPanel Panel4;
+        private DevExpress.XtraEditors.SimpleButton sbt_BKHDLe;
+        private DevExpress.XtraEditors.SimpleButton sbt_BKCTHDLe;
     }
 }

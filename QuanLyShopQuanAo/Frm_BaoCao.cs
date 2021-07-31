@@ -21,9 +21,10 @@ namespace QuanLyShopQuanAo
         DoiTac doiTac = new DoiTac();
         KhoDALBLL kho = new KhoDALBLL();
         NhaCC nhacc = new NhaCC();
+        HoaDonLeDALBLL hoadon = new HoaDonLeDALBLL();
 
-        int maNV = 0;
-        string maLo, maNCC, maHang;
+        int maNV = 0, maKH = 0, cothue = -1;
+        string maLo = null, maNCC = null, maHang = null, maHT = null;
         DateTime d0 = DateTime.MinValue, d1 = DateTime.MinValue;
         public Frm_BaoCao()
         {
@@ -46,35 +47,46 @@ namespace QuanLyShopQuanAo
         {
             switch(loaiBC)
             {
-                case "nhapkho":
+                case "bk_nhapkho":
                     {
+                        lbltenbaocao.Text = "Bảng kê Phiếu nhập kho";
                         setupForm_BKNhapKho();
                         dataGridView1.DataSource = nhaph.loadPhieuNhapHang();
                         lblDK4.Visible = lblDK5.Visible = lblDK6.Visible = false;
                         comboBox4.Visible = comboBox5.Visible = comboBox6.Visible = false;
                     }
                     break;
-                case "nhapkhochitiet":
+                case "bk_ctnhapkho":
                     {
+                        lbltenbaocao.Text = "Bảng kê chi tiết Phiếu nhập kho";
                         setupForm_BKCTNhapKho();
+                        dataGridView1.DataSource = nhaph.layCTPNK_DK(maNV, maLo, maNCC, maHang, d0, d1);
                         lblDK5.Visible = lblDK6.Visible = false;
                         comboBox5.Visible = comboBox6.Visible = false;
                     }
                     break;
-                case "banle":
+                case "bk_hoadonle":
                     {
-
-                    }break;
-                case "banlechitiet":
+                        lbltenbaocao.Text = "Bảng kê hóa đơn bán lẻ";
+                        setupForm_BKHDL();
+                        dataGridView1.DataSource = hoadon.load_HoaDon(maNV, maKH, maHT, cothue, d0, d1);
+                        lblDK5.Visible = lblDK6.Visible = false;
+                        comboBox5.Visible = comboBox6.Visible = false;
+                    }
+                    break;
+                case "bk_cthoadonle":
                     {
-
+                        lbltenbaocao.Text = "Bảng kê chi tiết hóa đơn bán lẻ";
+                        setupForm_BKHDLCT();
+                        dataGridView1.DataSource = hoadon.load_CTHoaDon(maNV, maKH, maHT, maHang, cothue, d0, d1);
+                        lblDK6.Visible = false;
+                        comboBox6.Visible = false;
                     }break;
             }
         }
 
         private void setupForm_BKNhapKho()
         {
-            lbltenbaocao.Text = "Bảng kê Phiếu nhập kho";
             lblDK1.Text = "NV lập phiếu";
             lblDK1.Enabled = false;
             comboBox1.DataSource = doiTac.loadNhanVien();
@@ -97,7 +109,6 @@ namespace QuanLyShopQuanAo
 
         private void setupForm_BKCTNhapKho()
         {
-            lbltenbaocao.Text = "Bảng kê chi tiết Phiếu nhập kho";
             setupForm_BKNhapKho();
             lblDK4.Text = "Tên hàng";
             comboBox4.DataSource = hh.Lay_MaHangTenHang();
@@ -105,25 +116,74 @@ namespace QuanLyShopQuanAo
             comboBox4.ValueMember = "MaHang";
         }
 
+        private void setupForm_BKHDL()
+        {
+            lblDK1.Text = "Khách hàng";
+            lblDK1.Enabled = false;
+            comboBox1.DataSource = doiTac.loadKhachHang();
+            comboBox1.DisplayMember = "TenKH";
+            comboBox1.ValueMember = "MaKH";
+            comboBox1.Enabled = false;
+            lblDK2.Text = "NV lập";
+            lblDK2.Enabled = false;
+            comboBox2.DataSource = doiTac.loadNhanVien();
+            comboBox2.DisplayMember = "TenNV";
+            comboBox2.ValueMember = "MaNV";
+            comboBox2.Enabled = false;
+            lblDK3.Text = "Hình thức TT";
+            lblDK3.Enabled = false;
+            comboBox3.DataSource = hh.loadHinhThuc();
+            comboBox3.DisplayMember = "TenHT";
+            comboBox3.ValueMember = "MaHT";
+            comboBox3.Enabled = false;
+            lblDK4.Text = "Tiền thuế";
+            lblDK4.Enabled = false;
+            comboBox4.DataSource = new List<(int key, string value)>(2) { (0,"= 0"), (1, "> 0") };
+            comboBox4.DisplayMember = "value";
+            comboBox4.ValueMember = "key";
+            comboBox4.Enabled = false;
+        }
+
+        private void setupForm_BKHDLCT()
+        {
+            setupForm_BKHDL();
+            lblDK5.Text = "Tên hàng";
+            lblDK5.Enabled = false;
+            comboBox5.DataSource = hh.Lay_MaHangTenHang();
+            comboBox5.DisplayMember = "TenHang";
+            comboBox5.ValueMember = "MaHang";
+            comboBox5.Enabled = false;
+        }
+
         private void lblFilter_Click(object sender, EventArgs e)
         {
             switch (loaiBC)
             {
-                case "nhapkho":
+                case "bk_nhapkho":
                     {
-                        LocDL_PhNhapKho();
+                        LocDL_BKPhNhapKho();
                     }
                     break;
-                case "nhapkhochitiet":
+                case "bk_ctnhapkho":
                     {
-                        LocDL_PhNhapKhoCT();
+                        LocDL_BKPhNhapKhoCT();
+                    }
+                    break;
+                case "bk_hoadonle":
+                    {
+                        LocDL_BKHDLe();
+                    }
+                    break;
+                case "bk_cthoadonle":
+                    {
+                        LocDL_BKHDLeCT();
                     }
                     break;
             }
             
         }
 
-        private void LocDL_PhNhapKho()
+        private void LocDL_BKPhNhapKho()
         {
             d0 = dateEdit1.DateTime;
             d1 = dateEdit2.DateTime;
@@ -152,7 +212,7 @@ namespace QuanLyShopQuanAo
             dataGridView1.DataSource = nhaph.lay_PNK_DK(maNV, maLo, maNCC, d0, d1);
         }
 
-        private void LocDL_PhNhapKhoCT()
+        private void LocDL_BKPhNhapKhoCT()
         {
             d0 = dateEdit1.DateTime;
             d1 = dateEdit2.DateTime;
@@ -168,7 +228,7 @@ namespace QuanLyShopQuanAo
             {
                 maNCC = comboBox3.SelectedValue.ToString();
             }
-            if(comboBox4.Enabled && comboBox4.SelectedItem != null)
+            if (comboBox4.Enabled && comboBox4.SelectedItem != null)
             {
                 maHang = comboBox4.SelectedValue.ToString();
             }
@@ -185,6 +245,76 @@ namespace QuanLyShopQuanAo
             dataGridView1.DataSource = nhaph.layCTPNK_DK(maNV, maLo, maNCC, maHang, d0, d1);
         }
 
+        private void LocDL_BKHDLe()
+        {
+            d0 = dateEdit1.DateTime;
+            d1 = dateEdit2.DateTime;
+            if (comboBox1.Enabled && comboBox1.SelectedItem != null)
+            {
+                maKH = int.Parse(comboBox1.SelectedValue.ToString());
+            }
+            if (comboBox2.Enabled && comboBox2.SelectedItem != null)
+            {
+                maNV = int.Parse(comboBox2.SelectedValue.ToString());
+            }
+            if (comboBox3.Enabled && comboBox3.SelectedItem != null)
+            {
+                maHT = comboBox3.SelectedValue.ToString();
+            }
+            if(comboBox4.Enabled && comboBox4.SelectedItem != null)
+            {
+                cothue = comboBox4.SelectedIndex; // SelectedValue.ToString()--> parse int
+            }
+            if (d0 == DateTime.MinValue || d1 == DateTime.MinValue)
+            {
+                MessageBox.Show("Chưa chọn khoảng thời gian.");
+                return;
+            }
+            else if (d0 > d1)
+            {
+                MessageBox.Show("Khoảng thời gian không hợp lệ.");
+                return;
+            }
+            dataGridView1.DataSource = hoadon.load_HoaDon(maKH, maNV, maHT, cothue, d0, d1);
+        }
+
+        private void LocDL_BKHDLeCT()
+        {
+            d0 = dateEdit1.DateTime;
+            d1 = dateEdit2.DateTime;
+            if (comboBox1.Enabled && comboBox1.SelectedItem != null)
+            {
+                maKH = int.Parse(comboBox1.SelectedValue.ToString());
+            }
+            if (comboBox2.Enabled && comboBox2.SelectedItem != null)
+            {
+                maNV = int.Parse(comboBox2.SelectedValue.ToString());
+            }
+            if (comboBox3.Enabled && comboBox3.SelectedItem != null)
+            {
+                maHT = comboBox3.SelectedValue.ToString();
+            }
+            if (comboBox4.Enabled && comboBox4.SelectedItem != null)
+            {
+                cothue = comboBox4.SelectedIndex; // SelectedValue.ToString()--> parse int
+            }
+            if(comboBox5.Enabled && comboBox5.SelectedItem != null)
+            {
+                maHang = comboBox5.SelectedValue.ToString();
+            }
+            if (d0 == DateTime.MinValue || d1 == DateTime.MinValue)
+            {
+                MessageBox.Show("Chưa chọn khoảng thời gian.");
+                return;
+            }
+            else if (d0 > d1)
+            {
+                MessageBox.Show("Khoảng thời gian không hợp lệ.");
+                return;
+            }
+            dataGridView1.DataSource = hoadon.load_CTHoaDon(maNV, maKH, maHT, maHang, cothue, d0, d1);
+        }
+
         private void sbtExport_Click(object sender, EventArgs e)
         {
             switch (loaiBC)
@@ -197,6 +327,16 @@ namespace QuanLyShopQuanAo
                     {
                         Export_BKCTPhieuNhap();
                     }break;
+                case "bk_hoadonle":
+                    {
+                        Export_BKHoaDonLe();
+                    }
+                    break;
+                case "bk_cthoadonle":
+                    {
+                        Export_BKHoaDonLeCT();
+                    }
+                    break;
             }
             
         }
@@ -210,6 +350,7 @@ namespace QuanLyShopQuanAo
         {
             if (lblDieuKien.Text == "Điều kiện lọc")
             {
+                // have enabled but is have visibled ?
                 lblDK1.Enabled = lblDK2.Enabled = lblDK3.Enabled = true;
                 lblDK4.Enabled = lblDK5.Enabled = lblDK6.Enabled = true;
                 comboBox1.Enabled = comboBox2.Enabled = comboBox3.Enabled = true;
@@ -223,9 +364,9 @@ namespace QuanLyShopQuanAo
                 comboBox1.Enabled = comboBox2.Enabled = comboBox3.Enabled = false;
                 comboBox4.Enabled = comboBox5.Enabled = comboBox6.Enabled = false;
                 lblDieuKien.Text = "Điều kiện lọc";
-                maNV = 0;
-                maLo = maNCC = maHang = null;
-                d0 = d1 = DateTime.Now;
+                maNV = 0; maKH = 0; cothue = -1;
+                maLo = maNCC = maHang  = maHT = null;
+                d0 = d1 = DateTime.MinValue;
             }
         }
 
@@ -265,7 +406,7 @@ namespace QuanLyShopQuanAo
             string _Path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
             string fileGoc = _Path + @"\BaoCao\BK_PhieuNhapKho.xlsx";
             string tag = GetFormattedDateTime();
-            string fileCopy = _Path + @"\BaoCao_Reported\BK_PhieuNhapKho_" + tag + ".xlsx";
+            string fileCopy = _Path + @"\BaoCao_Exported\BK_PhieuNhapKho_" + tag + ".xlsx";
             // copy file
             File.Copy(fileGoc, fileCopy);
             // create required instances
@@ -312,9 +453,9 @@ namespace QuanLyShopQuanAo
         {
             // prepare the file paths
             string _Path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            string fileGoc = _Path + @"\BaoCao\BK_PhieuNhapKho.xlsx";
+            string fileGoc = _Path + @"\BaoCao\BK_PhieuNhapKhoCT.xlsx";
             string tag = GetFormattedDateTime();
-            string fileCopy = _Path + @"\BaoCao_Reported\BK_PhieuNhapKho_" + tag + ".xlsx";
+            string fileCopy = _Path + @"\BaoCao_Exported\BK_PhieuNhapKhoCT_" + tag + ".xlsx";
             // copy file
             File.Copy(fileGoc, fileCopy);
             // create required instances
@@ -358,6 +499,111 @@ namespace QuanLyShopQuanAo
             #endregion
 
             for (int i = 2; i <= 14; i++)
+                excel.Workbook.Worksheets["Sheet1"].Column(i).AutoFit();
+            excel.SaveAs(info);
+            // open and show file excel
+            System.Diagnostics.Process.Start(fileCopy);
+        }
+
+        private void Export_BKHoaDonLe()
+        {
+            // prepare the file paths
+            string _Path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string fileGoc = _Path + @"\BaoCao\BK_HoaDonBanLe.xlsx";
+            string tag = GetFormattedDateTime();
+            string fileCopy = _Path + @"\BaoCao_Exported\BK_HoaDonBanLe_" + tag + ".xlsx";
+            // copy file
+            File.Copy(fileGoc, fileCopy);
+            // create required instances
+            FileInfo info = new FileInfo(fileCopy);
+            ExcelPackage excel = new ExcelPackage(info);
+            List<HoaDonBanLe> list = hoadon.layDS_HDLe(maNV, maKH, maHT, cothue, d0, d1);
+            if (d0 != DateTime.MinValue && d1 != DateTime.MinValue)
+            {
+                excel.Workbook.Worksheets["Sheet1"].Cells[5, 1].Value = "Từ " + d0.ToString("dd/MM/yyyy") + " đến " + d1.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                excel.Workbook.Worksheets["Sheet1"].Cells[5, 1].Value = "(tất cả hóa đơn bán lẻ)";
+            }
+            excel.Workbook.Worksheets["Sheet1"].Cells[5, 1].Style.Font.Italic = true;
+
+            #region --- Inserting data to excel ---
+            int stt = 1;
+            int row = 8;
+            foreach(HoaDonBanLe hd in list)
+            {
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 1].Value = stt;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 2].Value = hd.MaHDL;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 3].Value = hd.NgayLap.Value.ToString("dd/MM/yyyy");
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 4].Value = hd.MaNV;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 5].Value = hd.MaKH;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 6].Value = hd.KhachHang.DiaChi;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 7].Value = hd.KhachHang.SoDienThoai;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 8].Value = hd.SoTienThue;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 9].Value = hd.SoTienGiam;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 10].Value = hd.TongTien;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 11].Value = hd.GhiChu;
+                row++;
+                stt++;
+                excel.Workbook.Worksheets["Sheet1"].InsertRow(row, 1, row - 1);
+            }
+            #endregion
+
+            for (int i = 2; i <= 11; i++)
+                excel.Workbook.Worksheets["Sheet1"].Column(i).AutoFit();
+            excel.SaveAs(info);
+            // open and show file exel
+            System.Diagnostics.Process.Start(fileCopy);
+        }
+
+        private void Export_BKHoaDonLeCT()
+        {
+            // prepare the file paths
+            string _Path = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            string fileGoc = _Path + @"\BaoCao\BK_HoaDonBanLeCT.xlsx";
+            string tag = GetFormattedDateTime();
+            string fileCopy = _Path + @"\BaoCao_Exported\BK_HoaDonBanLeCT_" + tag + ".xlsx";
+            // copy file
+            File.Copy(fileGoc, fileCopy);
+            // create required instances
+            FileInfo info = new FileInfo(fileCopy);
+            ExcelPackage excel = new ExcelPackage(info);
+            List<ChiTietHoaDonBanLe> list = hoadon.LayDS_ChiTietHDLe(maNV, maKH, maHT, maHang, cothue, d0, d1);
+            if (d0 != DateTime.MinValue && d1 != DateTime.MinValue)
+            {
+                excel.Workbook.Worksheets["Sheet1"].Cells[5, 1].Value = "Từ " + d0.ToString("dd/MM/yyyy") + " đến " + d1.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                excel.Workbook.Worksheets["Sheet1"].Cells[5, 1].Value = "(tất cả chi tiết hóa đơn bán lẻ)";
+            }
+            excel.Workbook.Worksheets["Sheet1"].Cells[5, 1].Style.Font.Italic = true;
+
+            #region --- Inserting data to excel ---
+            int stt = 1;
+            int row = 8;
+            foreach(ChiTietHoaDonBanLe c in list)
+            {
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 1].Value = stt;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 2].Value = c.MaHDL;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 3].Value = c.HoaDonBanLe.NgayLap.Value.ToString("dd/MM/yyyy");
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 4].Value = c.HoaDonBanLe.NhanVien.TenNV;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 5].Value = c.HoaDonBanLe.MaKH;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 6].Value = c.HoaDonBanLe.KhachHang.TenKH;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 7].Value = c.MaHang;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 8].Value = c.HangHoa.TenHang;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 9].Value = c.HangHoa.MaDVT;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 10].Value = c.SoLuong;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 11].Value = c.ThanhTien;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 12].Value = c.GhiChu;
+                row++;
+                stt++;
+                excel.Workbook.Worksheets["Sheet1"].InsertRow(row, 1, row - 1);
+            }
+            #endregion
+
+            for (int i = 2; i <= 12; i++)
                 excel.Workbook.Worksheets["Sheet1"].Column(i).AutoFit();
             excel.SaveAs(info);
             // open and show file excel

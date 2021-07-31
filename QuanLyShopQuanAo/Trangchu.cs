@@ -262,5 +262,41 @@ namespace QuanLyShopQuanAo
             // else
             return false;
         }
+
+        private void sbtBK_PhieuNK_Click(object sender, EventArgs e)
+        {
+            if (!IsAlreadyOpen("Frm_BaoCao"))
+            {
+                Frm_BaoCao fbc = new Frm_BaoCao("bk_nhapkho");
+                fbc.Show();
+            }
+        }
+
+        private void sbtBK_CTPhieuNK_Click(object sender, EventArgs e)
+        {
+            if (!IsAlreadyOpen("Frm_BaoCao"))
+            {
+                Frm_BaoCao fbc = new Frm_BaoCao("bk_ctnhapkho");
+                fbc.Show();
+            }
+        }
+
+        private void sbt_BKHDLe_Click(object sender, EventArgs e)
+        {
+            if (!IsAlreadyOpen("Frm_BaoCao"))
+            {
+                Frm_BaoCao fbc = new Frm_BaoCao("bk_hoadonle");
+                fbc.Show();
+            }
+        }
+
+        private void sbt_BKCTHDLe_Click(object sender, EventArgs e)
+        {
+            if (!IsAlreadyOpen("Frm_BaoCao"))
+            {
+                Frm_BaoCao fbc = new Frm_BaoCao("bk_cthoadonle");
+                fbc.Show();
+            }
+        }
     }
 }

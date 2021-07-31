@@ -84,7 +84,11 @@ namespace DAL_BLL
             return float.Parse(sum.ToString());
         }
 
-
+        /// <summary>
+        ///     Lấy chi tiết hóa đơn có cùng mã hóa đơn.
+        /// </summary>
+        /// <param name="mahdl"> mã hóa đơn </param>
+        /// <returns>List chi tiết HD</returns>
         public List<ChiTietHoaDonBanLe> thanhtien(int mahdl)
         {
             return qldhdl.ChiTietHoaDonBanLes.Select(m => m).Where(ma => ma.MaHDL == mahdl).ToList();
@@ -247,6 +251,189 @@ namespace DAL_BLL
                 return true;
             }
             return false;
+        }
+
+        public HoaDonBanLe lay1HDLe(int mahdl)
+        {
+            return qldhdl.HoaDonBanLes.Single(hd => hd.MaHDL == mahdl);
+        }
+
+        /// <summary>
+        ///     Lấy danh sách hóa đơn bán lẻ thỏa các điều kiện. Các điều kiện có thể null.<br/>
+        ///     Chi dùng để hiển thị lên datagridview.
+        /// </summary>
+        /// <param name="manv">mã NV trên hóa đơn</param>
+        /// <param name="makh">mã KH trên hóa đơn</param>
+        /// <param name="maht">mã hình thức tt của hóa đơn</param>
+        /// <param name="thue">0: tiền thuế = 0; 1: tiền thuế > 0</param>
+        /// <param name="dateStart">ngày bắt đầu khoảng thời gian</param>
+        /// <param name="dateEnd">ngày kết thúc khoảng thời gian</param>
+        /// <returns></returns>
+        public IQueryable load_HoaDon(int manv, int makh, string maht, int thue, DateTime dateStart, DateTime dateEnd)
+        {
+            // chaining where clauses
+            var result = qldhdl.HoaDonBanLes.AsQueryable();
+
+            if (manv != 0)
+            {
+                result = result.Where(hd => hd.MaNV == manv);
+            }
+            if (makh != 0)
+            {
+                result = result.Where(hd => hd.MaKH == makh);
+            }
+            if (maht != null)
+            {
+                result = result.Where(hd => hd.MaHT == maht);
+            }
+            if (thue == 0)
+            {
+                result = result.Where(hd => hd.SoTienThue == 0);
+            }
+            else if (thue == 1)
+            {
+                result = result.Where(hd => hd.SoTienThue > 0);
+            }
+            if (dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
+            {
+                result = result.Where(hd => hd.NgayLap >= dateStart && hd.NgayLap <= dateEnd);
+            }
+            return result.Select(h => new { h.MaHDL, h.NgayLap, h.NgayHT, h.KhachHang.TenKH, h.NhanVien.TenNV, h.LoaiThue.TenThue, h.SoThue, h.SoTienThue, h.GiamGia, h.SoTienGiam, h.TongTien });
+        }
+
+        /// <summary>
+        ///     Lấy danh sách hóa đơn bán lẻ thỏa các điều kiện. Dạng List để dữ liệu chính xác.<br/>
+        ///     Các điều kiện này có thể null.
+        /// </summary>
+        /// <param name="manv">mã NV trên hóa đơn</param>
+        /// <param name="makh">mã kh trên hóa đơn</param>
+        /// <param name="maht">mã hình thức tt của hóa đơn</param>
+        /// <param name="thue">0: tiền thuế = 0; 1: tiền thuế > 0</param>
+        /// <param name="dateStart">ngày bắt đầu khoảng thời gian</param>
+        /// <param name="dateEnd">ngày kết thúc khoảng thời gian</param>
+        /// <returns>List hóa đơn bán lẻ thỏa điều kiện.</returns>
+        public List<HoaDonBanLe> layDS_HDLe(int manv, int makh, string maht, int thue, DateTime dateStart, DateTime dateEnd)
+        {
+            // chaining where clauses
+            var result = qldhdl.HoaDonBanLes.AsQueryable();
+
+            if(manv != 0)
+            {
+                result = result.Where(hd => hd.MaNV == manv);
+            }
+            if(makh != 0)
+            {
+                result = result.Where(hd => hd.MaKH == makh);
+            }
+            if(maht != null)
+            {
+                result = result.Where(hd => hd.MaHT == maht);
+            }
+            if(thue == 0)
+            {
+                result = result.Where(hd => hd.SoTienThue == 0);
+            }
+            else if(thue == 1)
+            {
+                result = result.Where(hd => hd.SoTienThue > 0);
+            }
+            if(dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
+            {
+                result = result.Where(hd => hd.NgayLap >= dateStart && hd.NgayLap <= dateEnd);
+            }
+            return result.ToList();
+        }
+
+        /// <summary>
+        ///     Lấy các chi tiết hóa đơn bán lẻ thỏa các điều kiện. Các điều kiện có thể null.<br/>
+        ///     Chi dùng để hiển thị lên datagridview.
+        /// </summary>
+        /// <param name="manv">mã NV trên hóa đơn</param>
+        /// <param name="makh">mã KH trên hóa đơn</param>
+        /// <param name="maht">mã hình thức tt của hóa đơn</param>
+        /// <param name="mahang">mã hàng trên chi tiết hóa đơn</param>
+        /// <param name="thue">0: tiền thuế = 0; 1: tiền thuế > 0</param>
+        /// <param name="dateStart">ngày bắt đầu khoảng thời gian</param>
+        /// <param name="dateEnd">ngày kết thúc khoảng thời gian</param>
+        /// <returns>Danh sách chi tiết hóa đơn</returns>
+        public IQueryable load_CTHoaDon(int manv, int makh, string maht, string mahang, int thue, DateTime dateStart, DateTime dateEnd)
+        {
+            var CT = qldhdl.ChiTietHoaDonBanLes.AsQueryable();
+            if(manv != 0)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.MaNV == manv);
+            }
+            if(makh != 0)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.MaKH == makh);
+            }
+            if(maht != null)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.MaHT == maht);
+            }
+            if(mahang != null)
+            {
+                CT = CT.Where(c => c.MaHang == mahang);
+            }
+            if(thue == 0)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.SoTienThue == 0);
+            }
+            else if(thue == 1)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.SoTienThue > 0);
+            }
+            if(dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.NgayLap >= dateStart && c.HoaDonBanLe.NgayLap <= dateEnd);
+            }
+            return CT.Select(c => new { c.MaHDL, c.HoaDonBanLe.NgayLap, c.HoaDonBanLe.NhanVien.TenNV, c.HoaDonBanLe.MaKH, c.HoaDonBanLe.KhachHang.TenKH, c.MaHang, c.HangHoa.TenHang, c.HangHoa.MaDVT, c.SoLuong, c.ThanhTien, c.GhiChu});
+        }
+
+        /// <summary>
+        ///     Lấy các chi tiết hóa đơn bán lẻ thỏa các điều kiện. Dạng List để dữ liệu chính xác.<br/>
+        ///     Các điều kiện có thể null.
+        /// </summary>
+        /// <param name="manv">mã NV trên hóa đơn</param>
+        /// <param name="makh">mã KH trên hóa đơn</param>
+        /// <param name="maht">mã hình thức tt của hóa đơn</param>
+        /// <param name="mahang">mã hàng trên chi tiết hóa đơn</param>
+        /// <param name="thue">0: tiền thuế = 0; 1: tiền thuế > 0</param>
+        /// <param name="dateStart">ngày bắt đầu khoảng thời gian</param>
+        /// <param name="dateEnd">ngày kết thúc khoảng thời gian</param>
+        /// <returns>List chi tiết hóa đơn</returns>
+        public List<ChiTietHoaDonBanLe> LayDS_ChiTietHDLe(int manv, int makh, string maht, string mahang, int thue, DateTime dateStart, DateTime dateEnd)
+        {
+            var CT = qldhdl.ChiTietHoaDonBanLes.AsQueryable();
+            if (manv != 0)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.MaNV == manv);
+            }
+            if (makh != 0)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.MaKH == makh);
+            }
+            if (maht != null)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.MaHT == maht);
+            }
+            if (mahang != null)
+            {
+                CT = CT.Where(c => c.MaHang == mahang);
+            }
+            if (thue == 0)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.SoTienThue == 0);
+            }
+            else if (thue == 1)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.SoTienThue > 0);
+            }
+            if (dateStart != DateTime.MinValue && dateEnd != DateTime.MinValue)
+            {
+                CT = CT.Where(c => c.HoaDonBanLe.NgayLap >= dateStart && c.HoaDonBanLe.NgayLap <= dateEnd);
+            }
+            return CT.ToList();
         }
     }
 }

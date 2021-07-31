@@ -32,12 +32,12 @@ namespace DAL_BLL
         ///     Lấy các thông tin của Phiếu nhập kho với các điều kiện có thể null.<br/>
         ///     Chỉ dùng để hiển thị lên datagridview.
         /// </summary>
-        /// <param name="manv"> mã NV lập của Phiếu nhập</param>
-        /// <param name="malo"> mã lô của Phiếu nhập</param>
-        /// <param name="mancc"> mã NCC của Phiếu nhập</param>
-        /// <param name="dateStart"> ngày đầu của khoảng thời gian </param>
-        /// <param name="dateEnd"> ngày cuối của khoảng thời gian </param>
-        /// <returns> Danh sách gồm: mã phiếu, ngày lập, mã NV lập, tổng sl, tổng thành tiền, mô tả </returns>
+        /// <param name="manv">mã NV lập của Phiếu nhập</param>
+        /// <param name="malo">mã lô của Phiếu nhập</param>
+        /// <param name="mancc">mã NCC của Phiếu nhập</param>
+        /// <param name="dateStart">ngày đầu của khoảng thời gian </param>
+        /// <param name="dateEnd">ngày cuối của khoảng thời gian </param>
+        /// <returns>Danh sách gồm: mã phiếu, ngày lập, mã NV lập, tổng sl, tổng thành tiền, mô tả</returns>
         public IQueryable lay_PNK_DK(int manv, string malo, string mancc, DateTime dateStart, DateTime dateEnd)
         {
             // 8 trường hợp vì dateStart và dateEnd luôn có dữ liệu --> luôn where ngày lập phiếu
@@ -72,11 +72,11 @@ namespace DAL_BLL
         ///     Lấy thông tin chi tiết Phiếu nhập. Điều kiện có thể null.<br/>
         ///     Chỉ dùng để hiển thị lên datagridview.
         /// </summary>
-        /// <param name="manv"> mã NV của Phiếu nhập </param>
-        /// <param name="malo"> mã lô của Phiếu nhập </param>
-        /// <param name="mancc"> mã NCC của Phiếu nhập </param>
-        /// <param name="dateStart"> ngày đầu của khoảng thời gian </param>
-        /// <param name="dateEnd"> ngày cuối của khoảng thời gian </param>
+        /// <param name="manv">mã NV của Phiếu nhập</param>
+        /// <param name="malo">mã lô của Phiếu nhập</param>
+        /// <param name="mancc">mã NCC của Phiếu nhập</param>
+        /// <param name="dateStart">ngày đầu của khoảng thời gian</param>
+        /// <param name="dateEnd">ngày cuối của khoảng thời gian</param>
         /// <returns> Danh sách gồm rất nhiều thuộc tính. Demo để thấy toàn bộ danh sách.</returns>
         public IQueryable layCTPNK_DK(int manv, string malo, string mancc, string mahang, DateTime dateStart, DateTime dateEnd)
         {
@@ -110,11 +110,11 @@ namespace DAL_BLL
         /// <summary>
         ///     Lấy ds Chi tiết PNK dạng List để dữ liệu được chính xác. Điều kiện có thể null.
         /// </summary>
-        /// <param name="manv"> mã NV của Phiếu nhập </param>
-        /// <param name="malo"> mã lô của Phiếu nhập </param>
-        /// <param name="mancc"> mã NCC của Phiếu nhập </param>
-        /// <param name="dateStart"> ngày đầu của khoảng thời gian </param>
-        /// <param name="dateEnd"> ngày cuối của khoảng thời gian </param>
+        /// <param name="manv">mã NV của Phiếu nhập</param>
+        /// <param name="malo">mã lô của Phiếu nhập</param>
+        /// <param name="mancc">mã NCC của Phiếu nhập</param>
+        /// <param name="dateStart">ngày đầu của khoảng thời gian</param>
+        /// <param name="dateEnd">ngày cuối của khoảng thời gian</param>
         /// <returns> List Chi tiết Phiếu nhập </returns>
         public List<ChiTiet_PhieuNhapKho> lay_CTPNK_DK(int manv, string malo, string mancc, string mahang, DateTime dateStart, DateTime dateEnd)
         {

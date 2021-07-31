@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL_BLL;
+using OfficeOpenXml;
+using System.IO;
 
 namespace QuanLyShopQuanAo
 {
@@ -455,7 +457,56 @@ namespace QuanLyShopQuanAo
 
         private void simpleButton12_Click(object sender, EventArgs e)
         {
-            simpleButton5.Enabled = true; 
+            simpleButton5.Enabled = true;
+            // create a pdf file from excel
+
+            // prepare file paths
+            string tag = GetFormattedDateTime();
+            DirectoryInfo target = new DirectoryInfo(Directory.GetCurrentDirectory())
+                .Parent.Parent.Parent;
+            string fileGoc = target.FullName + @"\BaoCao\PhieuThanhToan.xlsx";
+            string fileCopy = target.FullName + @"\BaoCao_Exported\PhieuTT_" + tag + ".xlsx";
+            File.Copy(fileGoc, fileCopy);
+            // create required instances
+            FileInfo info = new FileInfo(fileCopy);
+            ExcelPackage excel = new ExcelPackage(info);
+            List<ChiTietHoaDonBanLe> list = hd.thanhtien(mahdl);
+
+            #region --- Inserting data to excel ---
+            // inserting single datas
+            ChiTietHoaDonBanLe ct1 = list[0];
+            excel.Workbook.Worksheets["Sheet1"].Cells[5, 1].Value += ct1.HoaDonBanLe.MaHDL.ToString();
+            excel.Workbook.Worksheets["Sheet1"].Cells[5, 3].Value += ct1.HoaDonBanLe.NgayLap.Value.ToString("dd/MM/yyyy");
+            excel.Workbook.Worksheets["Sheet1"].Cells[11, 4].Value = ct1.HoaDonBanLe.SoTienGiam;
+            excel.Workbook.Worksheets["Sheet1"].Cells[12, 4].Value = ct1.HoaDonBanLe.SoTienThue;
+            excel.Workbook.Worksheets["Sheet1"].Cells[15, 1].Value = ct1.HoaDonBanLe.NhanVien.TenNV;
+            excel.Workbook.Worksheets["Sheet1"].Cells[15, 3].Value += DateTime.Now.ToString("dd/MM/yyyy HH/mm/ss");
+            // inserting table data
+            int row = 8;
+            foreach(ChiTietHoaDonBanLe ct in list)
+            {
+                excel.Workbook.Worksheets["Sheet1"].Row(row).CustomHeight = false; // thay cho dòng for dưới endregion
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 1].Value = ct.HangHoa.TenHang;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 2].Value = ct.SoLuong;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 3].Value = ct.GiaBan;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 4].Value = ct.ThanhTien;
+                row++;
+                excel.Workbook.Worksheets["Sheet1"].InsertRow(row, 1, row - 1);
+            }
+            #endregion
+
+            //for (int i = 1; i <= 4; i++)
+            //    excel.Workbook.Worksheets["Sheet1"].Column(i).AutoFit();
+
+            excel.Save(); // hoặc SaveAs(info)
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "PDF Files | *.pdf";
+            save.FileName = "PhieuTT_" + tag + ".pdf";
+            DialogResult dr = save.ShowDialog();
+            if(dr == DialogResult.OK)
+            {
+                ExportWorkbookToPdf(fileCopy, save.FileName);
+            }
         }
 
         private void cboHangHoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -478,6 +529,146 @@ namespace QuanLyShopQuanAo
             cboMau.DataSource = hanghoa.layMauHang(cboHangHoa.SelectedValue.ToString(), cboSize.SelectedValue.ToString());
             cboMau.DisplayMember = "TenMau";
             cboMau.ValueMember = "MaMau";
+        }
+
+        /// <summary>
+        ///     Get current DateTime value with format: ddMMyyyy_hhmmss <br/>
+        ///     This formatted string use to create report files.
+        /// </summary>
+        /// <returns> A formatted string represent current DateTime. </returns>
+        private string GetFormattedDateTime()
+        {
+            int d = DateTime.Now.Day, M = DateTime.Now.Month, y = DateTime.Now.Year;
+            string day = d.ToString(), month = M.ToString(), year = y.ToString();
+            int h = DateTime.Now.Hour, m = DateTime.Now.Minute, s = DateTime.Now.Second;
+            string hour = h.ToString(), min = m.ToString(), sec = s.ToString();
+
+            if (d < 10)
+                day = "0" + day;
+            if (M < 10)
+                month = "0" + month;
+            if (h < 10)
+                hour = "0" + hour;
+            if (m < 10)
+                min = "0" + min;
+            if (s < 10)
+                sec = "0" + sec;
+            return day + month + year + "_" + hour + min + sec;
+        }
+
+        private void simpleButton11_Click(object sender, EventArgs e)
+        {
+            // prepare file paths
+            string tag = GetFormattedDateTime();
+            DirectoryInfo target = new DirectoryInfo(Directory.GetCurrentDirectory())
+                .Parent.Parent.Parent;
+            string fileGoc = target.FullName + @"\BaoCao\HoaDonBanLe.xlsx";
+            string fileCopy = target.FullName + @"\BaoCao_Exported\HDBanLe_" + tag + ".xlsx";
+            File.Copy(fileGoc, fileCopy);
+            // create required instances
+            FileInfo info = new FileInfo(fileCopy);
+            ExcelPackage excel = new ExcelPackage(info);
+            HoaDonBanLe hdl = hd.lay1HDLe(mahdl);
+            List<ChiTietHoaDonBanLe> list = hd.thanhtien(mahdl);
+
+            #region --- Inserting data to excel ---
+            // inserting single datas
+            excel.Workbook.Worksheets["Sheet1"].Cells[1, 9].Value = hdl.MaHDL;
+            excel.Workbook.Worksheets["Sheet1"].Cells[2, 9].Value = hdl.NgayHT;
+            excel.Workbook.Worksheets["Sheet1"].Cells[5, 2].Value = hdl.KhachHang.TenKH;
+            excel.Workbook.Worksheets["Sheet1"].Cells[6, 2].Value = hdl.KhachHang.DiaChi;
+            excel.Workbook.Worksheets["Sheet1"].Cells[7, 2].Value = hdl.KhachHang.SoDienThoai;
+            excel.Workbook.Worksheets["Sheet1"].Cells[8, 2].Value = hdl.GhiChu;
+            excel.Workbook.Worksheets["Sheet1"].Cells[15, 8].Value = hdl.SoTienGiam;
+            excel.Workbook.Worksheets["Sheet1"].Cells[16, 8].Value = hdl.SoTienThue;
+            // inserting table data
+            int stt = 1;
+            int row = 10;
+            foreach(ChiTietHoaDonBanLe ct in list)
+            {
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 1].Value = stt;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 2].Value = ct.MaHang;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 3].Value = ct.HangHoa.TenHang;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 4].Value = ct.HangHoa.MaDVT;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 5].Value = ct.SoLuong;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 6].Value = ct.GiaBan;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 7].Value = ct.ThanhTien;
+                excel.Workbook.Worksheets["Sheet1"].Cells[row, 8].Value = ct.GhiChu;
+                row++;
+                stt++;
+                excel.Workbook.Worksheets["Sheet1"].InsertRow(row, 1, row - 1);
+            }
+            #endregion
+
+            for (int i = 2; i <= 8; i++)
+                excel.Workbook.Worksheets["Sheet1"].Column(i).AutoFit();
+            excel.Save(); // hoặc SaveAs(info)
+            // open and show file excel
+            System.Diagnostics.Process.Start(fileCopy);
+        }
+
+        /// <summary>
+        ///     Create pdf file from an excel file.
+        /// </summary>
+        /// <param name="workbookPath">path of excel file</param>
+        /// <param name="outputPath">path of pdf file</param>
+        public void ExportWorkbookToPdf(string workbookPath, string outputPath)
+        {
+            // If either required string is null or empty, stop and bail out
+            if (string.IsNullOrEmpty(workbookPath) || string.IsNullOrEmpty(outputPath))
+            {
+                return;
+            }
+
+            // Create COM (Component Object Model ?) Objects
+            Microsoft.Office.Interop.Excel.Application excelApplication;
+            Microsoft.Office.Interop.Excel.Workbook excelWorkbook;
+
+            // Create new instance of Excel
+            excelApplication = new Microsoft.Office.Interop.Excel.Application();
+
+            // Make the process invisible to the user
+            excelApplication.ScreenUpdating = false;
+
+            // Make the process silent
+            excelApplication.DisplayAlerts = false;
+
+            // Open the workbook that you wish to export to PDF
+            excelWorkbook = excelApplication.Workbooks.Open(workbookPath);
+
+            // If the workbook failed to open, stop, clean up, and bail out
+            if (excelWorkbook == null)
+            {
+                excelApplication.Quit();
+                excelApplication = null;
+                excelWorkbook = null;
+                return;
+            }
+            try
+            {
+                // Call Excel's native export function (valid in Office 2007 and Office 2010, AFAIK)
+                excelWorkbook.ExportAsFixedFormat(Microsoft.Office.Interop.Excel.XlFixedFormatType.xlTypePDF, outputPath);
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show("Error! \n" + ex.Message);      
+            }
+            finally
+            {
+                // Close the workbook, quit the Excel, and clean up regardless of the results...
+                excelWorkbook.Close();
+                excelApplication.Quit();
+
+                excelApplication = null;
+                excelWorkbook = null;
+            }
+
+            // You can use the following method to automatically open the PDF after export if you wish
+            // Make sure that the file actually exists first...
+            if (System.IO.File.Exists(outputPath))
+            {
+                System.Diagnostics.Process.Start(outputPath);
+            }
         }
     }
 }
